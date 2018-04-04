@@ -15,7 +15,7 @@ Repositorio con material docente del curso INFO185 Comunicaciones, Ingeniería C
 
 Para instalar los requisitos en archlinux:
 ```
-sudo pacman -S python-numpy python-scipy python-matplotlib python-pillow mathjax texlive-latexextra jupyter-notebook python-pydot python-networkx
+sudo pacman -S python-numpy python-scipy python-matplotlib python-pillow mathjax texlive-latexextra jupyter-notebook python-pydot python-networkx python-scikit-learn
 ```
 
 2018 Pablo Huijse
