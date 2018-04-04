@@ -11,10 +11,11 @@ Repositorio con material docente del curso INFO185 Comunicaciones, Ingeniería C
 - Para usar latex con matplotlib se necesita *latex-extra*
 - Para el modo presentación se necesita instalar y habilitar la extensión [RISE](https://github.com/damianavila/RISE)
 - Para ocultar el código en ciertos bloques se necesita instalar y habilitar la extensión [hide\_code](https://github.com/kirbs-/hide_code)
+- Para renderear los diagramas de bloque hay que instalar [nxpd](https://github.com/chebee7i/nxpd)
 
 Para instalar los requisitos en archlinux:
 ```
-sudo pacman -S python-numpy python-scipy python-matplotlib python-pillow mathjax texlive-latexextra jupyter-notebook 
+sudo pacman -S python-numpy python-scipy python-matplotlib python-pillow mathjax texlive-latexextra jupyter-notebook python-pydot python-networkx
 ```
 
 2018 Pablo Huijse
