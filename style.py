@@ -5,7 +5,7 @@ from traitlets.config.manager import BaseJSONConfigManager
 # Default options for matplotlib plots
 rcParams['figure.dpi'] = 80
 rcParams['font.size'] = 16
-rcParams['axes.grid'] = True
+#rcParams['axes.grid'] = True
 rcParams['lines.linewidth'] = 2.0
 rcParams['legend.framealpha'] = 0.5
 rcParams['legend.fontsize'] = 'medium'
