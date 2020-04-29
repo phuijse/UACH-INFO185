@@ -1,6 +1,6 @@
 ## Universidad Austral de Chile
 
-# INFO236 Comunicaciones 2020
+# INFO239 Comunicaciones 2020
 
 ### Responsables: Christian Lazo, Pablo Huijse, phuijse@inf.uach.cl
 
