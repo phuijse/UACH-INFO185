@@ -1,11 +1,15 @@
 blockdiag {
-    #orientation = portrait
+    orientation = portrait
     default_fontsize = 12; 
-    AB [label="¿Es A o B?"]
-    B [label="¿Es B?"]
-    C [label="¿Es D?"]
-    
-    AB -> B [label = "mensaje"]
-    AB -> C [label = "señal"];
+    A [label="Fuente"]
+    B [label="Transmisor"]
+    C [label="Canal", color=lightblue]
+    D [label="Ruido"]
+    E [label="Receptor"]
+    F [label="Destino"]
+    A -> B [label = "mensaje"]
+    B -> C [label = "señal"];
+    C -> E -> F
+    D -> C [style=dashed]
 
 }
