@@ -1,6 +1,6 @@
 ## Universidad Austral de Chile
 
-# INFO185 Comunicaciones
+# INFO236 Comunicaciones 2020
 
 ### Responsables: Christian Lazo, Pablo Huijse, phuijse@inf.uach.cl
 
@@ -11,11 +11,10 @@ Repositorio con material docente del curso INFO185 Comunicaciones, Ingeniería C
 ***
 ## Contenidos
 
-- **Unidad de aprendizaje 1** 
-    - [Electricidad y circuitos eléctricos](unidad1.ipynb)
-- **Unidad de aprendizaje 2** 
-    - [Sistemas_de_comunicación](sistemas_de_comunicacion.ipynb)
-    - [Procesamiento_señales_2D](unidad2_procesamiento_señales_2D.ipynb)
+- Sistemas digitales de comunicación 
+    - [Introducción](unidad1/01_sistemas_de_comunicacion.ipynb)
+    - [¿Qué es una señal?](unidad1/02_señales.ipynb)
+    - [Análisis de señales](unidad1/03_análisis_de_señales.ipynb)
 
 
 ***
@@ -38,4 +37,4 @@ Para instalar los requisitos en archlinux:
 sudo pacman -S python-numpy python-scipy python-matplotlib python-pillow mathjax texlive-latexextra jupyter-notebook python-pydot python-networkx python-scikit-learn
 ```
 
-2019 Pablo Huijse
+2020 Pablo Huijse
