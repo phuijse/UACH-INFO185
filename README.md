@@ -1,6 +1,6 @@
 ## Universidad Austral de Chile
 
-# INFO185 Comunicaciones
+# INFO185 Comunicaciones 2019
 
 ### Responsables: Christian Lazo, Pablo Huijse, phuijse@inf.uach.cl
 
@@ -16,6 +16,7 @@ Repositorio con material docente del curso INFO185 Comunicaciones, Ingeniería C
 - **Unidad de aprendizaje 2** 
     - [Sistemas_de_comunicación](sistemas_de_comunicacion.ipynb)
     - [Procesamiento_señales_2D](unidad2_procesamiento_señales_2D.ipynb)
+    - [Teoría de la Información](unidad2_compresion_teoria_de_la_informacion.ipynb)
 
 
 ***
