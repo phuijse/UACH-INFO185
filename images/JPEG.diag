@@ -1,0 +1,12 @@
+blockdiag {
+    node_width = 200;
+    default_fontsize = 14; 
+    A [label="YCbCr 4:2:2"]
+    B [label="DCT en bloques de 8x8"]
+    C [label="Cuantización con matriz Q"]
+    D [label="Codificación de Huffman"]
+
+    A -> B -> C -> D
+    #B -> C [folded]
+
+}

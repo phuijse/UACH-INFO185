@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg viewBox="0 0 1120 120" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs id="defs_block">
+    <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
+      <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2" />
+    </filter>
+  </defs>
+  <title>blockdiag</title>
+  <desc>blockdiag {
+    node_width = 200;
+    default_fontsize = 14; 
+    A [label="YCbCr 4:2:2"]
+    B [label="DCT en bloques de 8x8"]
+    C [label="Cuantización con matriz Q"]
+    D [label="Codificación de Huffman"]
+
+    A -&gt; B -&gt; C -&gt; D
+    #B -&gt; C [folded]
+
+}
+</desc>
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="200" x="67" y="46" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="200" x="331" y="46" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="200" x="595" y="46" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="200" x="859" y="46" />
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="200" x="64" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="84" x="164.0" y="67">YCbCr 4:2:2</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="200" x="328" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="160" x="428.0" y="67">DCT en bloques de 8x8</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="200" x="592" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="190" x="692.0" y="67">Cuantización con matriz Q</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="200" x="856" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="175" x="956.5" y="67">Codificación de Huffman</text>
+  <path d="M 264 60 L 320 60" fill="none" stroke="rgb(0,0,0)" />
+  <polygon fill="rgb(0,0,0)" points="327,60 320,56 320,64 327,60" stroke="rgb(0,0,0)" />
+  <path d="M 528 60 L 584 60" fill="none" stroke="rgb(0,0,0)" />
+  <polygon fill="rgb(0,0,0)" points="591,60 584,56 584,64 591,60" stroke="rgb(0,0,0)" />
+  <path d="M 792 60 L 848 60" fill="none" stroke="rgb(0,0,0)" />
+  <polygon fill="rgb(0,0,0)" points="855,60 848,56 848,64 855,60" stroke="rgb(0,0,0)" />
+</svg>
