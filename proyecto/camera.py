@@ -22,10 +22,8 @@ class CameraReader:
                            'height': int(self.vid.get(cv2.CAP_PROP_FRAME_HEIGHT)),
                            'fps': self.vid.get(cv2.CAP_PROP_FPS)}
         
-        spprob = np.random.rand(self.properties['height'], self.properties['width'])
-        self.smask = spprob > spthreshold
-        self.pmask = spprob < 1. - spthreshold
         self.frame_number = 0
+        self.spthreshold = spthreshold
         y = np.linspace(0, self.properties['height'], num=self.properties['height'])
         x = np.linspace(0, self.properties['width'], self.properties['width'])
         X, Y = np.meshgrid(x, y)
@@ -51,8 +49,12 @@ class CameraReader:
         periodic_noise = periodic_noise.reshape(noisy_frame.shape)
         noisy_frame += periodic_noise
         noisy_frame /= np.amax(np.abs(noisy_frame))
-        #noisy_frame[self.smask] = 1.
-        #noisy_frame[self.pmask] = 0.
+        
+        spprob = np.random.rand(self.properties['height'], self.properties['width'])
+        smask = spprob > self.spthreshold
+        pmask = spprob < 1. - self.spthreshold
+        noisy_frame[smask] = 1.
+        noisy_frame[pmask] = 0.
         self.frame_number += 1
         return (255*noisy_frame).astype(np.uint8)
     
