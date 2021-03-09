@@ -1,0 +1,30 @@
+# Book settings
+title: INFO239 Comunicaciones
+author: Pablo Huijse Heise 
+logo: logo.png
+only_build_toc_files: true
+exclude_patterns : [_build, "**.ipynb_checkpoints"]
+
+execute:
+  execute_notebooks: force
+
+parse:
+  myst_extended_syntax: true
+
+repository:
+  url: https://github.com/phuijse/UACH-INFO185
+
+html:
+  home_page_in_navbar: false
+  use_repository_button: false
+  use_issues_button: false
+  use_edit_page_button: false
+
+sphinx:
+  extra_extensions: [bokeh.sphinxext.bokeh_plot]
+  config:
+    language: es
+
+latex:
+  latex_documents:
+    targetname: book.tex
