@@ -1,0 +1,745 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Introducción al procesamiento de imágenes digitales &#8212; INFO239 Comunicaciones</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="2. Análisis de imágenes en frecuencia" href="05_an%C3%A1lisis_de_im%C3%A1genes.html" />
+    <link rel="prev" title="3. Análisis de Señales" href="03_an%C3%A1lisis_de_se%C3%B1ales.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Sistemas de comunicación y Señales
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_sistemas_de_comunicacion.html">
+   1. Sistemas de comunicación digitales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_se%C3%B1ales.html">
+   2. ¿Qué es una señal?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_an%C3%A1lisis_de_se%C3%B1ales.html">
+   3. Análisis de Señales
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de Imágenes
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Introducción al procesamiento de imágenes digitales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_an%C3%A1lisis_de_im%C3%A1genes.html">
+   2. Análisis de imágenes en frecuencia
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_filtrado_de_im%C3%A1genes.html">
+   3. Filtrado de imágenes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Compresión y Teoría de la Información
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_compresi%C3%B3n.html">
+   1. Transmisión y Compresión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_codificaci%C3%B3n_de_fuente.html">
+   2. Teoría de la Información - parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_codificaci%C3%B3n_de_canal.html">
+   3. Teoría de la Información - parte 2
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/clases/unidad1/04_imágenes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/UACH-INFO185/master?urlpath=tree/clases/unidad1/04_imágenes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#una-imagen-como-caso-particular-de-una-senal-2d">
+   1.1. Una imagen como caso particular de una señal 2D
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definiendo-una-imagen-digital">
+   1.2. Definiendo una imagen digital
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-representa-una-imagen">
+     1.2.1. ¿Qué representa una imagen?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-se-obtiene-una-imagen-digital">
+     1.2.2. ¿Cómo se obtiene una imagen digital?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulacion-de-imagenes-con-python">
+   1.3. Manipulación de imágenes con Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#canales-de-colores">
+     1.3.1. Canales de colores
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vision-humana">
+   1.4. Visión humana
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#otros-modelos-de-colores">
+     1.4.1. Otros modelos de colores
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">fftpack</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="n">YTVideo_formato</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">modestbranding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">color2bw</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.299</span><span class="p">,</span> <span class="mf">0.587</span><span class="p">,</span> <span class="mf">0.114</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="introduccion-al-procesamiento-de-imagenes-digitales">
+<h1><span class="section-number">1. </span>Introducción al procesamiento de imágenes digitales<a class="headerlink" href="#introduccion-al-procesamiento-de-imagenes-digitales" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>En esta lección veremos:</p>
+<ul class="simple">
+<li><p>Señales bidimensionales</p></li>
+<li><p>Definición de una imagen digital</p></li>
+<li><p>Percepción y modelos de color</p></li>
+</ul>
+<div class="section" id="una-imagen-como-caso-particular-de-una-senal-2d">
+<h2><span class="section-number">1.1. </span>Una imagen como caso particular de una señal 2D<a class="headerlink" href="#una-imagen-como-caso-particular-de-una-senal-2d" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El siguiente es un ejemplo de una señal que tiene dos variables independientes</p>
+<div class="math notranslate nohighlight">
+\[
+x, y \rightarrow I(x,y)
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YTVideo_formato</span><span class="p">(</span><span class="s1">&#39;AEJgW2jUdMs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="640"
+            height="400"
+            src="https://www.youtube.com/embed/AEJgW2jUdMs?rel=0&modestbranding=1"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        </div></div>
+</div>
+<p>Podemos</p>
+<ul class="simple">
+<li><p>Interpretar las variables independientes <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> como coordenadas en el espacio</p></li>
+<li><p>Visualizar la variable dependiente <span class="math notranslate nohighlight">\(I(x,y)\)</span> como un mapa de colores</p></li>
+</ul>
+<p>Bajo estas consideraciones se obtiene lo que llamamos una <strong>imagen</strong></p>
+<p>A continuación definiremos formalmente una imagen</p>
+</div>
+<div class="section" id="definiendo-una-imagen-digital">
+<h2><span class="section-number">1.2. </span>Definiendo una imagen digital<a class="headerlink" href="#definiendo-una-imagen-digital" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una imagen digital es una señal con:</p>
+<ul class="simple">
+<li><p>Dos variables indepedientes discretas <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> que representan el espacio</p></li>
+<li><p>Una o más variables dependientes <span class="math notranslate nohighlight">\(I(x,y)\)</span> que representan la intensidad del color según una codificación</p></li>
+</ul>
+<p>En la práctica las imágenes digitales son un arreglo de NxM componentes</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span>, el número de filas, representa el <strong>alto</strong> de la imagen</p></li>
+<li><p><span class="math notranslate nohighlight">\(M\)</span>, el número de columnas, representa el <strong>ancho</strong> de la imagen</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Cada elemento del arreglo se llama <strong>pixel</strong> (picture element)</p>
+</div>
+<p>Los píxeles pueden ser</p>
+<ul class="simple">
+<li><p>unidimensionales (imagen en blanco y negro)</p></li>
+<li><p>multidimensionales (RGB, HSV, HSL)</p></li>
+</ul>
+<p>Un pixel suele representarse como una tupla donde cada componente</p>
+<ul class="simple">
+<li><p>es un entero sin signo de 8bits: Intensidades en el rango <span class="math notranslate nohighlight">\([0, 255]\)</span></p></li>
+<li><p>es un valor flotante en el rango <span class="math notranslate nohighlight">\([0.0, 1.0]\)</span></p></li>
+</ul>
+<p>A estos rangos les otorgamos una interpretación como mapa de color</p>
+<p>En la siguiente figura podemos ver una imagen digital en escala de grises</p>
+<a class="reference internal image-reference" href="../../_images/image_matrix.png"><img alt="../../_images/image_matrix.png" src="../../_images/image_matrix.png" style="width: 600px;" /></a>
+<ul class="simple">
+<li><p>A la izquierda: Representación en mapa de color, donde negro es 0.0 y blanco es 1.0</p></li>
+<li><p>A la derecha: Representación numérica</p></li>
+</ul>
+<div class="section" id="que-representa-una-imagen">
+<h3><span class="section-number">1.2.1. </span>¿Qué representa una imagen?<a class="headerlink" href="#que-representa-una-imagen" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Comúnmente una imagen (señal) es una representación de la intensidad luminica (rango óptico)</p>
+<p>Pero también se pueden representar otros rangos de radiación como los rayos ejes (radiografía) o la radiación infraroja (termografía) y otros fenómenos que no son electromagnéticos, por ejemplo un ultrasonido</p>
+<table>
+<tr><td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Valdivian_sea_lions.JPG" width="300">
+</td><td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Termografia_kot.jpg" width="300">
+</td></tr>
+<tr><td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Lung_X-ray.jpg/600px-Lung_X-ray.jpg" width="250">
+</td><td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/CRL_Crown_rump_length_12_weeks_ecografia_Dr._Wolfgang_Moroder.jpg" width="300"
+</td></tr>
+</table>
+<p>*Todas las imágenes de esta lámina son de wikipedia</p>
+</div>
+<div class="section" id="como-se-obtiene-una-imagen-digital">
+<h3><span class="section-number">1.2.2. </span>¿Cómo se obtiene una imagen digital?<a class="headerlink" href="#como-se-obtiene-una-imagen-digital" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para el caso electromagnético se aprovecha el <strong>efecto fotoeléctrico</strong>: Cuando un fotón impacta un conductor se desprenden electrones</p>
+<a class="reference internal image-reference" href="../../_images/photons-hit-silicon.jpg"><img alt="../../_images/photons-hit-silicon.jpg" src="../../_images/photons-hit-silicon.jpg" style="width: 400px;" /></a>
+<p>Un sensor de tipo <em>Charged Coupled Device</em> (CCD) usa el efecto fotoelétrico para contar la cantidad de fotones que golpean su superficie durante un cierto tiempo</p>
+<ul class="simple">
+<li><p>El CCD está dividido en una grilla</p></li>
+<li><p>Cada elemento de la grilla tiene su propia “cuenta”</p></li>
+<li><p>La cuenta se mapea como un valor numérico entero o flotante</p></li>
+<li><p>Si la cuenta supera el valor máximo del sensor se observa <strong>saturación</strong></p></li>
+<li><p>Los receptores pueden ajustarse para aceptar fotones de un cierto rango de frecuencias (color)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Los sensores CCD y CMOS son la base de las cámaras digitales modernas</p>
+</div>
+</div>
+</div>
+<div class="section" id="manipulacion-de-imagenes-con-python">
+<h2><span class="section-number">1.3. </span>Manipulación de imágenes con Python<a class="headerlink" href="#manipulacion-de-imagenes-con-python" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos usar <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> para importar y visualizar imágenes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.imread.html"><code class="docutils literal notranslate"><span class="pre">plt.imread()</span></code></a>: Lee una imagen y retorna un arreglo de <code class="docutils literal notranslate"><span class="pre">NumPy</span></code></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.imshow.html"><code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></a>: Dibuja un arreglo de NumPy como si fuera una imagen</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_color</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../images/valdivia.jpg&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tamaño: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">img_color</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">img_color</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Intensidad del pixel en la posición 0, 0: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">img_color</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tamaño: (350, 650, 3)
+Tipo: uint8
+Intensidad del pixel en la posición 0, 0: array([ 79, 112, 155], dtype=uint8)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_color</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_imágenes_10_0.png" src="../../_images/04_imágenes_10_0.png" />
+</div>
+</div>
+<p>Una vez importada la imagen es un arreglo</p>
+<blockquote>
+<div><p>Podemos manipularla y transformarla con las funciones de <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, <code class="docutils literal notranslate"><span class="pre">Scipy</span></code> y otras librerías de Python</p>
+</div></blockquote>
+<p><strong>Ejemplo:  <code class="docutils literal notranslate"><span class="pre">slicing</span></code> de la imagen</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_color</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> <span class="mi">100</span><span class="p">:</span><span class="mi">200</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_imágenes_12_0.png" src="../../_images/04_imágenes_12_0.png" />
+</div>
+</div>
+<p><strong>Ejemplo:  Trasposición, inversión y espejado de la imagen</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">img_color</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_imágenes_14_0.png" src="../../_images/04_imágenes_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_color</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_imágenes_15_0.png" src="../../_images/04_imágenes_15_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_color</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_imágenes_16_0.png" src="../../_images/04_imágenes_16_0.png" />
+</div>
+</div>
+<div class="section" id="canales-de-colores">
+<h3><span class="section-number">1.3.1. </span>Canales de colores<a class="headerlink" href="#canales-de-colores" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La imagen que estabamos usando tiene tres canales</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_color</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(350, 650, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cada canal se interpreta como la intensidad de color</p>
+<ul class="simple">
+<li><p>en rojo</p></li>
+<li><p>en verde</p></li>
+<li><p>en azul
+respectivamente</p></li>
+</ul>
+<p>Esto corresponde al modelo de colores RGB (red, green, blue)</p>
+<blockquote>
+<div><p>Combinando distintos valores de intensidad en rojo, verde y azul se obtienen los demás colores</p>
+</div></blockquote>
+<p>Podemos ver el contenido de cada canal de color por separado como</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_color</span><span class="p">[:,</span> <span class="mi">350</span><span class="p">:,</span> <span class="p">:])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">color_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">color_name</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_color</span><span class="p">[:,</span> <span class="mi">350</span><span class="p">:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_imágenes_20_0.png" src="../../_images/04_imágenes_20_0.png" />
+</div>
+</div>
+<p>Una imagen a color se forma al combinar tres imágenes de escala de grises</p>
+</div>
+</div>
+<div class="section" id="vision-humana">
+<h2><span class="section-number">1.4. </span>Visión humana<a class="headerlink" href="#vision-humana" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El ojo humano tiene en su retina dos tipos de fotoreceptores: <strong>bastones y conos</strong></p>
+<p>Los bastones</p>
+<ul class="simple">
+<li><p>120 millones aprox en la retina</p></li>
+<li><p>Perciben intensidad pero no color</p></li>
+<li><p>Requieren poco brillo para producir una señal</p></li>
+<li><p>Tienen baja agudeza (menos sencibles a los detalles)</p></li>
+</ul>
+<p>Los conos</p>
+<ul class="simple">
+<li><p>6 millones aprox en la retina</p></li>
+<li><p>Existen tres tipos de conos, cada uno sintonizado a una longitud de onda</p></li>
+<li><p>Requieren mucho brillo para producir una señal</p></li>
+<li><p>Tienen alta agudeza visual</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/cones_rods.png"><img alt="../../_images/cones_rods.png" src="../../_images/cones_rods.png" style="width: 800px;" /></a>
+<p>Referencia: <a class="reference external" href="http://www.danielgmurphy.com/physics/1_intro/contents_phyics1.html">http://www.danielgmurphy.com/physics/1_intro/contents_phyics1.html</a></p>
+<p>La respuesta retinal inspira la siguiente transformación de RGB a escala de grises:</p>
+<div class="math notranslate nohighlight">
+\[
+I = 0.299 R + 0.587 G + 0.114 B
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">color2bw</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.299</span><span class="p">,</span> <span class="mf">0.587</span><span class="p">,</span> <span class="mf">0.114</span><span class="p">])</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_bw</span> <span class="o">=</span> <span class="n">color2bw</span><span class="p">(</span><span class="n">img_color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_bw</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_imágenes_25_0.png" src="../../_images/04_imágenes_25_0.png" />
+</div>
+</div>
+<div class="section" id="otros-modelos-de-colores">
+<h3><span class="section-number">1.4.1. </span>Otros modelos de colores<a class="headerlink" href="#otros-modelos-de-colores" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><strong>Modelo HSV (Hue, Saturation, Value)</strong></p>
+<p>Muy usado en software de diseño y computación gráfica</p>
+<ul class="simple">
+<li><p>Hue: Corresponde al tono o color puro</p></li>
+<li><p>Saturation: Corresponde a ajustar el brillo</p></li>
+<li><p>Value: Corresponde a mezclar con negro para generar sombras</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/hsv_cilinder.jpg"><img alt="../../_images/hsv_cilinder.jpg" src="../../_images/hsv_cilinder.jpg" style="width: 400px;" /></a>
+<p>Por ejemplo, la imagen anterior en HSV</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
+
+<span class="n">img_color_hsv</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">rgb_to_hsv</span><span class="p">(</span><span class="n">img_color</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape: </span><span class="si">%s</span><span class="s2">, Type: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">img_color_hsv</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">img_color_hsv</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">img_color_hsv</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_color</span><span class="p">[:,</span> <span class="mi">350</span><span class="p">:,</span> <span class="p">:])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_color_hsv</span><span class="p">[:,</span> <span class="mi">350</span><span class="p">:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">hsv</span><span class="p">);</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_color_hsv</span><span class="p">[:,</span> <span class="mi">350</span><span class="p">:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">);</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;V&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_color_hsv</span><span class="p">[:,</span> <span class="mi">350</span><span class="p">:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">);</span>
+<span class="k">for</span> <span class="n">ax_</span> <span class="ow">in</span> <span class="n">ax</span><span class="p">:</span>
+    <span class="n">ax_</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape: (350, 650, 3), Type: float32
+[  0.59429824   0.4903226  155.        ]
+</pre></div>
+</div>
+<img alt="../../_images/04_imágenes_27_1.png" src="../../_images/04_imágenes_27_1.png" />
+</div>
+</div>
+<p><strong>Modelo YCbCr</strong></p>
+<p>Familia de modelos muy usado en fotografía digital</p>
+<ul class="simple">
+<li><p>Y, se llama luma, corresponde a la luminancia</p></li>
+<li><p>Cb y Cr, se llaman chroma, corresponde a la “diferencia en azul” y “diferencia en rojo”</p></li>
+</ul>
+<p>Existe una transformación directa entere YCbCr y RGB</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Y = K_R R + K_G G + K_B B \\
+C_b = 0.5 \frac{B - Y}{1 - K_B} \\
+C_R = 0.5 \frac{R - Y}{1 - K_R}
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(K_R + K_G + K_B = 1\)</span></p>
+<p>Los distintos modelos de la familia YCbCr se diferencia en sus valores de <span class="math notranslate nohighlight">\(K_R\)</span>, <span class="math notranslate nohighlight">\(K_G\)</span> y <span class="math notranslate nohighlight">\(K_B\)</span></p>
+<p>Por ejemplo la imagen anterior en YCbCr</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ITU-R BT.601 </span>
+<span class="n">Kr</span> <span class="o">=</span> <span class="mf">0.299</span>
+<span class="n">Kg</span> <span class="o">=</span> <span class="mf">0.587</span>
+<span class="n">Kb</span> <span class="o">=</span> <span class="mf">0.114</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">img_color</span><span class="p">,</span> <span class="p">[</span><span class="n">Kr</span><span class="p">,</span> <span class="n">Kg</span><span class="p">,</span> <span class="n">Kb</span><span class="p">])</span>
+<span class="n">Cb</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">img_color</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Kb</span><span class="p">)</span>
+<span class="n">Cr</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">img_color</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Kr</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_color</span><span class="p">[:,</span> <span class="mi">350</span><span class="p">:,</span> <span class="p">:])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Y</span><span class="p">[:,</span> <span class="mi">350</span><span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">);</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cb&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Cb</span><span class="p">[:,</span> <span class="mi">350</span><span class="p">:],</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">);</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cr&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Cr</span><span class="p">[:,</span> <span class="mi">350</span><span class="p">:],</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">);</span>
+<span class="k">for</span> <span class="n">ax_</span> <span class="ow">in</span> <span class="n">ax</span><span class="p">:</span>
+    <span class="n">ax_</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_imágenes_29_0.png" src="../../_images/04_imágenes_29_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./clases/unidad1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="03_an%C3%A1lisis_de_se%C3%B1ales.html" title="previous page"><span class="section-number">3. </span>Análisis de Señales</a>
+    <a class='right-next' id="next-link" href="05_an%C3%A1lisis_de_im%C3%A1genes.html" title="next page"><span class="section-number">2. </span>Análisis de imágenes en frecuencia</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse Heise<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
