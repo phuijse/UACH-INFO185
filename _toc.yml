@@ -6,14 +6,12 @@
     - file: clases/unidad1/01_sistemas_de_comunicacion
     - file: clases/unidad1/02_señales
     - file: clases/unidad1/03_análisis_de_señales
-    - file: clases/unidad1/04_enventanado
 - part: Procesamiento de Imágenes
   chapters:
     - file: clases/unidad1/04_imágenes
     - file: clases/unidad1/05_análisis_de_imágenes
     - file: clases/unidad1/06_filtrado_de_imágenes
-    - file: clases/unidad1/07_restauración_de_imágenes
-- part: Teoría de la Información
+- part: Compresión y Teoría de la Información
   chapters:
     - file: clases/unidad1/08_compresión
     - file: clases/unidad1/09_codificación_de_fuente

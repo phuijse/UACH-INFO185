@@ -8,8 +8,6 @@ exclude_patterns : [_build, "**.ipynb_checkpoints"]
 execute:
   execute_notebooks: force
 
-parse:
-  myst_extended_syntax: true
 
 repository:
   url: https://github.com/phuijse/UACH-INFO185
@@ -23,7 +21,18 @@ html:
 sphinx:
   extra_extensions: [bokeh.sphinxext.bokeh_plot]
   config:
+    html_show_copyright: false
     language: es
+    myst_enable_extensions: 
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
 
 latex:
   latex_documents:
