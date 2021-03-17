@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs id="defs_block">
+    <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
+      <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2" />
+    </filter>
+  </defs>
+  <title>blockdiag</title>
+  <desc>blockdiag {
+    default_fontsize = 12; 
+    Q1 [label="¿Es A o B?"]
+    Q21 [label="¿Es A?"]
+    Q22 [label="¿Es C?"]
+    A [shape = circle];
+    B [shape = circle];    
+    C [shape = circle];
+    D [shape = circle];
+    
+    
+    Q1 -&gt; Q21 [label = "S", fontsize=16]
+    Q1 -&gt; Q22 [label = "N", fontsize=16]
+    Q21 -&gt; A [label = "S", fontsize=16]
+    Q21 -&gt; B [label = "N", fontsize=16]
+    Q22 -&gt; C [label = "S", fontsize=16]
+    Q22 -&gt; D [label = "N", fontsize=16]
+
+}
+</desc>
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="67" y="46" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="46" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="206" />
+  <ellipse cx="515" cy="66" fill="rgb(0,0,0)" rx="24.0" ry="24.0" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" />
+  <ellipse cx="515" cy="146" fill="rgb(0,0,0)" rx="24.0" ry="24.0" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" />
+  <ellipse cx="515" cy="226" fill="rgb(0,0,0)" rx="24.0" ry="24.0" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" />
+  <ellipse cx="515" cy="306" fill="rgb(0,0,0)" rx="24.0" ry="24.0" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" />
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="64" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="65" x="128.5" y="66">¿Es A o B?</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="256" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="39" x="320.5" y="66">¿Es A?</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="256" y="200" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="39" x="320.5" y="226">¿Es C?</text>
+  <ellipse cx="512" cy="60" fill="rgb(255,255,255)" rx="24.0" ry="24.0" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="6" x="512.0" y="66">A</text>
+  <ellipse cx="512" cy="140" fill="rgb(255,255,255)" rx="24.0" ry="24.0" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="6" x="512.0" y="146">B</text>
+  <ellipse cx="512" cy="220" fill="rgb(255,255,255)" rx="24.0" ry="24.0" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="6" x="512.0" y="226">C</text>
+  <ellipse cx="512" cy="300" fill="rgb(255,255,255)" rx="24.0" ry="24.0" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="6" x="512.0" y="306">D</text>
+  <path d="M 192 60 L 248 60" fill="none" stroke="rgb(0,0,0)" />
+  <polygon fill="rgb(0,0,0)" points="255,60 248,56 248,64 255,60" stroke="rgb(0,0,0)" />
+  <path d="M 192 60 L 224 60" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 224 60 L 224 220" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 224 220 L 248 220" fill="none" stroke="rgb(0,0,0)" />
+  <polygon fill="rgb(0,0,0)" points="255,220 248,216 248,224 255,220" stroke="rgb(0,0,0)" />
+  <path d="M 384 60 L 480 60" fill="none" stroke="rgb(0,0,0)" />
+  <polygon fill="rgb(0,0,0)" points="487,60 480,56 480,64 487,60" stroke="rgb(0,0,0)" />
+  <path d="M 384 60 L 416 60" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 416 60 L 416 140" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 416 140 L 480 140" fill="none" stroke="rgb(0,0,0)" />
+  <polygon fill="rgb(0,0,0)" points="487,140 480,136 480,144 487,140" stroke="rgb(0,0,0)" />
+  <path d="M 384 220 L 480 220" fill="none" stroke="rgb(0,0,0)" />
+  <polygon fill="rgb(0,0,0)" points="487,220 480,216 480,224 487,220" stroke="rgb(0,0,0)" />
+  <path d="M 384 220 L 416 220" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 416 220 L 416 300" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 416 300 L 480 300" fill="none" stroke="rgb(0,0,0)" />
+  <polygon fill="rgb(0,0,0)" points="487,300 480,296 480,304 487,300" stroke="rgb(0,0,0)" />
+  <rect fill="white" height="20" stroke="rgb(0,0,0)" width="24" x="212" y="35" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="16" font-style="normal" font-weight="normal" text-anchor="middle" textLength="8" x="224.0" y="53">S</text>
+  <rect fill="white" height="20" stroke="rgb(0,0,0)" width="24" x="212" y="195" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="16" font-style="normal" font-weight="normal" text-anchor="middle" textLength="8" x="224.0" y="213">N</text>
+  <rect fill="white" height="20" stroke="rgb(0,0,0)" width="24" x="404" y="35" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="16" font-style="normal" font-weight="normal" text-anchor="middle" textLength="8" x="416.0" y="53">S</text>
+  <rect fill="white" height="20" stroke="rgb(0,0,0)" width="24" x="404" y="115" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="16" font-style="normal" font-weight="normal" text-anchor="middle" textLength="8" x="416.0" y="133">N</text>
+  <rect fill="white" height="20" stroke="rgb(0,0,0)" width="24" x="404" y="195" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="16" font-style="normal" font-weight="normal" text-anchor="middle" textLength="8" x="416.0" y="213">S</text>
+  <rect fill="white" height="20" stroke="rgb(0,0,0)" width="24" x="404" y="275" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="16" font-style="normal" font-weight="normal" text-anchor="middle" textLength="8" x="416.0" y="293">N</text>
+</svg>
