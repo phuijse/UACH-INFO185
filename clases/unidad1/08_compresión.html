@@ -258,8 +258,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ejemplo-algoritmo-joint-photographic-experts-group-jpeg">
-   1.4. Ejemplo: Algoritmo Joint Photographic Experts Group (JPEG)
+  <a class="reference internal nav-link" href="#joint-photographic-experts-group-jpeg">
+   1.4. Joint Photographic Experts Group (JPEG)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -374,10 +374,10 @@
 </ul>
 <p>Si usamos cuantización entonces estamos asumiendo pérdidas</p>
 </div>
-<div class="section" id="ejemplo-algoritmo-joint-photographic-experts-group-jpeg">
-<h2><span class="section-number">1.4. </span>Ejemplo: Algoritmo Joint Photographic Experts Group (JPEG)<a class="headerlink" href="#ejemplo-algoritmo-joint-photographic-experts-group-jpeg" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Es un algoritmo de compresión con pérdidas (lossy) para imágenes digitales que es ampliamente utilizado</p>
-<p>Considera los siguientes pasos (los pasos destacados tienen pérdidas)</p>
+<div class="section" id="joint-photographic-experts-group-jpeg">
+<h2><span class="section-number">1.4. </span>Joint Photographic Experts Group (JPEG)<a class="headerlink" href="#joint-photographic-experts-group-jpeg" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>A modo de ejemplo estudiaremos en detalle el (ampliamente utilizado) estándar <a class="reference external" href="https://es.wikipedia.org/wiki/Organizaci%C3%B3n_Internacional_de_Normalizaci%C3%B3n">ISO</a>/ITU para comprimir imágenes digitales conocido como JPEG.</p>
+<p>En esencia JPEG corresponde a un método de compresión con pérdidas que considera los siguientes pasos (los pasos destacados tienen pérdidas)</p>
 <ol class="simple">
 <li><p>Preprocesamiento:</p>
 <ol class="simple">
@@ -395,10 +395,10 @@
 </ol>
 </li>
 </ol>
-<p>El archivo JPEG contiene los bloques de 8x8 codificados (cuerpo) y el diccionario de codificación (header)</p>
+<p>Un archivo en formato JPEG contiene los bloques de 8x8 codificados (cuerpo) y el diccionario de codificación (header)</p>
 <p>El siguiente diagrama muestra el bloque transmisor JPEG:</p>
 <a class="reference internal image-reference" href="../../_images/jpg-transmisor.png"><img alt="../../_images/jpg-transmisor.png" src="../../_images/jpg-transmisor.png" style="width: 500px;" /></a>
-<p>Para descomprimir una imagen JPEG se realizan los pasos anteriores en reversa. El siguiente diagrama muestra el bloque receptor JPEG:</p>
+<p>Para descomprimir una imagen JPEG se realizan los pasos anteriores en reversa, por ende se necesita tener el diccionario de codificación. El siguiente diagrama muestra el bloque receptor JPEG:</p>
 <a class="reference internal image-reference" href="../../_images/jpg-receptor.png"><img alt="../../_images/jpg-receptor.png" src="../../_images/jpg-receptor.png" style="width: 500px;" /></a>
 <blockquote>
 <div><p>A continuación estudiaremos cada uno de estos pasos</p>
