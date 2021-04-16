@@ -2,14 +2,7 @@ import cv2
 import numpy as np
 import PIL.Image
 import io
-#import ipywidgets as widgets
 
-def display_frame(out_widget, frame):
-    f = io.BytesIO() 
-    PIL.Image.fromarray(frame).save(f, 'JPEG')
-    out_widget.value = f.getvalue()
-    
-    
 class CameraReader:
     
     def __init__(self, spthreshold=0.999):
@@ -79,16 +72,11 @@ class CameraReader:
     def __del__(self):
         self.vid.release()  
         cv2.destroyAllWindows()
-        
-"""     
-class VideoPlayer:
-    
-    def __init__(self, width, height, fps):
-        self.out = widgets.Image(layout=widgets.Layout(height=str(height), width=str(width)))
-        
-    def push_frame(self, frame):
-        f = BytesIO() 
-        PIL.Image.fromarray(frame).save(f, 'JPEG')
-        self.out.value = f.getvalue()
-        cv2.waitKey(10)
-"""   
+
+
+"""
+def display_frame(out_widget, frame):
+    f = io.BytesIO() 
+    PIL.Image.fromarray(frame).save(f, 'JPEG')
+    out_widget.value = f.getvalue()
+"""
