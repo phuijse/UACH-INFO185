@@ -16,7 +16,7 @@ def code(frame):
 
 def decode(message):
     #
-    # Reemplaza la linea 24...
+    # Reemplaza la linea 21...
     #
     frame = np.frombuffer(bytes(memoryview(message)), dtype='uint8').reshape(480, 848)
     #
