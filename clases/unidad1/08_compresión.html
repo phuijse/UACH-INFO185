@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Transmisión y Compresión &#8212; INFO239 Comunicaciones</title>
+    <title>7. Transmisión y Compresión &#8212; INFO239 Comunicaciones</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -35,39 +32,44 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="2. Teoría de la Información - Parte 1" href="09_codificaci%C3%B3n_de_fuente.html" />
-    <link rel="prev" title="3. Filtrado de imágenes" href="06_filtrado_de_im%C3%A1genes.html" />
-
+    <link rel="next" title="8. Teoría de la Información - Parte 1" href="09_codificaci%C3%B3n_de_fuente.html" />
+    <link rel="prev" title="6. Filtrado de imágenes" href="06_filtrado_de_im%C3%A1genes.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -76,25 +78,29 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
-  
-  <img src="../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Sistemas de comunicación y Señales
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_sistemas_de_comunicacion.html">
    1. Sistemas de comunicación digitales
@@ -111,51 +117,52 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Procesamiento de Imágenes
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="04_im%C3%A1genes.html">
-   1. Introducción al procesamiento de imágenes digitales
+   4. Introducción al procesamiento de imágenes digitales
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="05_an%C3%A1lisis_de_im%C3%A1genes.html">
-   2. Análisis de imágenes en frecuencia
+   5. Análisis de imágenes en frecuencia
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="06_filtrado_de_im%C3%A1genes.html">
-   3. Filtrado de imágenes
+   6. Filtrado de imágenes
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Compresión y Teoría de la Información
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. Transmisión y Compresión
+   7. Transmisión y Compresión
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="09_codificaci%C3%B3n_de_fuente.html">
-   2. Teoría de la Información - Parte 1
+   8. Teoría de la Información - Parte 1
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10_codificaci%C3%B3n_de_canal.html">
-   3. Teoría de la Información - Parte 2
+   9. Teoría de la Información - Parte 2
   </a>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -199,18 +206,18 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-                    title="Modo de pantalla completa"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -234,71 +241,134 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contenido
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ancho-de-banda-de-un-video">
-   1.1. Ancho de banda de un video
+   7.1. Ancho de banda de un video
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modelo-de-shannon-revisitado">
-   1.2. Modelo de Shannon revisitado
+   7.2. Modelo de Shannon revisitado
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#compresion-y-codificacion">
-   1.3. Compresión y codificación
+   7.3. Compresión y codificación
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#joint-photographic-experts-group-jpeg">
-   1.4. Joint Photographic Experts Group (JPEG)
+   7.4. Joint Photographic Experts Group (JPEG)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#preprocesamiento">
-     1.4.1. Preprocesamiento
+     7.4.1. Preprocesamiento
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#separacion-en-bloques-y-tranformacion-con-dct">
-     1.4.2. Separación en bloques y tranformación con DCT
+     7.4.2. Separación en bloques y tranformación con DCT
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cuantizacion">
-     1.4.3. Cuantización
+     7.4.3. Cuantización
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#reordenamiento-zig-zag">
-     1.4.4. Reordenamiento zig-zag
+     7.4.4. Reordenamiento zig-zag
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#run-length-encoding">
-     1.4.5. Run Length encoding
+     7.4.5. Run Length encoding
     </a>
    </li>
   </ul>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Transmisión y Compresión</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ancho-de-banda-de-un-video">
+   7.1. Ancho de banda de un video
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-de-shannon-revisitado">
+   7.2. Modelo de Shannon revisitado
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compresion-y-codificacion">
+   7.3. Compresión y codificación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#joint-photographic-experts-group-jpeg">
+   7.4. Joint Photographic Experts Group (JPEG)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preprocesamiento">
+     7.4.1. Preprocesamiento
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#separacion-en-bloques-y-tranformacion-con-dct">
+     7.4.2. Separación en bloques y tranformación con DCT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cuantizacion">
+     7.4.3. Cuantización
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reordenamiento-zig-zag">
+     7.4.4. Reordenamiento zig-zag
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-length-encoding">
+     7.4.5. Run Length encoding
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell docutils container">
@@ -312,16 +382,28 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">cv2</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;cv2&#39;
+</pre></div>
 </div>
-<div class="section" id="transmision-y-compresion">
-<h1><span class="section-number">1. </span>Transmisión y Compresión<a class="headerlink" href="#transmision-y-compresion" title="Enlazar permanentemente con este título">¶</a></h1>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="transmision-y-compresion">
+<h1><span class="section-number">7. </span>Transmisión y Compresión<a class="headerlink" href="#transmision-y-compresion" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>En esta lección:</p>
 <ul class="simple">
 <li><p>Esquema transmisor de Shannon</p></li>
 <li><p>Algoritmo JPEG (primeros pasos)</p></li>
 </ul>
 <div class="section" id="ancho-de-banda-de-un-video">
-<h2><span class="section-number">1.1. </span>Ancho de banda de un video<a class="headerlink" href="#ancho-de-banda-de-un-video" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Ancho de banda de un video<a class="headerlink" href="#ancho-de-banda-de-un-video" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>¿Cúanto pesa una imagen en resolución 4K?</p>
 <div class="math notranslate nohighlight">
 \[
@@ -345,7 +427,7 @@
 <p>Responderemos esta pregunta estudiando en detalle el bloque transmisor del modelo teórico de Shannon</p>
 </div>
 <div class="section" id="modelo-de-shannon-revisitado">
-<h2><span class="section-number">1.2. </span>Modelo de Shannon revisitado<a class="headerlink" href="#modelo-de-shannon-revisitado" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">7.2. </span>Modelo de Shannon revisitado<a class="headerlink" href="#modelo-de-shannon-revisitado" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Recordemos el modelo de Shannon</p>
 <a class="reference internal image-reference" href="../../_images/shannon-diagram.svg"><img alt="../../_images/shannon-diagram.svg" src="../../_images/shannon-diagram.svg" width="500" /></a>
 <p>El <strong>transmisor</strong> puede subdividirse en cuatro etapas</p>
@@ -361,7 +443,7 @@
 <p>Las próximas lecciones tratan sobre los pasos de codificación los cuales se basan en teoría de la información</p>
 </div>
 <div class="section" id="compresion-y-codificacion">
-<h2><span class="section-number">1.3. </span>Compresión y codificación<a class="headerlink" href="#compresion-y-codificacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">7.3. </span>Compresión y codificación<a class="headerlink" href="#compresion-y-codificacion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Comprimir es:</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -375,7 +457,7 @@
 <p>Si usamos cuantización entonces estamos asumiendo pérdidas</p>
 </div>
 <div class="section" id="joint-photographic-experts-group-jpeg">
-<h2><span class="section-number">1.4. </span>Joint Photographic Experts Group (JPEG)<a class="headerlink" href="#joint-photographic-experts-group-jpeg" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">7.4. </span>Joint Photographic Experts Group (JPEG)<a class="headerlink" href="#joint-photographic-experts-group-jpeg" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>A modo de ejemplo estudiaremos en detalle el (ampliamente utilizado) estándar <a class="reference external" href="https://es.wikipedia.org/wiki/Organizaci%C3%B3n_Internacional_de_Normalizaci%C3%B3n">ISO</a>/ITU para comprimir imágenes digitales conocido como JPEG.</p>
 <p>En esencia JPEG corresponde a un método de compresión con pérdidas que considera los siguientes pasos (los pasos destacados tienen pérdidas)</p>
 <ol class="simple">
@@ -404,7 +486,7 @@
 <div><p>A continuación estudiaremos cada uno de estos pasos</p>
 </div></blockquote>
 <div class="section" id="preprocesamiento">
-<h3><span class="section-number">1.4.1. </span>Preprocesamiento<a class="headerlink" href="#preprocesamiento" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">7.4.1. </span>Preprocesamiento<a class="headerlink" href="#preprocesamiento" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Primero se convierte la imagen a estándar YCbCr</p>
 <p>Luego (opcionalmente) se reduce la resolución de los canales chroma (Cb y Cr) con respecto al canal de luminancia (Y)</p>
 <p>Algunas estándares de submuestreo de color son</p>
@@ -439,13 +521,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/08_compresión_8_0.png" src="../../_images/08_compresión_8_0.png" />
-</div>
 </div>
 </div>
 <div class="section" id="separacion-en-bloques-y-tranformacion-con-dct">
-<h3><span class="section-number">1.4.2. </span>Separación en bloques y tranformación con DCT<a class="headerlink" href="#separacion-en-bloques-y-tranformacion-con-dct" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">7.4.2. </span>Separación en bloques y tranformación con DCT<a class="headerlink" href="#separacion-en-bloques-y-tranformacion-con-dct" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El algoritmo JPEG se aplica secuencialmente en bloques disjuntos de 8x8 píxeles</p>
 <p>Cada bloque se lleva al dominio de la frecuencia usando la transformada discreta coseno</p>
 <p><strong>Discrete Cosine Transform (DCT)</strong></p>
@@ -497,9 +576,6 @@ x[2N-1-k] &amp; \text{ssi} ~~ N \leq k &lt; 2N - 1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/08_compresión_12_0.png" src="../../_images/08_compresión_12_0.png" />
-</div>
 </div>
 <p><strong>Ejemplo:</strong> Transformada DCT</p>
 <p>La transformada coseno está implementada en <code class="docutils literal notranslate"><span class="pre">scipy.fftpack</span></code></p>
@@ -550,9 +626,6 @@ x[2N-1-k] &amp; \text{ssi} ~~ N \leq k &lt; 2N - 1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/08_compresión_16_0.png" src="../../_images/08_compresión_16_0.png" />
-</div>
 </div>
 <p>Una imagen tiene mucha correlación entre sus píxeles vecinos</p>
 <p>Al llevarla al espacio de frecuencia esta información se concentra en el cero (centro) del espectro</p>
@@ -567,7 +640,7 @@ x[2N-1-k] &amp; \text{ssi} ~~ N \leq k &lt; 2N - 1
 </div>
 </div>
 <div class="section" id="cuantizacion">
-<h3><span class="section-number">1.4.3. </span>Cuantización<a class="headerlink" href="#cuantizacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">7.4.3. </span>Cuantización<a class="headerlink" href="#cuantizacion" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En este paso se busca cuantizar cada matriz DCT de 8x8 y reducir la “cantidad de valores posibles”</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -636,9 +709,6 @@ d_c = \|Q(x) -x\|^2
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/08_compresión_20_0.png" src="../../_images/08_compresión_20_0.png" />
-</div>
 </div>
 <p><strong>Cuantización en JPEG</strong></p>
 <p>Recordemos que JPEG cuantiza en el espacio de frecuencia</p>
@@ -684,9 +754,6 @@ d_c = \|Q(x) -x\|^2
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/08_compresión_24_0.png" src="../../_images/08_compresión_24_0.png" />
-</div>
 </div>
 <p><strong>Ejemplo</strong></p>
 <p>El nivel de cuantización de JPEG se controla como un valor denominado tipicamente como calidad que va entre 0 y 100</p>
@@ -724,13 +791,10 @@ d_c = \|Q(x) -x\|^2
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/08_compresión_26_0.png" src="../../_images/08_compresión_26_0.png" />
-</div>
 </div>
 </div>
 <div class="section" id="reordenamiento-zig-zag">
-<h3><span class="section-number">1.4.4. </span>Reordenamiento zig-zag<a class="headerlink" href="#reordenamiento-zig-zag" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">7.4.4. </span>Reordenamiento zig-zag<a class="headerlink" href="#reordenamiento-zig-zag" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Luego de cuantizar el bloque de 8x8 este se reordena como una tira de largo 64 aplicando un reordenamiento de tipo zig-zag</p>
 <a class="reference internal image-reference" href="../../_images/Zig-Zag-reordering-matrix.png"><img alt="../../_images/Zig-Zag-reordering-matrix.png" src="../../_images/Zig-Zag-reordering-matrix.png" style="width: 500px;" /></a>
 <p>El reordenamiento en zig zag crea un vector donde los componentes están ordenados por frecuencia y los ceros (de las frecuencias altas) quedan más cerca</p>
@@ -741,7 +805,7 @@ d_c = \|Q(x) -x\|^2
 <p>El reordenamiento zig-zag hace más eficiente el siguiente paso: Run Length Encoding (RLE)</p>
 </div>
 <div class="section" id="run-length-encoding">
-<h3><span class="section-number">1.4.5. </span>Run Length encoding<a class="headerlink" href="#run-length-encoding" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">7.4.5. </span>Run Length encoding<a class="headerlink" href="#run-length-encoding" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El run-length es una codificación sencilla y sin pérdida, que es muy eficiente cuando tenemos valores que se repiten</p>
 <p>Los datos codificados son tuplas (nrep, valor) concatenadas, donde nrep es la cantidad de veces que se repitió valor, como muestra la siguiente figura</p>
 <a class="reference internal image-reference" href="../../_images/rle.jpg"><img alt="../../_images/rle.jpg" src="../../_images/rle.jpg" style="width: 500px;" /></a>
@@ -772,35 +836,41 @@ d_c = \|Q(x) -x\|^2
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="06_filtrado_de_im%C3%A1genes.html" title="previous page"><span class="section-number">3. </span>Filtrado de imágenes</a>
-    <a class='right-next' id="next-link" href="09_codificaci%C3%B3n_de_fuente.html" title="next page"><span class="section-number">2. </span>Teoría de la Información - Parte 1</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="06_filtrado_de_im%C3%A1genes.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Filtrado de imágenes</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="09_codificaci%C3%B3n_de_fuente.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Teoría de la Información - Parte 1</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse Heise<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
   </body>
 </html>

@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Teoría de la Información - Parte 1 &#8212; INFO239 Comunicaciones</title>
+    <title>8. Teoría de la Información - Parte 1 &#8212; INFO239 Comunicaciones</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -35,39 +32,44 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="3. Teoría de la Información - Parte 2" href="10_codificaci%C3%B3n_de_canal.html" />
-    <link rel="prev" title="1. Transmisión y Compresión" href="08_compresi%C3%B3n.html" />
-
+    <link rel="next" title="9. Teoría de la Información - Parte 2" href="10_codificaci%C3%B3n_de_canal.html" />
+    <link rel="prev" title="7. Transmisión y Compresión" href="08_compresi%C3%B3n.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -76,25 +78,29 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
-  
-  <img src="../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Sistemas de comunicación y Señales
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_sistemas_de_comunicacion.html">
    1. Sistemas de comunicación digitales
@@ -111,51 +117,52 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Procesamiento de Imágenes
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="04_im%C3%A1genes.html">
-   1. Introducción al procesamiento de imágenes digitales
+   4. Introducción al procesamiento de imágenes digitales
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="05_an%C3%A1lisis_de_im%C3%A1genes.html">
-   2. Análisis de imágenes en frecuencia
+   5. Análisis de imágenes en frecuencia
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="06_filtrado_de_im%C3%A1genes.html">
-   3. Filtrado de imágenes
+   6. Filtrado de imágenes
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Compresión y Teoría de la Información
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="08_compresi%C3%B3n.html">
-   1. Transmisión y Compresión
+   7. Transmisión y Compresión
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2. Teoría de la Información - Parte 1
+   8. Teoría de la Información - Parte 1
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10_codificaci%C3%B3n_de_canal.html">
-   3. Teoría de la Información - Parte 2
+   9. Teoría de la Información - Parte 2
   </a>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -199,18 +206,18 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-                    title="Modo de pantalla completa"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -234,44 +241,43 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contenido
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#codificacion-de-fuente">
-   2.1. Codificación de fuente
+   8.1. Codificación de fuente
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduccion-a-la-teoria-de-la-informacion">
-   2.2. Introducción a la Teoría de la información
+   8.2. Introducción a la Teoría de la información
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cantidad-de-informacion-segun-shannon">
-     2.2.1. Cantidad de información (según Shannon)
+     8.2.1. Cantidad de información (según Shannon)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#entropia">
-     2.2.2. Entropía
+     8.2.2. Entropía
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#codificacion-de-huffman">
-   2.3. Codificación de Huffman
+   8.3. Codificación de Huffman
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#teorema-de-codificacion-de-fuente-de-shannon-source-coding-theorem">
-   2.4. Teorema de codificación de fuente de Shannon (
+   8.4. Teorema de codificación de fuente de Shannon (
    <em>
     Source coding theorem
    </em>
@@ -280,19 +286,77 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#algoritmos-de-compresion-para-video">
-   2.5. Algoritmos de compresión para video
+   8.5. Algoritmos de compresión para video
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Teoría de la Información - Parte 1</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#codificacion-de-fuente">
+   8.1. Codificación de fuente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-a-la-teoria-de-la-informacion">
+   8.2. Introducción a la Teoría de la información
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cantidad-de-informacion-segun-shannon">
+     8.2.1. Cantidad de información (según Shannon)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entropia">
+     8.2.2. Entropía
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#codificacion-de-huffman">
+   8.3. Codificación de Huffman
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teorema-de-codificacion-de-fuente-de-shannon-source-coding-theorem">
+   8.4. Teorema de codificación de fuente de Shannon (
+   <em>
+    Source coding theorem
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algoritmos-de-compresion-para-video">
+   8.5. Algoritmos de compresión para video
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell docutils container">
@@ -306,15 +370,15 @@
 </div>
 </div>
 </div>
-<div class="section" id="teoria-de-la-informacion-parte-1">
-<h1><span class="section-number">2. </span>Teoría de la Información - Parte 1<a class="headerlink" href="#teoria-de-la-informacion-parte-1" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="teoria-de-la-informacion-parte-1">
+<h1><span class="section-number">8. </span>Teoría de la Información - Parte 1<a class="headerlink" href="#teoria-de-la-informacion-parte-1" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>En esta lección veremos:</p>
 <ul class="simple">
 <li><p>Cantidad de información y entropía</p></li>
 <li><p>Codificación de fuente</p></li>
 </ul>
 <div class="section" id="codificacion-de-fuente">
-<h2><span class="section-number">2.1. </span>Codificación de fuente<a class="headerlink" href="#codificacion-de-fuente" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Codificación de fuente<a class="headerlink" href="#codificacion-de-fuente" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La codificación de fuente es el proceso que asigna un código a cada símbolo del diccionario</p>
 <p><strong>Ejemplo:</strong> Queremos codificar las letras del alfabeto (que son 27) usando código binario</p>
 <p>Si usamos un código de largo fijo necesitariamos al menos 5 bits: <span class="math notranslate nohighlight">\(2^5 = 32 &gt; 27\)</span></p>
@@ -410,7 +474,7 @@ En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo
 </div>
 </div>
 <div class="section" id="introduccion-a-la-teoria-de-la-informacion">
-<h2><span class="section-number">2.2. </span>Introducción a la Teoría de la información<a class="headerlink" href="#introduccion-a-la-teoria-de-la-informacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Introducción a la Teoría de la información<a class="headerlink" href="#introduccion-a-la-teoria-de-la-informacion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La Teoría de la información TI es el estudio matemático sobre la cuantificación y transmisión de la información. Fue propuesto por <strong><a class="reference external" href="https://es.wikipedia.org/wiki/Claude_Shannon">Claude Shannon</a></strong> en 1948: <em>A Mathematical Theory of Communication</em>.</p>
 <p>TI proporciona formas para describir la información de un proceso y tiene importantes aplicaciones en telecomunicaciones, computación y biología (genética). También ha tenido una fuerte influencia en la teoría de codificación y compresión.</p>
 <p>Partamos con un ejemplo</p>
@@ -429,7 +493,7 @@ En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo
 <div><p>La respuesta es 1 para <span class="math notranslate nohighlight">\(A\)</span>, 2 para <span class="math notranslate nohighlight">\(B\)</span> y 3 para <span class="math notranslate nohighlight">\(C\)</span> y <span class="math notranslate nohighlight">\(D\)</span></p>
 </div></blockquote>
 <div class="section" id="cantidad-de-informacion-segun-shannon">
-<h3><span class="section-number">2.2.1. </span>Cantidad de información (según Shannon)<a class="headerlink" href="#cantidad-de-informacion-segun-shannon" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">8.2.1. </span>Cantidad de información (según Shannon)<a class="headerlink" href="#cantidad-de-informacion-segun-shannon" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La cantidad de información de un símbolo <span class="math notranslate nohighlight">\(x\)</span> es el logaritmo en base dos del recíproco de su probabilidad de aparición</p>
 <div class="math notranslate nohighlight">
 \[
@@ -446,7 +510,7 @@ I(x) = \log_2 \left(\frac{1}{P(x)} \right) = \log_2 P(x)^{-1} = - \log_2 P(x),
 </div></blockquote>
 </div>
 <div class="section" id="entropia">
-<h3><span class="section-number">2.2.2. </span>Entropía<a class="headerlink" href="#entropia" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">8.2.2. </span>Entropía<a class="headerlink" href="#entropia" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Sea una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> (fuente) con <span class="math notranslate nohighlight">\(N\)</span> resultados posibles (símbolos) <span class="math notranslate nohighlight">\(\{x_1, x_2, \ldots, x_N\}\)</span> donde cada símbolo <span class="math notranslate nohighlight">\(x_i\)</span> tiene una probabilidad <span class="math notranslate nohighlight">\(p_i \in [0, 1]\)</span> y <span class="math notranslate nohighlight">\(\sum_{i=1}^N p_i = 1\)</span></p>
 <p>Por ende cada símbolo tiene una cantidad de información  <span class="math notranslate nohighlight">\(I(x_i) = -\log_2 \left( p_i \right)\)</span></p>
 <p>Definimos la <strong>cantidad de información promedio</strong> de <span class="math notranslate nohighlight">\(X\)</span> como</p>
@@ -596,7 +660,7 @@ Código de largo variable: 12759
 </div>
 </div>
 <div class="section" id="codificacion-de-huffman">
-<h2><span class="section-number">2.3. </span>Codificación de Huffman<a class="headerlink" href="#codificacion-de-huffman" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Codificación de Huffman<a class="headerlink" href="#codificacion-de-huffman" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Un algoritmo sencillo de codificación de tipo prefijo:</p>
 <ol class="simple">
 <li><p>Se estima la probabilidad <span class="math notranslate nohighlight">\(p_i\)</span> de cada símbolo</p></li>
@@ -710,7 +774,7 @@ Código de largo variable: 12759
 </div>
 </div>
 </div>
-<p>Pudemos usar <code class="docutils literal notranslate"><span class="pre">bytearray</span></code> para convertir nuestra tira de caracters 0 y 1 a un arreglo de Bytes</p>
+<p>Podemos usar <code class="docutils literal notranslate"><span class="pre">bytearray</span></code> para convertir nuestra tira de caracteres 0 y 1 a un arreglo de Bytes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
@@ -756,7 +820,7 @@ Código de largo variable: 12759
 <p>A continuación revisaremos un importante teorema enunciado por Shannon respecto a la <strong>codificación de un mensaje</strong></p>
 </div>
 <div class="section" id="teorema-de-codificacion-de-fuente-de-shannon-source-coding-theorem">
-<h2><span class="section-number">2.4. </span>Teorema de codificación de fuente de Shannon (<em>Source coding theorem</em>)<a class="headerlink" href="#teorema-de-codificacion-de-fuente-de-shannon-source-coding-theorem" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">8.4. </span>Teorema de codificación de fuente de Shannon (<em>Source coding theorem</em>)<a class="headerlink" href="#teorema-de-codificacion-de-fuente-de-shannon-source-coding-theorem" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Dada una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> con entropía <span class="math notranslate nohighlight">\(H(X)\)</span> existe una codificación de largo variable cuyo largo de palabra promedio <span class="math notranslate nohighlight">\(\bar L\)</span> satisface</p>
 <div class="math notranslate nohighlight">
 \[
@@ -810,7 +874,7 @@ H(X) \leq \bar L &lt; H(X) + 1
 </ul>
 </div>
 <div class="section" id="algoritmos-de-compresion-para-video">
-<h2><span class="section-number">2.5. </span>Algoritmos de compresión para video<a class="headerlink" href="#algoritmos-de-compresion-para-video" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">8.5. </span>Algoritmos de compresión para video<a class="headerlink" href="#algoritmos-de-compresion-para-video" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En la lección anterior vimos el algoritmo JPEG para compresión de imágenes</p>
 <p>En esta lección hemos visto la codificación de Huffmann. Con este hemos visto todos los pasos necesarios para implementar el algoritmo JPEG</p>
 <p>Consideremos ahora el caso en que tenemos un stream de video (sin audio) y queremos transmitirlo comprimido</p>
@@ -855,35 +919,41 @@ H(X) \leq \bar L &lt; H(X) + 1
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="08_compresi%C3%B3n.html" title="previous page"><span class="section-number">1. </span>Transmisión y Compresión</a>
-    <a class='right-next' id="next-link" href="10_codificaci%C3%B3n_de_canal.html" title="next page"><span class="section-number">3. </span>Teoría de la Información - Parte 2</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="08_compresi%C3%B3n.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Transmisión y Compresión</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="10_codificaci%C3%B3n_de_canal.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Teoría de la Información - Parte 2</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse Heise<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
   </body>
 </html>
