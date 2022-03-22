@@ -1,20 +1,21 @@
-- file: README
+format: jb-book
+root: README
+parts:
+- caption: "Sistemas de comunicaci\xF3n y Se\xF1ales"
   numbered: true
-
-- part: Sistemas de comunicación y Señales
   chapters:
-    - file: clases/unidad1/01_sistemas_de_comunicacion
-    - file: clases/unidad1/02_señales
-    - file: clases/unidad1/03_análisis_de_señales
-- part: Procesamiento de Imágenes
+  - file: clases/unidad1/01_sistemas_de_comunicacion
+  - file: "clases/unidad1/02_se\xF1ales"
+  - file: "clases/unidad1/03_an\xE1lisis_de_se\xF1ales"
+- caption: "Procesamiento de Im\xE1genes"
+  numbered: true
   chapters:
-    - file: clases/unidad1/04_imágenes
-    - file: clases/unidad1/05_análisis_de_imágenes
-    - file: clases/unidad1/06_filtrado_de_imágenes
-- part: Compresión y Teoría de la Información
+  - file: "clases/unidad1/04_im\xE1genes"
+  - file: "clases/unidad1/05_an\xE1lisis_de_im\xE1genes"
+  - file: "clases/unidad1/06_filtrado_de_im\xE1genes"
+- caption: "Compresi\xF3n y Teor\xEDa de la Informaci\xF3n"
+  numbered: true
   chapters:
-    - file: clases/unidad1/08_compresión
-    - file: clases/unidad1/09_codificación_de_fuente
-    - file: clases/unidad1/10_codificación_de_canal
-
-
+  - file: "clases/unidad1/08_compresi\xF3n"
+  - file: "clases/unidad1/09_codificaci\xF3n_de_fuente"
+  - file: "clases/unidad1/10_codificaci\xF3n_de_canal"
