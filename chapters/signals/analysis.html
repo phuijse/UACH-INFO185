@@ -1,0 +1,1734 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Análisis de Señales &#8212; INFO239 Comunicaciones</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="4. Introducción al procesamiento de imágenes digitales" href="../image-processing/intro.html" />
+    <link rel="prev" title="2. ¿Qué es una señal?" href="signals.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sistemas de comunicación y Señales
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   1. Sistemas de comunicación digitales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="signals.html">
+   2. ¿Qué es una señal?
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Análisis de Señales
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Procesamiento de Imágenes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image-processing/intro.html">
+   4. Introducción al procesamiento de imágenes digitales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image-processing/analysis.html">
+   5. Análisis de imágenes en frecuencia
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image-processing/filters.html">
+   6. Filtrado de imágenes
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/signals/analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/UACH-INFO185"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/UACH-INFO185/issues/new?title=Issue%20on%20page%20%2Fchapters/signals/analysis.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/UACH-INFO185/master?urlpath=tree/chapters/signals/analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notacion">
+   3.1. Notación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparando-senales-en-el-tiempo">
+   3.2. Comparando señales en el tiempo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-en-frecuencia-transformada-de-fourier">
+   3.3. Análisis en frecuencia: Transformada de Fourier
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformada-de-fourier-discreta-dft">
+     3.3.1. Transformada de Fourier discreta (DFT)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformada-rapida-de-fourier-o-fft">
+     3.3.2. Transformada rápida de Fourier o FFT
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementaciones-de-la-fft">
+   3.4. Implementaciones de la FFT
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Análisis de Señales</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notacion">
+   3.1. Notación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparando-senales-en-el-tiempo">
+   3.2. Comparando señales en el tiempo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-en-frecuencia-transformada-de-fourier">
+   3.3. Análisis en frecuencia: Transformada de Fourier
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformada-de-fourier-discreta-dft">
+     3.3.1. Transformada de Fourier discreta (DFT)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformada-rapida-de-fourier-o-fft">
+     3.3.2. Transformada rápida de Fourier o FFT
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementaciones-de-la-fft">
+   3.4. Implementaciones de la FFT
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="analisis-de-senales">
+<h1><span class="section-number">3. </span>Análisis de Señales<a class="headerlink" href="#analisis-de-senales" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>En esta lección veremos</p>
+<ul class="simple">
+<li><p>Covarianza, correlación y convolución</p></li>
+<li><p>Transformada de Fourier discreta</p></li>
+<li><p>Transformada rápida de Fourier</p></li>
+</ul>
+<div class="section" id="notacion">
+<h2><span class="section-number">3.1. </span>Notación<a class="headerlink" href="#notacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Función de tiempo continuo: <span class="math notranslate nohighlight">\(g(t)\)</span></p></li>
+<li><p>Función de tiempo discreto: <span class="math notranslate nohighlight">\(g[n] = g(t_n)\)</span> con <span class="math notranslate nohighlight">\(t_n = n T_s, n\in [0, N]\)</span></p></li>
+<li><p>Tiempo o intervalo de muestreo: <span class="math notranslate nohighlight">\(T_s\)</span></p></li>
+</ul>
+<p>En la siguiente figura se muestra una señal de tiempo continuo (linea gris) muestreada a tiempo regular (flechas rojas)</p>
+<a class="reference internal image-reference" href="../../_images/sampledsignal.png"><img alt="../../_images/sampledsignal.png" src="../../_images/sampledsignal.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="comparando-senales-en-el-tiempo">
+<h2><span class="section-number">3.2. </span>Comparando señales en el tiempo<a class="headerlink" href="#comparando-senales-en-el-tiempo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Covarianza y correlación cruzada</strong></p>
+<p>Podemos analizar la similitud entre dos señales <span class="math notranslate nohighlight">\(g(\cdot)\)</span> y <span class="math notranslate nohighlight">\(f(\cdot)\)</span> en función de un retardo <span class="math notranslate nohighlight">\(\tau\)</span> usando el la covarianza cruzada</p>
+<div class="math notranslate nohighlight">
+\[ 
+\text{COV}_{gf}(\tau) = \mathbb{E}[(g(t)-\mu_g)(f(t + \tau)-\mu_f)], 
+\]</div>
+<p>y para procesos discretos con retardo <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{COV}_{gf}[m] = \frac{1}{N} \sum_{n=1}^N (g[n] - \bar g)(f[n+m] - \bar f),
+\]</div>
+<p>donde la media de la señal se estima como <span class="math notranslate nohighlight">\( \bar g = \frac{1}{N} \sum_{n=1}^N g[n]\)</span>.</p>
+<p>Si las señales tienen distinta escala es conveniente usar la correlación cruzada</p>
+<div class="math notranslate nohighlight">
+\[ 
+\rho_{gf}[m] = \frac{\text{COV}_{gf}[m]}{\hat \sigma_g \hat \sigma_f}, 
+\]</div>
+<p>donde la desviación estándar de la señal se estima como <span class="math notranslate nohighlight">\(\hat \sigma_g = \frac{1}{N} \sqrt{\sum_{n=1}^N (g[n] - \bar g)^2}\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Podemos calcular la covarianza entre dos señales usando la función <code class="docutils literal notranslate"><span class="pre">np.correlate</span></code> de <em>NumPy</em></p>
+</div>
+<p><strong>Ejemplo</strong></p>
+<p>Usando la correlación  para encontrar el desfase o desplazamiento temporal relativo entre dos señales</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mf">1.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mf">2.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">crosscorr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">correlate</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y2</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">crosscorr</span><span class="p">);</span>
+<span class="n">idx_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">crosscorr</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y1 está separado por </span><span class="si">{</span><span class="n">tau</span><span class="p">[</span><span class="n">idx_max</span><span class="p">]</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2"> segundos de y2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">tau</span><span class="p">[</span><span class="n">idx_max</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;y1 está separado por -1.0101 segundos de y2&#39;
+</pre></div>
+</div>
+<img alt="../../_images/analysis_5_1.png" src="../../_images/analysis_5_1.png" />
+</div>
+</div>
+<p><strong>Autocorrelación</strong></p>
+<p>También es de interés comparar una señal consigo misma usando la autocorrelación</p>
+<div class="math notranslate nohighlight">
+\[ 
+\rho_{gg}[m] = \frac{\text{COV}_{gg}[m]}{\hat \sigma_g^2}= \frac{1}{(N-m) \hat \sigma_g^2} \sum_{n=1}^{N-m} (g[n] - \bar g)(g[n+m] - \bar g), 
+\]</div>
+<p>Esto nos permite analizar en que momento <span class="math notranslate nohighlight">\(m\)</span> la señal se parece más a si misma: <strong>periodicidad</strong></p>
+<p><strong>Ejemplo</strong></p>
+<p>El período de la señal corresponde al segundo máximo de la autocorrelación</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">tau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">autocorr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">correlate</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">)[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">autocorr</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">tau</span><span class="p">[</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">autocorr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El periodo (frecuencia fundamental de la señal es </span><span class="si">{</span><span class="n">tau</span><span class="p">[</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">autocorr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])]</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2"> segundos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;El periodo (frecuencia fundamental de la señal es 1.0101 segundos&#39;
+</pre></div>
+</div>
+<img alt="../../_images/analysis_8_1.png" src="../../_images/analysis_8_1.png" />
+</div>
+</div>
+<p><strong>Convolución</strong></p>
+<p>La operación de producto punto entre versiones desplazadas de funciones se llama <strong>convolución</strong> y se denota con <span class="math notranslate nohighlight">\(*\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+(f*g) (\tau) = \int g(t) f(\tau - t) \,dt = \int f(t) g(\tau - t) \,dt
+\]</div>
+<p>La convolución discreta se define como</p>
+<div class="math notranslate nohighlight">
+\[
+(f*g)[m] = \sum_n f[n] g[n-m]
+\]</div>
+<p>las funciónes de covarianza y correlación se pueden escribir como convoluciones</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Podemos realizar la convolución usando la función <code class="docutils literal notranslate"><span class="pre">np.convolve</span></code> de NumPy</p>
+</div>
+<p><strong>Ejemplo</strong></p>
+<p>Convolución entre una señal cuadrada (naranja) y una Gaussiana (azul)</p>
+<p>El resultado es una versión con bordes suavizados de la señal cuadrada (derecha)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),))</span>
+    <span class="n">s</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+<span class="n">conv_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">gaussian</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">square</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">gaussian</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">square</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">conv_s</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/analysis_11_0.png" src="../../_images/analysis_11_0.png" />
+</div>
+</div>
+<p>La siguiente animación muestra una representación gráfica de la convolución</p>
+<p>El resultado de la convolución (derecha) es la integración del area que se marca en celeste en la figura de la izquierda</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span> 
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span> 
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cla</span><span class="p">();</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+    <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">gaussian</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">a</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="n">square</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p2</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p1</span><span class="p">);</span> 
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p1</span><span class="o">*</span><span class="n">p2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">conv_s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="n">a</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p1</span><span class="o">*</span><span class="n">p2</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">()</span>
+    
+<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><video width="960" height="300" controls autoplay loop>
+  <source type="video/mp4" src="data:video/mp4;base64,AAAAIGZ0eXBNNFYgAAACAE00ViBpc29taXNvMmF2YzEAAAAIZnJlZQAAnZNtZGF0AAACrgYF//+q
+3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2NCByMzA4MSAxOTg1NmNjIC0gSC4yNjQvTVBF
+Ry00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAyMSAtIGh0dHA6Ly93d3cudmlkZW9sYW4u
+b3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTMgZGVibG9jaz0xOjA6MCBhbmFs
+eXNlPTB4MzoweDExMyBtZT1oZXggc3VibWU9NyBwc3k9MSBwc3lfcmQ9MS4wMDowLjAwIG1peGVk
+X3JlZj0xIG1lX3JhbmdlPTE2IGNocm9tYV9tZT0xIHRyZWxsaXM9MSA4eDhkY3Q9MSBjcW09MCBk
+ZWFkem9uZT0yMSwxMSBmYXN0X3Bza2lwPTEgY2hyb21hX3FwX29mZnNldD0tMiB0aHJlYWRzPTkg
+bG9va2FoZWFkX3RocmVhZHM9MSBzbGljZWRfdGhyZWFkcz0wIG5yPTAgZGVjaW1hdGU9MSBpbnRl
+cmxhY2VkPTAgYmx1cmF5X2NvbXBhdD0wIGNvbnN0cmFpbmVkX2ludHJhPTAgYmZyYW1lcz0zIGJf
+cHlyYW1pZD0yIGJfYWRhcHQ9MSBiX2JpYXM9MCBkaXJlY3Q9MSB3ZWlnaHRiPTEgb3Blbl9nb3A9
+MCB3ZWlnaHRwPTIga2V5aW50PTI1MCBrZXlpbnRfbWluPTEwIHNjZW5lY3V0PTQwIGludHJhX3Jl
+ZnJlc2g9MCByY19sb29rYWhlYWQ9NDAgcmM9Y3JmIG1idHJlZT0xIGNyZj0yMy4wIHFjb21wPTAu
+NjAgcXBtaW49MCBxcG1heD02OSBxcHN0ZXA9NCBpcF9yYXRpbz0xLjQwIGFxPTE6MS4wMACAAAAe
+gWWIhAA///73aJ8Cm1pDeoDklcUl20+B/6tncHyP6QMAAAMAAAMAAAMAABAUebdnVIDiATS730jD
+S//IS9bEMqZcS4MYrMyLSbHjoq7klR3h+jeGVB2fmZKMJDP0aJbj0HIlI3zF24ocaHTdjlvPcx2S
+LkGgcC0xt94BPMcoeOmWRls0jCcNukTMGR3vvkJvKHmFr4QZKhE9v2Hrl226a+/ZRDujtbeK/NRC
+Ms1mFWKUV1axmLbCm0KqOzysmKxCdb31FI0qtpk5FLo14f7G4YtpB6c1Em86n2dNuwcYUsyKrYxU
+s4aV932Q61GMMlgWMDOvTYJg7/4TnrxPTfCI8IEhddBV4O52406ps9X66YOdk/8LK+qE6YPR9lQz
+btY4zCu85wDFuH31Z3ky71035BDMFfGS/mZzBQDSMCgtsQ3GwxZV3ynDsLK+sV5n6ho+cyDTwMUV
+hJ/6dwSQXZdDVsABVeFFKOq9TW1U761xawuXy2HHQV4yVGf1Qdis7AZ8C15nfvkcfRb50Ygw9IAN
+sM3dXtHJWnNWoRk9VGH8k7Sizn350vRf3YJ9eEaKW1GtnEO9XWKF7wzV2IfbsTLfqYAtejtHCweM
+wvwp/vNPsyt2mBbVv3ZqTPb3kTmBFEW7ijjw/UzmjOFKoHsnS4vkpCQCMoIw/KPsjBc7fK+lvBac
+mnb8ldwBwF1k1fO0RMeVZKzYByhcq96R0Ant6AyBeD6eauaBVS2UpmCpReG/CzifAuKRKiA9PJMa
+6T1tbpfnNErLxlEoyJvjdhcDSyUUUHP+iRRjTxo/Pgz+kyD7LFXjsMLVC5iA9+/n9yALRiUHjb7t
+w9yuYkuNa8gohMz0nwfaYQYV661mEwsU34KORu9Pbif1kvg1B1fCmdbPwkCEKvy1lsunNKFQlUE4
+CkJeNZG482CSwMie+Jn/A8fR6GXJxnT3fPB8KsDqPS5fBq3TBVBycMyavavx+SSChsJBl9jnRE02
+WSsawADuG/RFhFHRQV3BrPdg2xCPfm42Ehq6GSGYtZzP0GUQTS6lVAARHGv97SVb4+Y0vtEeaxuH
+0aTkF+Qfa2xvTbkDlswU/JFxNYC6HK87ClF2egctgN9Xkgng32Oh435W5uhHrHAbZjP2MUIdMr32
+vvJfIV4hKNN/fK029MasbtJMk+qCbS19NbKTQsVoJRAsFkn6mo21pci3f6ZOD3R2MqAetfDYvAcV
+ZOWdSCDvbRvGCCmwxAJWFQW9hrRLT4Agzmu32NlbnRAuUR82S7LdwPcNy1zCVcY4Ad+DkK7m1i2S
+rcz+WfpmI1eCneMxOwtPSmhYYKKBRcJQDiTb4VRi74ZbhUxQC11qecr3/87+cr6RxD0DyFDg2FGL
+Px7kwhcBNdv0VJ26HEXGr2BekYUtiMa/zwJ0ixnpQBmjSZD4vhhzpBICs7MgcFOdBc3sdbbmLEy1
+BbBH+TnEA5DE3f+YVFl0nzTGgH2Fu7yGeQvMkFOPw/ZotAPz0ryi/hAYJdyjv5TC13yj89bjL70Q
+jhrQ6Ee+IIcf8SZ6rKU+QWaM47/E604pdvLbHLEVlK7U1XLDCguf2rrrfo5QBbEGBdCTWpq1aY3O
+zX4uqrK8UCbyCQA/P9AI5mc2CR1VHn5k3q2MJRael3h6ESfrF/664wjGnDSs3JXjuu4dIWJX8kVM
+Te5libW5g03HbZQx72s/DbsUGMBeAcPFFGk4EuVx4n/M1VHKfW4VisVhVeCHEQKoXbqnGyTeJ/Y6
+OVixx8nwp0KaivhQkOdSHTDUAV7xWqmQ/iCBxanz+ZXV3IV97nLjiDW6tD/12TnuzNk9XTJKQ/7L
+zfkI9q1dvN+WlZLO2B7W7XoYY27G4R0YDIqfoFfV84yeQznQfGfBpHDMR2cKqmjHTqvRL9Dfr+rH
+cBQyxSSczn+15t5mKKuXxeSVei11diknwJyHwEUwx8bqHPtf8Fn9OJwlk/WeBg84v26w90LTcYPu
+gcXQcWSfFAIntuUYiUFdzn2TJbTsiO90Ny41Dk4jGEVrJMwznLX4KMsi6006IVXpTBDe/YmSGUYA
+SMygrFKcOfEoNsTpYWYX2A/gaXkcP3zmpZVP+IDYx1ZS6MAzVMmI7+x/JcCkazI+4y+VQk0V2OY1
+iWTTSNWV79wrc6YqZb2cGkEr1yDyJgMA8SdtRqykDXrNCs0eHfRo4nR5amDPN+7HEPQXRveo/yvI
+mINXQ726jbCozDIXIQAFEXtj7qZTiqbPQlGW1FTUQYUq9EdnMGWfwKhkJ0X5F9aXCPExUMEH9VEy
+z6wRFdRAeNsT/NDRFjD/P8ZqfQslLDvrKFXKNn4zUHZjJgXPZs4ptxQgKJPscK+FA+QCHn88JRWl
+jop9yVCfVHVfD0miHCg7839M260RDsJM6VQ2MPI0ua+LEg0aBD+RneTnM7rHLsVsJH312dBq9Wcw
+xarCwFRMCIdWMio4WPtzRWS9zu0Lt3K0W/1BF7r4RG6WRqXLVDqLknj/6WK6huACBrSKn1RY40l0
+Uh0qEyEsGdG4BP4hNmmdN+yKhmYOvCBLp+Xc2nCWXTMQCdJR9ZaFG15kv8R1B/6tIaApnm4wGnFT
+iYfYMHW59kRv+unHrAfYIpe2PEzG4aTygrkDn6JhnE5WYPtjgI7btp8P1ZEjXqmQPDu/c2AQbnWD
+CpZqpwBH+YgyEk3P2qO8yknRwLiOq3B8LyCVse1+Nu7OHBWlS3s0/JjL+pm9Yp7471sXz4Bg7Knd
+HpkQwpAnbu11Dy/ELouHCz/msCOLlKfauXzwtUDBSREeQVuP1sCVL3KR4qQ/X3mHYB/oJQE3g8yk
+KIjwld+lJPSbynWp9mQfxk0tcoeji3s5tqs4gD5XziDfh2PlM+XzMMRBfyqLij1YM5vxypabb1ea
+Mm+7Wb/M/7FcZ98bDMFEB0sWDdKPTwj8/HpfJydpEHDS1rA0szIYByclOKGM8rbJjHq2BbWwFrEq
+SVOg3RTHUUCQoLtGipPX8ZgSmrOBIheaLCO7ysxLA3yn7zGecW3KVLdNHR4cjcYnVbcVwgxXMrFM
+oCXjRoRVC90v7aQZPTs5GoCut6xMbkS7UFlOYr8xj06DN1TcuXWHp1aUF3So93eL2suy1548avQi
+Kr6Q4/I3PFI/1wAXQSsD95Zj9nTmMvZ+xZU2Un4bUI7KNH9KvMNjqjywLI5wrL+cC41GbB+829Dz
+Oz57Uo9VPVRwVekATC7CFbROwIDhBe4Ko2emNpLgbsx//f1IOkpEv8hHthBpiulvQ8Hz0HKXn4ws
+mNTbvUq2fLGcH1ftQumRp4qQOUiDKfNPwXQ++0qg6gAaBcJZQVzZ6EZDkwpTBpXVhIMsZtidfESf
+lQ/cyBQZJoMfLjMSRovhkVLdMU1qGWIToLuRBH+TBTxqPG1tn7WQOcGNXJhnFVfrtpe7NqGMsUsc
+6Q2ZQS6PC5Z0/1FlUmq0lHBLrBkCkaT+JPa12ZQ3WgzKF2+rM+PxO12OpOoWgfk8xRd61jwdIOjr
+VWRRUTBTYvKxKRKvSIlt/bAH9UChmWmt2X0uK2fQ/PQSh0/CCSUU5YRWgXOn3rqQZ3wjB7VLmrsj
+ZXc/OsE7j8ls5y72vm+gYbebGu93oSjlzfbxx5xlq65l7nMy8yqNiy83Li7P2W2scRkAUa6stR8Z
+B7Ef+s2ro7E25LQdBhnDi28MQBeFaQsg1mydsq6/0HVrVilUkZsNR/be8QIMU34W4cJ8+XyMRDjq
+n8fyYXh+PrAGa4L1P0aMzlBNYM0rX3gaFcQ7cBnOLvOpUu9uQoQCi0ljqPpoqlJFKepxikRgo6ty
+cNhmlg+BlT7dDiJ8EYVnFMEKLfoeC8ONoJDOcpaIy1Dh709iGIKp1qBFK1Qv+sMh/WUYYxrW62mr
+WRQP8X68hsEs24EZBvAVTFItAKDWsQYP1eFvWfeQ9/KnQ+LQroe3sEMtGKbtS/38RMYese96viev
+4DkA/ZMUttJLn5+sT2GyH1elor9qF1DNZTul6u8uNo2Dgs4ysFCX9HpRT88SEDIGK5DX9PRY9Dtu
+ea+GPp7kHyN39SExfvsei/yPLodPWonDlb+j9tr8FwI3ZcjJBFY7XloDrECy3jxikjUs2qZpmeXW
+JW66hucU6F4mx4wAzNO/3qPfHT8uTmGya3/PgRWVNVRn3WdlcApCMlMoYeofA4JI2Qs6i3gQ1NyF
+AXKm9D6+x/eGbIPv4TFx0pgxwXiqqa7qXUHsixz6a9eJo/FQQc2b1LnQeOkapO4J7I5gEf94Lxq9
+KONGU0ewo2DSOvV7l7Ji2uPpRknJoNVu407wGZWUg4jaGLL4fSPSalXKUWFY8K9b09G+16LEUY67
+aIqpbVnhwSIvDYIH8GFleOZMQ6Ko1m9AliSosWBywwf+ZY29rDIsGCBbqNP3xQ4viZOroxk9BETH
+AeROk8+7s/04tEoLSHgdK6edNnPrwG1dstD//Dql/rdedGOtQrKBUJb/+AZ/gwwJw4reyw91HPiN
+fX7MRvRwAlo454gwYx7+PXe7Dkvkk203gKnE285lfB8UjSDJu7JL5/P9OIWBsvMQLIDgWStIorWs
+XDjlIW7Gy0jksXJDBsZqDpBpQRITumtvzgKRDtkptZZGIH/p657O7fC/0mhEw3ePTNg2pslMkNDN
+7cXiz6rVPF7jIzECje2g90rDDiFIi4kR2pWgBbNwql5JfTDwZ7aFcGNEuwJfDgG3fFB+xD+vRCHs
+C+P7ZyHtjVV9apszbZa9cFlX+ZdBHdBIz8kJrW/wsVVN33xji709Mqh9js/TB83PBRiCxwj8EBR1
+oyaZUEJakfDyX53cZ1CZJ07Ztovjlqx7t/QZd6qIawj/N8BVMJXpr22JHmtYgQZCVReH2tulJniS
+MRxKU/drJ8G/nHJnmYZHfYjZ/NEmCWqeMtLos+QoW5EiylqYIg9DK4vt/wrjGyj/KjIZBG+9ZR8T
+Gc66c0SdC53l4DdfN3szGSzna+s0PowwASHT5Ly5jGiSx2OzHHRKtL/40Wn4StYsgQT1+AA8H8pp
+7TBCnYfLvmaZaO+SnsQBaNdj6ee5uc18zaAywxSXQMPs4+men2J9sxB44/e9GVwCWi1xeTRVbBNe
+Vv4KOT58GwNiHm3PkwRaLu9ze6P569t65N/xxH75xXxguQE8MdeTkV3L753u875bAuaTk037NSOr
+8e51YG0TaarSP+tCvpZk+p4Mq3ijTS1LbYi4PQ4SGxEksvMzVfgg6eUX/qICk9sZh4/KPmTQhWs5
+rZB9xEeMwhxjPj/ssAA5H5MfSX5jWd/YA5KvnkMjeZTc6X377rzsQnoDjN6q1lRQPkRNNv3S3Kpv
+jytPXyPnUNFLWLObd6HS+0p1UwcFhWrinjip2KVqjpSLvqh1ogMOc7Yb5fJTB8uRXFWd/XWFwPzk
+C/Ax9TB8Q2yWgYcVHQSFf9j7zpv7s+llW96phYvOiFsztYXkOEBgIYb3Qz7P/9/bDeR79zLXC3KG
+Y2cAdhZh6A23V66rfVGfR2LPo/qravCgiPmcp5bPK72xfzvDMbsIluuHJ7jdX0iaPwJTqXWRh9vE
+JfMbV/mUTx6qL/AZY/0R6WVhEC0JNjDgC+/z5txQEBr9wq2PZbLnDFhv8bao/b7p+rHqDR/s26yi
+DDxau3hA7wYiCEBjodn1vTjB96LPf9vD2nWtaVuKp/Sr+A03jp1OhKs5vOpor+PWFcDvIEq0XCSe
+VWxYMXfDIPMHk4/VQ+/Rq1xsefTGEcUyWUo3XXBp3azhn3hS6zCZjzqQULNHesgXcw+Zvzz6CSep
+DkU+Q3AgH7wt28UvBQut682yUA3uvwX0ReOfS/mRAChRwYZkVGpodhyni2EN15zH4C5vz94FMOX2
+E+L7uQ9GjjkfKjZTVv0BhHXQkMFW46pRQJGqbFXiT61DKD0FLzBmTVTr6nx98b8CPWeVnbJVUcQ9
+PqnGvFK/5sQEKaP+xmAyjgml4JYjQLQOXdXwCEwHlUBaWTBRgx99fZjP/MehfZ3NM+tF5wPCVjCQ
+Q7WdgsUSDrWaBH0/Ftztr5SReUXx71oA6zI6kFJ0ioKewgmSXGLs+PyxtnO3mOjbR/unuLGMXfS2
+97ZarQwRiU+akCZVFHcNV+5oIK36bOXxH/6i7qt9/YIAaDeek2f/0KCyH1BO2jObsJDqvUFYoeM2
+H2mfIMnYzpT6pvle5YekeaeKoNcsOhVxPdmr2tvlseha/PjLWIxLEBk+2kITU/Go1DhJG9li651f
+sJ4/JQn49HPJMv3BKmCPshwWZX3bbzccR5PVmCY4kInxkkwk2xGQ8TfM5ULpNJlw0z/D+YZ3Bqr9
+V/gckJcPMZgc1RzGESSQ6mS9vMW8GJbJNonn7qMj4zgu5AwLcb2SfT+aNuiIDviuayO6L5WYr853
+wCJyT0JDICs29rsQISKGUbsDN50e/ud3/MEXZ44n8nvGh0TekcrBXRLrIt3AHY8lfHdO3m1w+Bbu
+yzGGEK1Lku5l0cVVl4nWO1/ZqXbWpQGYBNjRJKNXHfgHSOPqZmDLjIDV7ubZAJjTATpHJPfyOQet
+Pn9U64t/enQPKj1fRZiebbzsntUk0jYt3JDWmvlMB5ADvbWHXXIar2G7AF+HLo8+TakoxS8lQW3P
+cHrE53k6YNcOzmU+ouvVjJovz1HuNu15GJNo1L0A7TxjnIJuyczTAEDLwuY4knDkJOXTML5sq1Zg
+tyBB5CQn72WXdEiXWDp/UzzFGIRfH1JfUdHatIEctH2eosbDdz2jjyyH3CC5ZP3SREsC6yFCclB6
+YTupepTtarrIHaxIJ9pkL4zcoxinxmbDW7J4j7Ki4byhW+R9Mzg1iA85Zx4NLTk29uCHbkPkRlZl
+5jekcyuR7u7nDmdLkAtoAW/cuhFcRThbgw7XQhW6Kr/aBTanzAsoaOsGxx/TmM0/0ZigJ3wJSMIV
+AyynB3o518RwieQje5kexxbtXKLschpFl2kjU2GVXz2r9ubiPEqF+lA0ID9L1e2gObW/WZ6reKRq
+LnteubXkT8IcTeqzSrnAlGsgJvqkaRYoU4Xmqqmh7F6tmin2i1K2PMCCfw8wuyPIg3ZA/p11gOcy
+3WhMcnWCpZBG3sWBYcnI53INI5CvGePY2cUC6GEVD3rw/WqBVQDo5+VaAST1IcinxvwxZBd7al7W
+m3dYzZVIXWmUWbv9p/E52vjgHlFBnZC/t5Owr9RLXkppRwTi/heqPGJKHwAIO3d9eWbkizxU9ghQ
+GsEppCrH9yt7gQ/jJYgYOiaJw2B0kooYYtfoIf4/USQVpSfhv0xKMfuDKhP0PeFYv2mOH/U/ueC7
+dk23SxoM3npUxz9Ou10vgfuh2FKrEf9UBkpkFf5M3y33U1vIIKGOL023V2654bECob+vdFmRZmUz
+cf6TLQFKuhHJTkW+1t6mlpl7lhVsx2R9kgse5ir1oheuMd0kcPUhfFCnA2DLOR+gBuea3BwumgVc
+hAeXKsmSINrxH79MpFafFKmMOYkHHv1eeTqTAZ01+lP420c6UbtLzqE4pGa40OpEleUC2vVB3BXc
+Elu7kQopWyBI4Guw96LMUIeqL41K2JEqW8c1S1jJ5dWH+MzZPiBIXRHSWOCkYnJGn2bM9LuQkyHp
+gpHTLlSoOa36AoG8MEjub/7XhnMgvp/BzlttjRghwQWPcuZLyilqNyDc8oY7LUkNC+jLQ6NPzecJ
+QLmI6qO76l52ONPGvPrpMcPiZ02i7AzhVIsb+9wP/9AHR00m3bJhczckCzU81Im2qcSr/E1rGbVC
+Xxw6bWAnRV9ruOXxv5CPwS1yFp8Xq8nwEvoN7RyIfe3CuU7vUE+nvIl9WkBjbysej73AM+YpVEVx
+4bTlZp+018znO8GAQTy/vjQJ8QcXXbkqacW0xRiJFLOb/1y02owiVtDQ9+LUQBz6j0c7o1GIA4iJ
+UBYEQNaReKB59kO9/Ly+wwVnIKrwecmFqgjPuByQ4g0n7zuhAoiwIXCT8qhxjouI/+XOK5PF/TbY
+leQ3xDX/lUU3WVgpZLRycikLQ24fdy0Drk8QUXgppWIvceO5LF0sETxXH9PQ8avkpCh8QQixQr+V
+52zdDzI5cSUxThtJARRLZcPirE+/GhhWZ1PSo4hDkCdks6mDVLECkWSZhHQxGB1SGoldsaUVYxfY
+BNM7ytQfyUhBCUYh2t6J/2ADmVii5m3nLF4LR2dHw2nfwBy6fHD3RIk1rIDerUTnd44GExwqaZ8U
+N5NvdOZN+SrTeUEtpXMUwplFjKM0DLNErqBX0K49EzcKvP9JNyyVqUCQMxBoUT4Oy8KqFZ+utmY2
+sMgYSG1ArBv76vxqSCGrmcNX82nxN82lCEGeBJh44z8ewuxX/Vs4w5VwvoTquMM+AngqGE8PD1Xx
+wYQAPzggRJcfh/bchsn6h3TzZGN0wqAe+BdBeVwnh7H+HeaPkrmoTER5Igr/RpmzEaa+elynHXUP
+ea5q2UyENJuglQhHjFpnw66Fs5m8bfaoq64efNvnUQR0xGdGykhCPacdpL0wid7HeskfKrzdPp8C
+ovUGF6jcl4rIxSehUXLIxmtKsbmUUJh/riZOp2cRKEkMisYMfG7bjgC5IhVxWvwzzUFQW+k+qX4n
+FpcBfODe5/+EAKF+tCQClVYA4Zdx72QMK7h3fGRHY3WTqD2UsTPD+MJ+gmiQFuyGNdVJ4yPABGAX
+fZlNXF12CeoldHdthtTDUBkDmzHmVuoDeqhJe7T5gT2YetE7XmX3uLyz6FZsZ7zucZfpJnh5n7xp
+HwY8OZC0sAoPZKFCuqJeJZt+l8UbGv9tThoUTfCqLlS/6K62ejNtrrrS7TzZGu8jsCZRqetz6hDt
+PaWDMt+N33QVGjhtST6X1EJXmkqddEGvJVZk0Dp2SME3drsm5bB4Sx8hVGTQwYd1tklpdX8V1A51
+VkRS/hA9K3TZGWjJ8mEBt0H5tsrlrTymAf3NzkvNBvP25JRtOpvCQ9ssw5raqrtI4O10xoJvgtvz
+3VdgCeDMNus77AbcVQpQaOLJ5zUR7zT57BYeLbnvSb6qRzcNhd9dwK36jtK+4CtVYD4QeS7MSFRy
+tj0tvJcK/wR36S729uEE8ZpRqzxvxjpPtgIKIPjBmGZOi5DPhGVGXke+oDzsA1l5WeOd6GKXd/cO
+oIOfQ0/MxEqRVOMpp86dVs+Bq7O9Cte3QEg4oqiNEiL/8BnwSn39hmp2HLJDuxoUnQEcyYZUdByt
+0PK+ObzN5hTczG0aa10iInytz8cUxsDnACO/6CoxSuwxEycaAGBaTMYqYUBnLolhn+HhBJ2d5/ks
+kKcKVCA4ZnZUpnprJAtgKF6sjMf4OmtyCdqgvcSUb1Vu9e1pyx2bWmDp3y8PzE1bODZVchPQVDxD
+dbX6b5O9x7FZqMtgNIsN9SRXsvYjEHxCGwVNR6s87upCHtMP4UplvQ41a2F7jLEbTWhg3auqYa2x
+xX4drPgPUi5+HuULWH5NkU33Re7KvveUIrwIMadNaszbPveKu3FYH64C4mADg3Vu5P2wY2ySbMcf
+N6naPUkLa7umzpJqj67/00TsAK/Y4A1ISlhPCFWFVql4Bl3bykA+W+sF5FZ5eLN7B1mFW2wUibd8
+23uDc3jTj8iKRAV440w08CtgTX48QiAUApntobeHU3F1IKqRG1dZJAQbvfR+LkFREOYJXjUzeU7b
+Ji0Z1eSCKo85/xibJUzYNCAEvL0uk/4YF+3Gozc1Pmyv8g9farklx4gpJfjJxvi3hSpgjyNm55I7
+HB/Ghf1PkZel5Y8URcMdYy6ghVp7ojsyo8B2vcTRg3BrfeQbhhRBQLlxYXAOMsZmheraHuGF8CUA
+A9nvNvi4FcFTJ3vHbKlVtZAz2GMS0mSLfudfh6Pq2k/sMya7Yty8aDztH+1hgj+8VSTrL5nMB/V5
+qrNs5EK//4tEKf3OO9dEqtcJfx64S0XmSjbBCf8rA1RUVcLYKUyUDcuP/0G4Lo042D/ai7jc6ojD
+H+68+bNG2d7laBV5gjngjllSp1wnMStGhOXelFNgPcGVfCiF7J+3DkQ20R2J/y9dSmAtmwRDlmd4
+ptF9dBmHiQo3JbdGFG+vanM6e8/dXKQYX7BEtDjneqKahrIqwvusVB9oOPy41QNSQW8vUCq6/hy5
+8mqDwVXzLURBQ5J5AlEKVdHcTNGJOjtkvySEsFIcZ2Fzu/xLpavQeHMQsu8rTVeS/7pslOFXIzjZ
+b10xVE3BsUWMZxV2MkxTE98PO6lLZX6jI/RPGItRIN4hRzd9sQ7ZJJEtrRZvmQgvwq+sWU4+o/+F
+rVLso54xhWyJeYqS5eqREUHd015wg7UVgGlHhVybZPrPE5550zrywLTbZbq7S/s8A4aCrEHYve8p
+0cbc8f5vzLsT3GyIFh3+oJU1gqXOpX0ZsPxEQr75wXn7Wt8ujsJKk8elO779AxAWAlsAAIQAAAMC
+TwAAA8FBmiFsQQ/+qlUANpYJAAKbPOx2HSvvDmgiX/x9MXdvC6XbZ0pvGPBzZgOAc3MlfGgyZKw+
+3OYz30R2BFbZR9wv1wH3lXZxAm2dWdQJPEcTj62tnmNo0vD/0mKKgOSQKJ2NseRn8y9W5fdmzQSy
+QHYJBvrUEUP+2Af9gMt5lUreCtCTVBZjeAgKjuOD4v2oHUVC0weaa6+hrJt7qHHzYlfAZK45SqFA
+qd8Fgk7+ztLsVb4I7K/jyvm/aUZF3bPhjVUZtAq7gwjc8UHhanocTFIKIvX3hPwaIwbr4ElWGRzm
+gfBEKK2QgjOtkbASHnjfflaytjVPXXrc3SZfoFCHlZRVjk3Z6GbZ9DchCkE3MIXCYN+rKOgYNf26
+7fRWv6+/jIcS6n98KwS0SVrY+tVPE80evFlx4D63EPiU58QG4aUW6HXDXKzI1UbOrKjgsFcRP6rR
+D7SaAaze4b34BeMoghci04AlIEnKwATPQjJVMJ93x5KU0zSpn2WRstlvL/Yn+BfpgOxGvDKXrjI+
+f176p8RdWHmlLit5Nl869P+YdgKmKuitDTvM0UC1CVKhdR7uLvjhj4BRjgKrSjdFrqdMU//R1+Gd
+YKhzG+vgsJMRoIB1Bj4gMcHkMJn775k/dNmxiKszGeYxW/wZzpf+XjRdBzPqUa04PBCxEBIQAKnw
+e6cbhvnktALk/LY5aXBaWdP0us+aE34BDyIk+NWiNaEdXGhawNXCxaqjcW9DUyWqQmbKi7qIXPsU
+Zt8nqyTWB5t13pSHUtpyC4GRcC5xUBCENKB90PdQhqcWLY31E49hdkz44ks+yjdPOXflMNhf0Ciy
+AvifrPpPloKhpYWuvdnBJNLhrsDuwjh0XiS+zxosBmoyb2+WPKneXJbRpB+yIH31rqH1NwRt6Vda
+lHzpY6WEuEXrXkPcn1KCY8Gm3ivavDtF5i1IE6IpUUnf1Bn0gNPUgjbpCGJWI+fFfRmhIxYomftR
+6ft1fRIwGC+8zTMx6DL0Oc/SCBGcMEfv1fDt4hipaorVQcv5+CW926a+MyrxEviExF1rGE+YX4VB
+92aAnGGMdVaBSas7nSiEYgiHJiqm/HyVchLGzk59qPnqvKNNbGLEtPUHgKbT5KNqqvMZu4l/9Gbj
+61y5wGzg2CmlupksDQhQae4HypdG3P4bf3recTKUvZ46le3kDAap52xGjXUjX+VZc6gOJyCJSVYD
+bXcFOiXPnuRYk9LzDqKubKHHZshC842mNYXxIi/fBx5IipXq6/bti3jDiBiqDACUkOjFYWGqAAAC
+aEGaQjwhkymEEP/+qlUAMoaBMQ5prWwAE1WkvIRZeUuXAsrbn45YKD7uIgtEMInBE2maKY+aQ3KF
+fd+P2F/eGeh1K27Zrt4Vo7PgLvM3aI1lQ6CNDtE8O3s7wj5Dw5IJe/Zc1uA5+LbIjAKnoS5g7xD/
+PF+1pi65HNyTgc+pjFq3CZ5BdPAxTr8d2synWOiq6iLaaXg+k23Z5/fKN9wQqJ2MKvL7Qg06nB7h
+vXs0ljZpzWWHoSGzFnXOYk4dwLmn6vzdIxwVkoEm64q204Vn1vJ5lsXQmFFJVjmhqmKyCVGQ/xTA
+bEFAv6fdTBawlPnJFXGSBMoUGt4sRPW3f4y+/q8x/+gJy27fibGZk7nlY0siHkBYt/Rm6/UN1SMY
+99BsZP0lvLLlSOIcsMJdBafWW7+J0IxGCDe3APvcg2D9z1Fl9KeRbHQBXjr1lum77w9SfZNfpx3B
+D+QUsuuZJMeObnSpDWX0eYV/TqLyE9E2kI9a0sAAraWLvtE8qoAiiQHlKSDqSIYHHIItJPL68XWt
+vgiWD6us3ZTa2pxtR5W2gK/caJHpoHD0PUXgblEj+u7WLGp9v9/w38nV9a0P5E+EMTzPaWkDa4nx
+a+RH3Le0W0JJ5hJUOYRtJHAB/A7fw46+DecvPT6yZ7W23FnRuMgxBDQJGS5Svmzafx/LXTcGCfn8
+vnJX+JDIRQTtKsF5Eg+098EUmmrlz3EnnZGwcCFi9PiuRjUsWF8641ZidNNOv1C1n62GEqlVWn/0
+hJfYfJRs1krYW4+wrQagEjNUWGXoLSv1tO+Kifd5hUe4skfNadg3jerQEQdcLuEAAAJRQZplSeEP
+JlMCH//+qZYAvXtskbzT3oALmaD5sBX3pV5ApwK/j4hdiLf4f0iv39CvKE9gPS0Bdr9UrvVj1sD6
+tRXUAXcUz1VQ7O1hgygR/mgj3d8VahrPCy7qiSD1tDnpRJoFiGRs0w5tmF+q2xgKrzbJoouUlfci
+RXmR+53Jgd4khr9rmiy6i+S03roC0xoqZZ/5de/0YehKabk4C+y6soLPNDMASkXgIB0IBNf3R+yr
+PYCoZnHDg1J/WjM/yzl8omzNtRLgnVwmCSGKAQZhun8x0HCqIQIX3FzZLj6RzhJ/tYYz8vw7MT1r
+LAG/gYXIPpiGKGSSh1qcfeYyCBybu43c1SLjTCav60bNZr8BmzLnz8YCQiWsDZ623YbtPv8iOIjE
+0zUuwFOybXZ1YpiNxHjS3J+7iw+eZiCp3NdowkPOlIHSDyVgRdURo/0yvCgsNrcNa+URKujsL+bx
+wzpFc5PgVBG3EmRIg84Ob0ErukOV24jtF/FOsTF1oh5rTy4wys/vDk0HEe//7rHEw+uDaHglNQB4
+7hiaKCJh7yL9/+Fur45332pIxOYE/H4RG7LtpJBkxNDbCVteckXltzZzvaLEwFsUTMVX5/K8FzAg
+gJykOiH1waICEZpHt0O1m54hessk5lvPLdaRjb/kJGiiRN/eNh3edBVhFzrhvG5ojRNI6uu/3Z/R
+z5aWSle1LvxSQ6dH54RzH9nAGQ0RgG/p8TE643Bh13nmHCcNEQ956Pid8T3kvRy2kWQpnxDoqgzk
+Ze+IuUq5zg0bSWdDkqilx0AAAAFCQZ6DRRE8N/8Af0AV8pXdNgVpEDWh/Ccs8eAEgmwFIFSCKvAO
+DF+YfSVZxJbJMYZPwUpM4mnoa/hDQ1/Z2UEfHYwfB3iDnJjRHn2atysSR42WwXyeRbTUdmX2a1S4
+eYv+yvW+dI/m5tqRozZ3q6dk8ix2Z9lUp+l9BPfrS69tdJ3NPNi2WcYjoxM7mV96n8Z2C47nNGiJ
+o/dMmGqOLqamGdMlAZFA92Ux4x9UE8jgIyGFOtHD7Z+Rw1fk6fD4gr46YxERvGwcr8dzVasPryfo
+AxijN7Z1qE3r1HYjWtvmFjK/DveU2+VXwq2Mr24cc2D/1b3aTwtN8dYvUD+4Cp10L6B2KrN3fFbn
+8C+u2xAEP+D4cQo56z6y78Y3JGsE3b7oess4EVKGqFxkoRLrbeLLzpIr2lKtV/jnYCdEgo6R/fgK
+2QAAATYBnqRqQ38Afz+z6800p+SuAElxtZArz69eOo6AgoHibXVpqC+03YTz39QC7oxjBjhMjF9t
+VK1JLXm3N75y4liYS6A3TQIA34fqq6AaILWT4BZsvHZyqiFcLOySRAzTc/TGJsDsoAgsANcmEmjv
+kUnjEtPs8U7zJdYRxhQO8TjzinR4Vl2XOHYd2NpjiQV/gPrCRyMiHlAIaoOSD3ikUsv+1tKpnbH0
+nSbwhm5QzQFX/FJ0vEcCFzGYd6Wamn4pKCEojeq6iRjdWC5CS7ladIIZEQ+g9w7lfoeFns1QHa1g
+KSJjqI6vw3KqstU8Htw2gpBVszu08bKxve6CNjnAfT6gP7KGIiYRga5oHHVZ7C5jbLKkKEdWCmWj
+w1dGkAbiI2e/8RtLIIBDtnkHYhvfJmvQNNBwQBaRAAABfUGapkmoQWiZTAgh//6qVQAvAmv+UAGf
+wiEFjvzZbSKE/HLCGw+tv7gBLuqQXrAckNsr+dlX63NPQmh2eY0GucI33cHGekpoZpaxCmqrqfKV
+4jSYb0cTkdZ1LPpJkPPgc69ysFIkxKGRaF/LzUvLzBOis8YxHxsU0ZoMETJpmjFQMHuh5Qtug1Bu
+kQvbpCfoNgqapX9LacmIwwufyjZt0QdI+wVEoKvP4E1J3+XMLkBfbENInGJ95DNQW8yGZpgXN5L+
+kmXGkEbgLXsZU4BW3RCZmeducPwU9VR/mOo0A20coMhuyq+0psulH5dYZC2Anx+QSgn9IuzenwZ0
++PJY9rT4HqonhZG9tR3pGuUTe5ySJ+nz4930ixvpaXNoAGEn2T3tBrDB+u1Wo9TmEqn+ACAvFKIY
+Aq79M+y11JhRlDVnk0CfL70vF7z3b/8hoFnTGijzRZS4sJqLfh8CsdxVpfz26Araws9MDOzRsNCO
+O0bFkzCCN2yZQxKVsiO4wQAAARRBmshJ4QpSZTBREsP//qmWALYsNIMFAofMN3W5sAJSCwz4beq3
+6Tuj73U2ZJl7wS+uZrwVicSrBNbgquCRChd6dX1oape/wE+1a5nv/3F6iqX2CGnKN+eEuOZuDXnT
+nIfB5xalPSCQgGSSTTN7NvbQLFevd2u815H3SyxC2kkLXeb8gFadghZWeoLGeX1Oi8TkyGzYTmva
+v1PxQ4Yv1qEnruGqS59U5b3/0R3s98YNycUVPwM3dEXUL3PI+EaerH0rJCsUyv7wla0/Ye7ObZ3z
+V9WUA/WJIAq1Fit9grGTed66RYnpG0JbBlIQchU1k9PCAC38JjARNFLIQrDLwqTC6WWTIg9NKEyt
+yBO5q5NpR4Hi62EAAAExAZ7nakN/AHwTuNDe7cOfCi4APmqq4P83fcLRYDBtLYcSQQPcgcmbrT/T
+DWiG3Ryp34uErb/Ids5YN9fGbc7XlHP96Trd7umQuYn9VpuUrfhBnBk/k0ouB+CjF+NFYzkogu8t
+8TDFvmGWYrZYbEZy6nkuxyRzCQqLfl51fvyggtWfUCxSbJR/Ua225rwuVCnUfZuu109zecdFUa/r
+bqShaDbko/dAys5rCu1C8yt55GqW6EJlKff9ytWnbWKAVw35OBL0d1SkoF5xQV7QO5+ds+tHZFia
+LIdGqpcFZQVlxeQPV0HDltz44P0yODVaW19QqAwswj0H2WnhfR/Nmphg2BpM+sp9pJutavxHPJ1j
+RTLxqVfk2BlPEtgAWs0o1mJr74hV7HlPRTo8AyorR4rwGPAAAAFKQZrpSeEOiZTAh//+qZYAt3xh
+ODSEJZP4BJuUqoAAlx6Y4k62mwYPtTqqUyZorqdA6QiKkw+lzjTtMxN4bGq6NHz9DqWhsi06TAJK
+4H5qgMN1JXUsON2qd4eUU0dlfEzkBr+oXUvnN5Ry1tQX1ikcAuSwCDoyrB6fweXMRduD0VSkVjHL
+exJX4U1lHnxO6ZhL67qjsee0ObI+l+Fy4TQCN17BF24y6G7f3g2JPy1cfe/aFbt3uxRm3RcEfYyd
+mFoSu3zGo2wP3mHf3Y1Qb35dd6Zsg7NHkQjGuZxT+yy8B7oh+1T8RJMPZCMX6IvmjmKNtbFNvCFh
+pl9WPl8v04jhUXa0hr6eaSp9cH8nDYFDx0lTyY4KzSCm23gYW2Je/h7If13X8laCesxrDlPBJAm3
+o5vvdlmt0CGHn/S6cU8mZIekxhI7ewHFPMaUAAABJUGbCknhDyZTAh///qmWALC0SZ0boAP48/9O
+nUVJGGOWPVf2PY7Hr8RqbDTg+ge+zSMndfXgBgf65oXlIKoIbZzGwYN3j4OeFHj3v+tWp2RmlDU7
+rVwwyFUmFGOUPNPndfN8qqXLuDEbflKisgrWNIU+mYlYbdFW7oD3TWSSAPUGSYQ7KrK6naCQeh27
+XXDCf6LpkCaxQnWfwZUwxNK0EBYs//cHv+Hey4HqQqGyi4Rt9hzV6heCNN6158WGBC9tLHnfJFbA
+DbDlH2Ku5Sl9M5+b3oevauXitcwdEaXQQRYy861Sg49Htr+5Xvs/4eCGKKTt8aCbZLsPktFae63T
+Ssr5KWozzk1kT29PgDtUGf1w/Y/64JZj4t2fcOtHzAvpNSvZKg1JAAAA4kGbK0nhDyZTAh///qmW
+ALC0RxYxS23ODhhNjLLHQAffumCPzlTx38igNHL/11zb+Qcan1q/6qypT2twkaIzCvvE5xlMrXdU
+zIgdnEgD7Bf4AzAEqnwB3QCvmx+UZF582q4un07dV5dIsNRMDYOHW+UO8c02iNlsf9lfducBE1+t
+jz8j/Rt2G7zt3k4SNnx1rv9FpkM4M5vFL6y8i0dnSxUXGVOJAOCEx6YlLglOu9mI2rWXMCjuSbc+
+5uj/gwLAGOuWOc1zw0hWScXlcslpxKEFO5RdMSdqEGkvPR8TY9FhXEAAAAFBQZtMSeEPJlMCH//+
+qZYAsfv+mTD1k8AK+mTPVS3yzKnHfdo4SWw4AXCIqKfRDIXMp2G9F/QH5pV8upJKQx9MD+5s7c3j
+TK1b6se6ZHfxHnr5WGbRz8gKnTs4zymHiV1iKlUlMA2eM9q+d1IV4kBQ2WjxuwTrNQEwRQCxiRpW
+QGcdSt6S9RWHe9yZeE1voRE17u6RIvacMCDTgtbxiYErgTR37HI7ogK3oSail267lcupnVZnsyoT
+DaKHw5jvyuUHnOm3JZWukLCKFg+xA3oykwzdtiTBM4hoGKMJeQzJOI8sBIvSjgTqANX8i1mSL10n
+3MR/fAMsGgPgZ54z0lRBCClfVWi24U1cJt3cG1HTNnp1e30eSqUBeGf7Tj5BHYy6TimsVk105RrD
+h8KT3JGmkeysIXivqEZeaDCRVgWtTyzQAAAAw0GbbUnhDyZTAh///qmWAKsSvzqbOeeYQrRHdtvn
+HgM0nACO2ZcAy25AaBv7IpXU0bBvfEfja+7edVA/887sljH09Mmbt6ywdEd19jtARv2eaaNa4TCj
+V5JGAcu0o0iakWUDIXaB7nHgr/KgXfVQ9AXwRd8sVpYzFEUVuFvbYNDjlWcyhdHszORsEJXmyU41
+SvfA1OwpgkqPObEka6XekF1nvC3nP2+10LRn2M7xoGjll5lDwUQj83fINaH8VfkoxBfp8QAAANdB
+m45J4Q8mUwIf//6plgCrLCqlItdcYmOgBLYI4Zdc8DtSAiI7C2csusxp6ZGeLN9yJI6F1W7jTupU
+LXN4dfO1tNxLF1dpwpGCRG6tJPJldx1BurWMj1uaj9G8gJW6HxvhJk+phVoFYVj7kxbbrE3dqHZ2
+Bhequ4SRCnO9WeEAXUJq6G6XJGWHL9Qaw4rik9e/+da8MeMOeBQnBCkfmQUuH/NqZfuvflXvIHEw
+tCAYBcC6TMINsQfuy8mxpc2WjQ0QbqvqRFLVFaNRlQYvDv14desatT6DpwAAAPRBm69J4Q8mUwII
+f/6qVQAsfxzfxC9GgAXQwKKeUqJE75PU76xoHE3MsfZesdVNHG8fMscgJPEq0UwOcFQ2JrLGGn+l
+E/wrLn+6BwmssyXL7iA8ye7IdltmFLlP1wltLj+QQSqRQBjh9RgFgIw+/cv10dlCaV/RVjhfrcDC
+bf1JtQfI4bzv3ONx2/8Ejuu4OcjXWrNoAyrwDHz1amf5SavmMFsAi1uRNkMx930VAQvBEDsuioAx
+/k4JiIhh/UJNT0jGXwvZ5WGlPfdL0aYtTpz7err53r1TrGc1TtdBAihjVW6nkUSyLDDH9c9M5Gp/
+NbnC+HCtAAABIkGb0EnhDyZTAgh//qpVACrF4g1Kj8ZChf5QRp8JhRcr0VqX7z0OOv46Rw31SN0W
+Q/4zNgMu/9D8doLavWxPUj6n9Fh3IbNlmrIHyiDAdMIxXd06Lkz1OJm+B+Zvvg+qbhnZyjVMX59h
+FXV8Ue99Vl7T2yyecWrW+qqsy7ujFQPhS5dRoSq2sOlOFTCRrMVYbrV7g1E6pNJpURTyNGUM7K2n
+eDS11Y5qKgB5UFvLoVveExcC+8f+0eDrCJREycD09piOicC5ScwIqtaoylzTMKXuWWHqFR1GgOZ/
+KQStqvKns2/NIkLaPcd6D9b0VZIUETfTD6nKDQxbndwJOK2+uJiZPQqDH1829XuINtv0TSYxQ4yT
+OfU2BVXrXhNRM7BaAIagAAAA6UGb8knhDyZTBRE8EP/+qlUAKsuUx6Ueru9EPAm1ppiPaSQMJhy/
++k7RT8PwRQRPqho1CHpyt9sC3wrK+CINIWW6AejWPsd3aicLRlPuyBa8XK07S0c1jbGWaF0gAehc
+1R+yLlOGeJamoeLX6aVW1YqBa7ldUbugeYu7dZboAN5ypsUAvGpyZtvVTFtSlnmfj/mAlRtoFiGq
+V/cz9odE/O194P1Wcu4lzBAhl8HvNl8BAcRD4oyIeebvcJvBOg3/yWBU5rYMXxryByS27DFXq2Oj
+nvNS5gjqoeq0/OlB6bn/RTsbk4M5BT/qAAABIwGeEWpDfwBz07jQ3u24zmrJZwATeK04iIbA3RUR
+6UT6xGgd2fCZzefI+cyQDpP+/buBISfCS/3O383AFbmZvuq/i7YKB/zLmcrYfgYBH0RCVPwpux/R
+ajPfVjnOsZTDJUeX/4sU8Ru1Yqh89ClP9oHq9AqOO8n2BaMWwYrYh4IcAMyh05HSfM0BpSwjsVeA
+L+ha1dGnqAMonkUAEQWZ2ICsLCW55+wcbFvBLJlqc35e6fZ+nep+AMI9MTv6yrb/LsefqueNNcI6
+yMj50XZ5XlJFVz03fRMDuAYKa7RhaK/4du0k7C4LoLQdc4q7cJbJuy08ZqlM7uTRu6Q3/kzkKRnH
+3RIU4PpcA7DmgX8I8jG8GdHdIury/1aUH7v1MOFsVQAEPQAAALJBmhVJ4Q8mUwIf//6plgCm/GEf
+WK1eZJ254Xg8jdiHAA+t4rIn4th22mWj0mrdOzkC8/n8eu2vuVRx1u0NrFarKx+669jdgaXPxd/n
+y8ny8yR52I92pYuUxPldwLNSFyKmEuCljQLL5KvHx3DBuiMbeRm0pc3laM7jkxgdGUGbz3i7eyPT
+EwCuJ3QV//sLI4Q1bmSami563/3l/E75fEntLJaekPYCAeeHQ0N/wwiyFWPAAAABLUGeM0URPDf/
+AHO7TA72H4lJKkWnmAFu6ZuOXL/b96h4bVR6ANxSznPfUsU53J4glMwYnDRFHdbWQi7+zLx+Fqpl
++gW6Bde5yTdIe+twgne8RMP3gcdrTUgRaVns36NPKDsI25OBk+3VLWZuWE13Ds68NqLcIiC0dgYL
+iQPHR1ysztiBKVhn20UVpsX5YEp8qAR38YfNhSht93ayEwZkA/Sz6VOf6PsfV5ns2oYNvilCfTTT
+Y8PlYLremFPnby91e77Yq/PugqCu8hmmn5RpawfQI3D0qqxYI8hDTe7aRUY8cirV6JBI2I5HnH5b
+LoxvhzHdHWwGRCTyDRIjMGwbv0yQun0G1t98+axZFy86mHw3wY2LAXu5/oZPY8oKMh7Be2iIJTdL
+52mXN1A6HdAAAAEgAZ5UakN/AG+XMjxAAZ7uImXImhaGVvcRLrAjrZdIXw3o/5ra7r0OFhH2au+g
+MhoObzRlB3efdJAV3b/ohvW9NJB+ZyyCZ/wDIWxeDvt6dtZ1gSiXl50eDCX1qqU2/g5mqBhDWdHF
+9veLPsChuVYbV3BEbYoQr7yw2IyTy9W1Bj9z0FoFdCbs7ULdBOAMFukqfEsFRqi7rErHCp6nEEDT
+KW97ATN2+y68nJS0Z2e8OBtAylksTDe4AQBIUfwJCwieAIRMLxriGkYyMLMx/8liWewBGEDt5Mnd
+tirb2yNC15WhGZMDUkLGpmZ9t1XyqG/l4dxyA0jSI7AsVKmb8uisJUdUb3DZGYEdWt4KFrkbzL0R
+bRQlsfpkHIi0lzdI8Am5AAAA8kGaVkmoQWiZTAh///6plgChKDHoO0sgASspXLv87uB1LlRU+Cdl
+ORfN8iZChwc8EPyt3/2vbnub52gpydY3pIet52f31gYFj8tNBZCqKhdguwiymDiiVmv3yl27F04E
+DrUrakWMmp+UvINSUKgRPek5lmGXmZ8r7nzdHw2Cj6L5F1Ti8fqmZ4U6y/OkPi2Vcovy9gS3Hw9l
+W0G5Oap+tci1BqZLEWBJ6ReKyq3VPR5mM7ouHr77mAFXY5AWuTObJ8lqzMuGjI+zvlyzlAt6d9ex
+l9Er39YtA26BmWUJjc1pTU8FE35wu6c9f8m+X1M48ELAAAABNkGad0nhClJlMCCH//6qVQAoOUYi
+zGABxFoinf78HPYny4v5yaeSPL4Iiybo+nXQ/cgyXNwurui/SJtv0lNZgXmSYly+USvtyxB7wptm
+F4H9xlQPTNKlVT+OYYNq3tpoAnClkIY61WKkPlD2OgkO0JTOiAYFM28r3tCk9JNqRp0EtYBmODGA
+GG4nU/rcj8OO8vev1OqVgA6dllQSS8vh5Vw5Ej6nfZTcQZBexhOSlIedNY6LJZQYstdo6LkAongI
+x6eAkU/mgMHjv9uCAq9TTWLrgKZVk7zbvyx+ALPDjwOesYxYW7l1bH5JzEHIpch/yQLACxD4bVxV
+gFGr9Vp8O+7EBOmfPdpOHH3O/E7ga/2yPnZqtoex3EhCPjXCvuVvORtMpo6LOeg2iATdqcKjiOti
+sUowi4EAAAEUQZqYSeEOiZTAgh/+qlUAKDKMpQbEe30AALNrKLYTMxQTbYvDisOYUJp+9RF7t8aE
+Ba800JwoVEjY5YKiU08bJShB8DGs47MGPGxyiLV/BuQyQ3Qrhg7kfuGLloKO4/HM1HP4zucaYOrR
+9KEIQLslhu1cw6PROkYJR4gQHrLr/WRkQN6VD3cBFrcvgVB6D/p4NFk1L0tnNsAWIzTSSVDjyS9J
+Ifl24dLZBSJ8q3/0dAdNr3aMvIsw16DK1DsSqqY1qEkphFH59Mb8RxuJuzncr7FJGWvqzWL7m2eo
+PxI58QUTySMo8KjNCsr3kMqq6JkjmUygd56rWZsg3BtSDW/ptnq6VwXFWVrIES9tf9XezhIJciPn
+AAACFEGau0nhDyZTAh///qmWAJz9EXbrVEnSa3OzfAAIhDGcH/idVQ/TGYStI1ReQld1PyXnHiWO
+j0J5w+CCulUC08Hhxd6Rzx0qeUdLzvDZtdE6buM8Q67eZvQoPTy8xm4oCi+HE9NSyBKiQI5o87qL
+p+4I5mKSp1OiTWq3Umb1zeF5Qbj5iPPVh6opION7iv8NM2Z8QuAWRNoKxWvuaNfa2WJC0WhBHgQG
+NlEazKtXzoIYfPZiNE6t8uTlgVrL+laHXXNgX6CR5+o+/vm4rJaDKETgH/evhvBQmNb88h6816O9
+LsCjw06ujnkofxvoNw/6s5IM8Jyh/lKtOuLdsVOqurlUyoStqr++axvV0in9ZHfQthT+UbZ7Nzf9
+eT06JUx9YUHsYK84i/mUByiZG/D07jvziEoIpIusPjXQvjSvO19M+4XcrtZAamTb9dALbKJTh7sF
+yD9dRmTOf/9KxycMpHPtl4pAr/sKqzWXSjBNa/k2Y/sS30gEuSJTSwN+lVeNmh6kf3JyiI9T+i0e
+gPap07qUAE/R5AsB/c3f2igmVaHF0SLYCbZxG8Sbs6xFs6ZtKPlCPmQtxMrJauS9/iiktN3y2Cg0
+9iJYIPp5AQTfRl37kUx9j/t4LNcDh7Q7fo11QXmLL+cW9IQM4vrfsMv78b+9vj0hMaxcoKygExLD
+hR4BjfIhCgge1BzgkC48UdVmIA8E2VMAAAEuQZ7ZRRE8N/8AbcqwpyDcYzPHu+LPUcl1HNwA3HqX
+xGUdcrdK3grEai0+CmwX9ZXZopF+36zOtYcN6XnkE8NgDvYN1NZVraee4qgJCne0B0Yziu6tKWuQ
+hHl4DGKmsnU5pU1Qfp+AlNFiihCv8VYDr2C+Baylz6Y6e+yOGK+Jx9gZQnkhNDGP5ze7xvUdRNoo
+JXy/4OipForyzNK1iGd+yJA05f4QSoL9DzTzMDTlmS5kfF6OO8sY/Nxwu3FuPHLgKRV/XVLu1ODJ
+IfkhPShcYN6doujMPwqNvpM0CFMsa906rI9H/mzyINPI0u3IEkgo3ajCRC9Nqcan9p1l+jfa00Sn
+GbRj133UY3JNdPRlAps8U2hzI7ESRMzqEqfHvUxY4V8piUhrXcaFzZ+8DfkAAAHmAZ76akN/AG5A
+GOxmSLMG+ZcAHbn9KSmwgoOWyj8Oj3Uv5eKqH1MkmyNbDFJvAV+WY5ImOMAiUhTClYEQSpaVD9AC
+1qdPbBAx7n1DLn4Hlehygr4KS+RXHF4aVrwr07QoZn9CzhL9tYGdQTGy1nJdMcrrridzw+zMCrBw
+WpETju9PvV9JsmRLWc6a64JDQnNIFKBegw5mM5Zy3x++TAJIi2hPr6KXN9KpeQSqn+lSPXAZotS9
+iMznJG5psUTt6eYNnfVDACxT7lEdWab4ZkhyQ2K7eByYHotABSalT66erg2k9XJBVpETcnN+bCeC
+P8syhyCaAS/ydwHaQv5bz7w6xj+BWjU2yz6STyCV+/QsYQYctT/0H4ycM59gCuTqzrIGfKRYscu6
+hcvVZTjeRc/L7/OgxH6w2BOqFys0W4l1dvNu+sTMwImCy7KZyLIyFPXx6J+NUvfaBOdxG9LbU/Y9
+T8UIbj2imaZBYdvi3EzsZHjCvAtI/i7RcSe8iuJmheQRPbRcuyWeLuxD/WMQdEPk5IUyk3w+VoFC
+UVJIkb1DC9lHvVLoGza0rhbdoU8+j+BJMTBf+H5SI0uNhU/nViqlIgq3cN05YHJ1IGMJ7ZG0WGgf
+t9Iz4tP+VL4AgcxToiU7Su4zlEnAAAACPUGa/EmoQWiZTAh///6plgCYKvWuGHwHGQzQEfyj9KQP
+jzPxqoZnrfJzSLGh1/l6+7YBoAPV5bk3vf8unXpLU6KS+H4Git0sH1fL2u4087k2fS+sz4A+f5a1
+qFwEzxuteCwVnk0ve0Z5842euG2b0lPOnyJOVN63pfZpPWm6OJd9ERmMtHi77sHioSWofSAwB9hN
+tcMmRZcDipUM/0DTYXeQ8cnfRsTJYTH0iUgxWKS6vNoC7iRDQm1cgnpdNE+qvqTp1MZAqZLKSXE8
+FJ5M+FKVLBKGE9Y6N4VnQbIsR1IGIt4M9Qyja64Rcr+i90RuY1Nj5CnCHxgFlk81yLcDfOsQkjkM
+0ooX9ZK0uvMk0DvUoSW1bS/oeMA6dmdV1q6+cO8eknGN/ZPwc3NhNlpIhhTCqEuT0otJ7nQ10015
+Yw/m5DRvAgGYvtmtSup4jtfnbjXLv+mSITfPOvBEgE2ilYXhE+6A1vtYHYrNOS/mN5Asf6IU7AaR
+BPl8MSLJxJIllrQV3x7rk0Fhe/aHxzZJmVBhs1o6z0PmMGGvNL7FziATmer0nmCUTcIbUlKwHIa7
+dextUil29VrugTcE7adOgJznpv0ez1RXmhhtJpOyANMmo/wwnytHiTN97fmMpaWSUMgFuqucilxx
+cuL41VJmUhICtm6sPQO583DUkJ0CZj4Fd4uxQ3qmjBNQyUZgl+VBwgctdDCnsnskDhjrLnwEXtk/
+CylNWLMbFDi+e8WjBnwnX3cOUcornJ7YR5Yq4QAAAuNBmx1J4QpSZTAh//6plgCY/WKxf+sAH9de
+O+zfVJom4sQXzC4aJuGIyF12rIpo2gG0WECmXnvz2iR7/NHBa8MredlfzthAoEznkX2tTbJRGu79
+ym9YijKs5JaWpM5uzV5uAZR07LI52Y46Msg3/que7o5sHxMoyum75a3w64TmmTg9sV2AexL8jZMc
+30C2s/tKLqw+MpSZow3kpsVANfZlDG/+H006I5n5qmm9vqdQlsEOxvMVBO3PwWonhkbU6VG1rSd7
+S8tzR3RIvaGfhvNy2izoPLqrDRlCmvKEv1NiK9zU7fZ+wSPrfj11W7q4wU7LCClywQdplH4d8200
+mx3W14gCgUsbIaUfUpZGejKw9290lHNB5ff/SNCAHZfbMgfKcLEIF92DnhEDU8FoKo4SttY01STM
+9zp96VgzsnFL4P9YpOx4gR8s9jx/evFaW7HnTVVaUdIntSOhzAq9zhamHHKgNNZn5e+XNcT3Xlf/
+VIlRfusxJhW9Tyml/t4PcdppC/T+cPGzM9SVXDn0QeHGXPnkCKvzwDuUM0P8tFn8wF92ETMtbdXF
+vO5GFbokJ5AzNv3X+WkWJxYh4WEehu67B1wMvc7+RKefffQKICTVSZIdQxBvrXslY5syy7XiUAuk
+ixOtB9aZgxjXrKT7S4u6GT52efVEoltH5QCJgkPO35QpLttsEuyy7cyJWV+zcTFdzNWc0i5LjMq9
+oIzPqy5uC18HYoIm/4rczyZiACz9wCopyOpIGp8paT2ly/AiEqqA1kxrkt0aFLKVnXq3rC3rS3Vs
+b72ICaJTvelaEe8IjF31XkNzMs8qQV5Gin6LHaSJdZ2sLXVQss1/6x0VUIl0EdkqctqA8bN11yzK
+sw5APh1nvPZIuzvrhv/k8ZUl6RuYhsZlJP6IaHHaWlzgHX0GI6uUZPjc1UKk1oDbiYzvrAolTd45
+Dpzp88pa6WAiVwDoqcxOq6KZ/7RV37ovXr1VW3+BAAADMEGbPknhDomUwIf//qmWAJQwPdQAjK2m
+vJF7pcf4JiaA17baaOhInaSSmqWm5K+rkR0tHLsTtcE7DtklJYiVNfxuptbIVurFve0ZsnY6pC/6
+Ag4Y05OORMm+DgSXjZ/Tlg50vUo4MtNdrdsbePdy7O7ly5VszE7ceu8lDX2SgmT/ESdx0Mhb1mHC
+OCIC/6LQ71nIWnOaH+dqbslFByta3UHPFtGZLTvFpZeasd41xHJjwCczi0nJ86qWyi9ng1AzWdox
+3eIEPjvj775lizBOdVuvgT3kKvPTO+DqE1z80+B25eQFD1RFLABzyC9X9VyOYREiahm2BMOcTGSw
+htnNULVw3CVWRMxNVwjYLD0H5LbdFCxR8mm0tkhtn6nr7IKPkppu1mU5s9VOzSWiYdoeM2/HOJf+
+74lzYyqJtI954sL32K+0L9ZMD802POozXyJnzQQauEREk8fC7NRxFStiZRjorzNbXFifDmPu0BsQ
+6FSdopli54SQaEAtdAdOH8NcdNZa5OtLS+unUqDv8Q7YAU3Quc1kZtTjptLJAf7YqeS+JCl/YzZb
+PR3AcW4adC0KFN22Y3lxgBTbdIgrGvyJ4e43iHF8yJF6iYX+9oZGHh27DYQbrx7Tl23uGOXg1ZLY
+Y6MTX1VGGkij61+k44Xjz9MoC13ckGr/K9MsBKgBtlreq8vQzTgbath0fC2huZ3/broCujgCa/P9
+xx7cuhwV1AfdwsrUFmT4hA8AjOX4Rm7wOjlENF1Vz2WbsWVgk2AXXO/hQ/Kiblzx5D2aQJL2xZe3
+3mHs05hSVpjkpYqHodtwra5ajwGdqpC1iqt7EmiDstyTYuntryItkAStRKkkJx5PlkxyYRsFkWuw
++mIpmnB/GVBBGmDx5+XLDlbuFnhS5zpq9tJBzugfjSAwgJazcv9vko7eMJSsQu6DiJuYpX1KVVj/
+16zjOMFMUbaEe9NWMXJbMvKROGmO2n8kE/Tw23hOxJUyKjOWOVeXj8E6TcpwcQfQkF4L09WI4wND
+oSza5I6kSbscG9LRrQ+SQRqW9lSblPudx/W+qLSaJbbxxtCVJJqMnRaQ9nv0EOR1nv2PMAAAAzRB
+m19J4Q8mUwIf//6plgCUZzIQQgFANY8ReXdukiYuWeRUbw8dOvNZ3FptffVbQUqt47NzQKWYtUZz
+onN7nJz72nFnefI52huFNU8jF/DYsZbSIvJSyGCdXDNzxVkWkBiPwGo2LCI8P/MZvpJmMhzMQDX0
+pLk48ux9VK9Gnkx+j5XZn6cmn1rbJj3l6ce1sDvAj3fDziobE3/PQTDK4QAb0/hqkEDirQpCMUcg
+3mOX9a6QKX8fTBo+KYfee6M1J4w/6vDtwF6I0ioFtKZEaCfLHqp0jnGjpBZAYu65dNzLfjbTJfB7
+Ec4KzCztI0DKg7cl+mjmG6eDBWYkjHJnGiiQrFvUy6UWYS2F9M2xtNe4+WituVfDu///nk8fhcVg
+/xbfACEHYzhqevM/8jB8LHf3lDJN8OEozWUTPdCZjIcGMpjab0XdpWYF5QLvQM1D3lIdj+9Scg9D
+dYqNAl0HCqMzhpFfDSkTNjcnNMc6b0od56BrIMf6leD4WIKUzt0GqxR5N0wbrZUfEOERgji8qWM5
+u8CkyG6eEQE3XdiMmLF6dxExSMXKHqSRKfSzxgT3NS37dqP/wzWWM9Fm3X8e05UQUyEQXmpjTduy
+teMwGApG1LLJ2jGddCX6MmYgR6X+RZj7YsZDl7gAJmTxefPvZE37RVOiTeyy0APXR8/WxViENcTB
+0AS75n+Jn64UGK9wWNHCG0z+rquQ0xnqrqC3kDB+iGhB4FRW1ungF6cmeU6zQm9P4wEhBkYF8zOZ
+ZDUJBW6QdhAROgqhM0Cw1DMdOs0SRGKo8hBtjsQ2C6bnk/h8Ps5lrESH6rkQQVCCzxzY2s+6C/Pt
+Msg+DUBJeaCdHXpy9T6qDP42+aJfPZyY2zHmOdyreYXlpACkJbW0h4OJZAel3YVG+XwxuafzScxK
+pnrlmZAEFZgQ/UGEsTPjJndi0vcXs13HfgBs9RsoGDp+r1jkqz9yLi6gFn4GGuzxrfeLA0pkLEgX
+Za4IB/CTRoP7HTiTYen2hOqkKLP1kfxP6y26ZlLWeQud4xwwuDlU4e5fnqcMYDBH/8ttUvEGz+9z
+5jf/2FuZ1+pP9Lq4C+5k4bNpANmAAAADN0GbYEnhDyZTAh///qmWAJQe20AbhD5i6ogkr89ZmyuC
+noMfz8t1E+xq479drzBR3tsDzdD6Z0V1N4S4GfHsqgGWwVfMVJmguwII6sV2M49IVBfugzSbbJCo
+HP439zcg9ZWUgGmWAANChEsme8Zj5zP5EF8NVZ7B1P9a0eTTHQAOVeeWpDrJ3LIrKFtNAWgue/Mi
+J7u0y1/8SHhlKJAZUVi62LR9C2ePju/3zmV+H7Q7Tq0gT11GeSu4z4YftWdIJT+PkuP+XiPKR9jK
+KWaDs+HTp8Sh3S/Y4TInDfKKNAMRqTjqtTWVLCR2vdGMUR0uIvx9QM8h+YWMyeNmCkgd4ThPaaBY
+PaY3dOrlQTs4EIEuA8RgFeuXn61R/lUVtx3l/AtFP4eskC8K+yD/haWKPAX4Oor1s8fYZpu7ijf4
+81qd07uIFW/psgKkBq9qipmAgb29l2HdD0WZ94vBoRmDDIrt+y3p6ylZDqVN/EkMtWbD/z8fnzE4
+iDO5iXqW0BjirUq46qBUvZKYX/t0zJnXhw14BSbxMbymzpz2adFUPvFtnU4uc6hfQzxIMMu//pBA
+9MjjTEICZ9B6cYe+5YkQGod+/1mimwCuk7Ehr/uSsy5iJyUH2FrlyhFanSfJTQmhNFyxpN1AxkZ/
+pnO0AF009aoMIqcfjNbiGz3ZZVtwDv84bAAHnYp/1oDdt+BMzdGPkgutTf46Z+lr8FvBA1YPJlOO
+nkoLfxi7AgBSiix04/KSsbrxyMQRH2MFSReSPV7zrjR4sPi7pTUL4to9fLmNLLNDWOMCEyCX4r1R
+0M5n5Z/2pnZ6VQq6x5aWyNjRUbqu9Pc5cff8jESZBHX42bHbiL6LOqUw8CrjILc8v+Gd18ZMhfZO
+UTeQpNJj+cQvRSQRyDv95EUGACeYMQDAMpnlZAyHeKxwMCZ8NuiSe81NYeIw7TelCM5djgEKnAlV
+1pzoxsIcHqNtwUK17cDWalSvLYpnfRyiEpI+VktmX2zfd9rZPtJbd9kSBOX1W8QG+WC9ygfdc8fQ
+On+D0SXd+q5b+B2hf5VzczoFUz9UjGGkCmn/0FvdOT/y/ElBKspJT22f37zheDJYFcEAAALrQZuB
+SeEPJlMCH//+qZYAkEgQC9PJQAh+p+qha66L/hZfivkyuJ6VXV2+g3D/oOFGUZ48SJdKeD97tWRO
+7t5W+9uv0jmxbscNHcjwxHvtAyf0+rGbwjpRcWiBga3eJdyqKRDxqwTiAzdDeO+XihJ1Ye8l+d4K
+HISYkDbXZ2NKdTVmsnHCQbraOsvlnX6seV8UMAYPOfjFvl51DnTUPLFpvW0XzBrN+o9bGZ9EN9H2
+y9PWy2BjI/qtqYEWyqpRgc34yME0KYnSN8/2dr+cX/Mh1xpL82GGCpn9RxJX61Nw6N+KTEONM3TP
+T13d44NUzLrVli2/ktLocps23vf3wby+ITKejYxmFzHMUXpXlWuuZSQ5t+CB+L0Fa3GgdgndzaYg
+X1xXVGx5HjILeXJKBDn+7gYrv+1P2hpHtyaR6avOU23/hAXxgVnrUGzvcCjlu2svNFaI+Rz1EPjM
+RvaARXen8Vw9VG83C3wOhB3fV23DK2ID0/jAnos2EhT0+SbK7Ax9EqdhBORtPzDAcnC9N7gUJ6+w
+lD50Q8kDa4/S2s+MbAAG5BXOnL6HY2OvQvju0hjdlxlL9/qq3CsX+qAGe2owVAZ7UHBf146fcuma
+ktzxVFcV1kK8z8QZpAbwvDjzv8oldpznPSwa6FJ+UBOQ0kyOB6IowALmkTGGnxHaAeq2dDGYMa/x
+NPdkLlLUAvKFDrtdR31LCIsmW1JL16nu4jV1JOQmLVUBFnc/FN1AcYSS7e12gnBaPxb7xTcNug8s
+JCMK0JP9ErhdLntiEjWMOyUg3NRr368KEBkx+IUhr7MtwWyiuvvihnvJb51L4UqEGpnqfeCKsAQ8
+jkjDDOwzAB9VFGPhn/CWwZ3m+xXfucjZS58zo0pF63yaJVU1g2Bx9Od6NyHxmWTs5ZKhGN1nCN2m
+cguYaTQgHLI9Sb0x/PKB0fC0KFrkWKdw9tugkWq3dLumZo+X7MFm32qiZgIKa/dxLxSRrO7M9IWg
+UAQsAAACZ0GboknhDyZTAgh//qpVACUSCQyNJACAOX7o1wGK7kVG2YkzKB0AViyo9+3ap0GsjNlI
+11BB0wIUBugW2beBxw8QqCZqKI6gHDtNlnlPTZ4Va69JAkCBROB/jS43kJVogkCzSBLBrYGqX3eq
+o6iD8NQlgr/kT2pDdA+8Y6ZSWkqO+l+qx9TblKOPL+XtEu2cS50f88MVJf4YOKd9eJmIWmNm2Hpo
+QEOQWB5r5C3largNY5/MgqEp3iIYicND+eWql1631szdMe1vFU9m9+JQEYaAyCIFqA+dl8crFQAh
+C3BASwN0wHi24k5rc4DQexQJQclR0Yd5BEVLjV2eKQQS3d/RrvnBOrrUcPbsVDWmw2PT1SoXSqJj
+cSAVaRzHkjSPma4PBwsMt+ep0HZYrO6KzuRIz8AWQLzcUmAI7Kl5tU7KRP6EJBMddtT1Qgv5lTCF
+T5j52fMF3sMsKgpT4otshTmbwGyEFm5Ozkyw0H6BmHpoKHZ6/2gkVLOTy3Ijds12j3ZExfeVpn/M
+aZfT4mJth0sqWHYyERX1PD1KgIKnnRRqAw/FESqnyTowrvaShxY86FPzjiREpMMNSr3cJJJMlV+Y
+1HwBXW4tSZT0w3lP6XHmcpSWMWhqvXv//viBQfswQ8v2zVJnsXtUZ8tSY9S52Kh0P9GzefchvueL
+O2AQbH7ZNwoUIkOcYK9TgfDesCTj4WWiW2WjkEVxT8JFjOVE/f8UL0Tqmt/QB8A3l2aoL0JRtl/b
+r4KbudOjtSRBfCnyueXgVf86oVhR0vDxKA979miopm4a4kCGYb9nd6Uq2nFwZyjXj3BTQQAAAadB
+m8NJ4Q8mUwIIf/6qVQAlEw4GoDABdUcDyaJL0qc6aUGFzc08Am/qgd0FZxDAiWyr2LZOE43inaYT
+HcII+GW7fZnV7Hw7LyjePSIvHdu+qOoDm89o72CtHZ+IoDXCv5rM6IILLszT8tJ2iTMG0zfPoXep
+q5Qg1HKICXRiXh2MY1Y8tvLgDv7uNUitnJwHbyaWUCIoPhMau5SudugoPXgzDIdimyxOUGjg2Nrw
+X1cM6X4oYep1tYU0OPWcDwQ7Rp9MI7TE/YdYuR/63GeKRraNK/IfHMdUQ2vXhpXEUtNAGB0fmrGi
+MYv+kDkCvHK2cqO/UAPm4+11udtnGwOBim79UBx95jnQFhm635gFTGxEZGM+rvWxe44Svy3w64a3
+J4tJGFYDu5IoT2SuGd2lBKw+gWzh8IDQWx8OBof3o4GKC49r2ecZZQDcHVZtLoEc2iYlUkksJycF
+j7c1KOQ5U0zaTXoDU4HMjRuGH4fPtem7E0fd+dEmH/ncvme2BfgA2f8zl84I3cFh3QNfyQcNsuxF
+fKQMkIGsMzndQNLXYeovH8m5zcZwIoYAAAG3QZvkSeEPJlMCCH/+qlUAJQxRGbh3GuZboC+DAten
+cLN/+HzJ0AtSPhAr6SQO6dZ/6+DUor9p5dKnbJdUXlWfokpVsg/bUfLqYxi5Pshozqa8cBQmR3wS
+E3PIZ85oMktZIW1tta+zDGDjNtqy5U6GfjqVuZay5uR0zGN4fzLtwNXQipmT+HEah6rA8hgbVNAt
+XztZk9Al8E02B1BGRKQKy5MY8+YjiEu8lAv/uDxS6PiIc9f0P8pX9hPe6+VtMMYkj4xQm3YcnfVV
+6LU6GJgpFfNBwe4CWUWytKaEkpfZSjp7pxSEWquMfvyBqzaUbn2GUKw7IYI/VEOIBmv5DOZypRWN
+FZsxHNEneilbOCQPzDwPSkHaAxf++vTq25UmgdU3Jzy6kG/SWeX/dulpsEOTb56nfLg+kD4fbgG0
+zKK7G8o69eUzWauAlmNLiNOCNxY++Q5nepQkju4akcHtML1Kzb4t84RZJ24x7nwJus2tFUDLL1wN
+2+CWPIxtG6jZL0eFE1bemUZ72BRFiY9W7pbRV99PDoa+L1cNa5qmbwgxoQNjNx5yKwCuOFkNZrSR
+V5XCCHK0VsfCwQAAAWVBmgZJ4Q8mUwURPBH//rUqgBIGdVm+ABJLlaWbAyY3m9U+yGMAOx7tGpkz
+JfX6qnNB9BNdA2uB0fZm3pJZTghlDqzDMuPiCZyK4OTYDJUdapocJYoqbXpF0n2sBtVMP/tIpOrn
+Y7udz/ZhrN4+lqm53x9XA5h+54hPlqMdaaHI8RHXqMvd2aIlFf94PqM6EQ97ghgf/kg3Vh12GJJU
+HH6p+T7O3O1zGPKM1E502Yzm0emDjDPBcvyR4YdhXZen1UjARUI7oaZJYsid/QV94WX4BEGDNE1O
+DPvvGIb9udttyUUu8aDUiZxDlQiCzeuWPFQRWqQ6TLaaiD83dXNMVoQ8L14oaOJoQQnoRf3XBg0v
+npiu6xB5L6vRsIGDijUswsuxq6YA/SHddoSmovxqGBjTTgqvQ18u1OluOEyhooOGCU0+188+jZq8
+uQYP6Spp0+LA0e/HttFt0lB8hEIhFGcuplrpLcUAAADVAZ4lakN/AGRJmFiHZm1DxbAAOcPaILjL
+wSeWwBH9Bnezj4ZBb05zUyS9jc3qPRbYUMNcphv/+lUIRfDs73ChcvxuAZP1RA+8fOzyvhuf1rA/
+TcacH8/Cj31GBOrvFt5Km0A/w0eOjMQqp7lluZNrkO5m55ivWw/dkB3eelvQuNiiMtP1as4q5m0T
+rT98Z42IGfWPe3yuSeYtOp53Ka2ht43czwIHOmyt1Mn34z4Qk5QAe55v3H5vobbLtwTlDrChnmYs
+ZeAw9MIi8kvScT9s48O+/JHdAAAA7EGaKUnhDyZTAgh//qpVACQ/S5bbU9jaBlF4DszELGUl+gAg
+2YCDlIenjeJuD2NKEi+VmhUJxcBMWst5Jw610afWeofI8W8zCPKVtHG+U+ULqERpgavUiIOObN82
+E/RuJTnb4jWM55Y+PPsvESPWTrB2heVPrr4AwkrMzA1tZz/NE4GBSoJdYt6F4NqOTBlbAMKJZ0k6
+qsf1QtXp0teZUICowDv2eB5133d+8Sj+hzSMr8b/tX+zdc1ZYuPt2QE9rVxlAdloxuiH6VhvAXT/
+cmOkmsij+dRT7T+sq78hxHvMqJncrjVQNwRj6SuBAAABDUGeR0URPDf/AGRAEjb/NN257tXoY2wv
+WjYvt+oACW/BQOOTEcIsUXdVtqyE3HSuYBTNVHzA7/Ew4nuP7aqS6kO/xP+W3zOj2RU+h0PFhLUP
+Iy5ddOgQy/n3Fpm00Z17cyhrYgwe1rTedFz2mtb7HIp1P31frUimvJ7p3Lggr5DKaO9HFuw2YSVn
+Mr1XhB3qCi4baQKNfAKeoLjYKwMcGrgCiR0kweSTj+M4XNyAWN+RNO9kTnd7eqpAFS0l4GIfo4+s
+zg5qhYZtWIm36qv5Z9EJfR6isFjQ8n9huAAd9mJJAPt+T0f/x3/44sBSv+cmSaul+AQPZI9aYhoK
+eZLhVeiwcN+6XpFized4S5FwAAABXwGeaGpDfwBhu0wI4DH37A+ytOXgBNedhPWT/DNYWAu8c8fc
+NYRK7EBe2roZWt9M6SQO6X7KiZsypN/7e8SoEPt1pFyoj/VqHRsJgFHb5v++EwDlQqjD0vkmJf06
+pnPkHzpjOAFoQ/H9+DMi6xFe1UyoygadAXPubq+aJeIUGVIVsIfPtBBEdTVV4X/9cRcAjkOzO6ZE
+2lzIIpvbo7Jt0OmVDYPdGFvexrCkvzyqZ4Z93OromPC/1DVICf8CmBcRK0L7huqOuth/E4J/ZkD7
+/CFTyLvsq9MmYPrSuELtgT7h/0aUCV5ykOs75pZ3NqokjBH5SrtF0+y56hLKbQEi7WQR7or93dvo
+nepJe4oCgBmRMQpm/ZtbMTW+0BejhfJ5a/RcXATAFr3mtP5GfsUOmskyVogOQJIrn8+HoDe9pq+w
+t+pSb63KBtQ01W8JMu+yhuxS71CTcCuG8DizE2FhCQAAAShBmmxJqEFomUwIIf/+qlUAIz9LeCil
+1iesViv/wYRLAL+LlrlQIvNhqvmEQgd2iCShiJchoppF4LNMYyYitOkpwOQOXQ3tISmvRBCruHd+
+zBd7/8W1yepEOEgmElkkE3ysM9KDV1TxmHbodrAW3GyxiY4uPL7KK/BFhJ9F8fTUBTzf1NAhqGsN
+c9/DYMXJLcXlYUyNzSPagkClhTTo2NpVM5vrNxxxdutQUA5xcFixEjedL7SJZZA/jg0Vx1ttUXx9
+4p7JJpvWw4QvdrZCe0hDpYBsw/Yoj0wZZUloyyaeM4eP2dNM3FbV7dSn24vN287K1n+trC4Z0uhq
+abao9eJVQU0qfckJnkRfBHP097jI4kJ6KkoTXwnHiGwwe0o+bCECxpftGihUwQAAAR1BnopFESw3
+/wBhwBjsZrahIOwxkVkiAAmgwnnr+21ockerLhfJUM78Qsr3lZIdNTaiv/z4MFSuVts7K3tVLuX8
+t/PzQd+PDnoqPsg5dotk4jZfU0a2LpAuu4GRnNvCV4h8z9Hx+Mq2vnuWWUqz3uMH0TGzE+30W3I+
+qsi7l2Qo9hnVS8b1ew0fdrC+gOAfEkrKYsMEwWZwGfwdmC5dGSaDIpt9oWszSUqdrTRCAbakyFpv
+CQU8vvmggBsLhrbtiUP1GyQs6+5EBC6MwqftbZcbeUof31pL1afzAxr9JWPn8frwnBp6EpBv2XeH
+ExGrT+JM0cwDloAdW/SfhXG4oGp7FFzr3k3RViJGWAiTDvuiFKiSYQTCm1yJGbLwDTwAAAF5AZ6r
+akN/AF9Pjr3Pu8YXLhxbTsOS/igsAJq6qEwvNmWZX77GDAUHVSjp7f/RzbQ5B9ecZHf9cOWJooJW
+ynIyJyPfM2D+1dxM/Zpjz/pZNaghChW2WBcKNJHgqQudwONIo6SBO1N6sHnNIIVY5/2QeH51rK6z
+NGC91WIrVBuNMcLj0+8Rxc1JVeuJBEvOAWD7k4WwBfhDBB3KvNZWuvUbswGyqm15PQ4ZLViPbWq4
+evnobKxzIZ+8gWZl/IAFiVhIMRnbrlwGniF+ekQyi2gikxdBjmepzLSh/nssEu+bByKTMd/ojUG1
+H3oJB7Wxk1RCRTqJr3eHEV/l9rL7ACTGWcc15x4L6Qh00bms+xvfEzdrINKEIztIqEcB+K8DATKq
+VV+iMJ+gYpnXDZeqGEllIAeoJacfyLsVzjRaIxVHF1kOJOOTL9JrFos2OyebAKb3lYSFaB5V12b7
+KJ/ZzSehk9l7xWfn5Z/1mP/6Tgj0uzALLThKzAYwDUgAAAIfQZqvSahBbJlMCH///qmWAIT9PO3W
+kRABw8zqMtTWgvq7ZfxuEQrhDVj8Y1/9iQsrOJ/LVLITT3NvqKMolksWWpmVOHVmQ+aoNlmWckrJ
+BLQ+0Ue5y57W3nyvXIJRgKLKX+5DZjYAhlB7/26mYZq0CETGM5jL2sjVTUI84fAggQNxqALazEUF
+QnTj24AGGIa1zrodh6AhXTRCv4rGXsq62ncxods4ytWQLrnxc9k5NiRmhMHXMHqCuyoO8N9FgdPX
+kwegXtuzGcDfrvTB3ujceSCtfAHECmIruEu1YgCl2I8Asp81E3DuxxQU8rE7zvS4UERfHWeMsxKI
+T2s6NABdI7FH7sxtmUbxcwS78JCYAXOOk4fQtoBUNM3E1rmSwUcck1Gv4+g+uR5z1VNdIghe3AKn
+SlsINix4Vf65pVqLsdQ6okn1dgfc6GtPP1HIZVmnpC0XUXq/BXpIFDHRVzQn9vzScfJai4zWcdVL
+LXf7h5z3ZG1G8x4ftCbrshuy6qP+V2zePUULLCHdfmxD8ML/OKgSnvlEXJDSq8lpXFOyQZqkdQuP
+opjm9PxnEdvFXQsEdKLfG6SZYABDcEZ0WoZbSZiY8uXKJDDcmJN8lUBSOsrwkBWOHPgCwrwMHHoH
+u+NYsNu4zengptHm2B+nlBPep9oFM2oKQPWe1f/P5OSshodDDGknDAoyux4/MKnLNPIXFkXZXg29
+C3bgVt+SUYhBAAABg0GezUUVLDf/AF9c1cisi3AB9yw6YGgw6k/+UPrs8twgpTFAVHBKWTke2Tjz
+L55HyWYX7ed43Gfl7n6dNTdh8w6nMl61yWg6ryeJnBrMgcqTr0WwZTRFopntd4Sw2/7ipJWGnIjP
+I8nB/qT5bJjkFWqYnWvd6bquXv8byXD4Dom38O2hdsc4koZziWtSyptKJ6wxV/UOTvRrvrrhuYx7
+yAXKznVmhlJcjVD4M6QLGwQ1ui6tg9ulQ/d8ICtvwa7l9yNfxSXfU9bJl2FRB894N5ZQrRTEmypw
+48Xe2KNZ9KLuUcPQtO8gfH+0Y2j1/mjO7rnCnSDmqXk/RQcI+yOhKJkNfgpO4uJ93lLSbYsOSBnW
+gYhC/ybehhkRq1uJb+JNzLY+ug42GQ3DM5HNqAYU07xsx3QpkUXnGYK1cyjnIpAIU2dkTpjEgjS/
+45+DqZSaco8Oq6s5AWZ5m67zwOn5F4rHN57LitJtouoCJzELFhgUtVw1qUqZGRo3b1IpBcj2z0Y7
+UQAAAb4Bnu5qQ38AX1OtIgRAABbVa46xJZxZ9ArVKhcojxCg7VHjgtrw4Mmq8QTZ2Ys8bndvCfXh
+FeiQKKFQM6stSDj1OcK+JNA+tC2XjvDR5O/JukDvBhpcNkFAxyycJlhl8vGcJmlbtW67B89Ee1J2
+IEyhZS2fBK5TD0Qk3ZSzKX3WIs5BfWE8MQSzVhbbUXLBzHPUlBxJ2InNHKnB3e1XgDJ8Q3WAWBXZ
+k1EpNxyYKMo6lyim1zmSEJUpgK5rSG51Up2jsDFkVGKpMFFqSasnONdkztAbPdg1IU3Vpe78cLcm
+QLs3ZC/a/sEbxf663egSXdwoP1Z4la/JvjwD0vfMtf3PghY81iCpe8JJQGscgODH948Qwbh/fUv8
+Ms/6uXotUF/dCZc2WJAguenP0u6jrVIDbFe0AROMaesix2iGWkDMEoYfbJZKPGfT9IuTJpPMUWvs
+/n3KgVqdnGOsPXHmMykQ96B0Fr5mf+u6CSnSHRnwxhpR+KH+ucET62XqG5LJPIaEQR9AuOjTQODh
+lSNkJd58WLyrsjG809kO9xPpfS2YN0O9rgHKi0w7Y63cKAUB9y81jWdnZElVVhFgJCp58QAAAqhB
+mvBJqEFsmUwIf//+qZYAgBiKgeACtae7DThcygmR4ZdBb/F5n8o6Vv+z3pEySuPR2s/p9/TuFawv
+N1Rn3AwB4VfJcSvnFoPUQu3T2CDOEoJKti/066djzWNfIu4aS+6HDffBu8j0Vnj2WHKw1THxyHed
+FdoVl9XIFUQHcZ96ty/RgAOnXH3gLqiMpVRQ17lX7/yZTyPENJl1+ihKFRoXZZ4eu1nld/QC+JYL
+SdLLRwcER3PCv3S22GGD55X2x5Frbh6dFf9wB6VUXAj+gSrGTaeusNj5p7wlo4wc+QZ+QucIeRQT
+0QGg8hPOq2rOCbmzCQSN6KnDksUD54HuSHXfQJaJy5PKFtfFTapPK9QRArQjSO3dRS8EtAxLn7Hg
+mwbkH1zMJxwmYrlGZ6vguw7UBJpAUaPMSQttDzQOaK1Xrr1LxrkbsFVwgtvPe/w0UmdjFCHUYJqR
+iU1Mb/XpWrdDiqscW9cu4UgmA01nB/nWqKJd94sCIRusXJ85IU0d+qnpkaam5pZw5vT9pFYkazbS
+KeLe1fclafNB8ss0KN5OMTszfEg6BAF22d/l5FDZbiq3WtHl4FrYMLuIvZFfy8mqvLKpHESPmNMX
+FX2KYD5LRFHDiG7HpxEYPsamM9yVi6ObEQN5SCuYimAzLVWTCRf8z6zFAIvgd4sn8UBVFF/k35gW
+9F/3JlGGSWYjVEPFke9ac/rpbBF6++hWrxBsO6TAUdptDZoZ/1viX3kEK6a0bicPKvuT/qsSvbIe
+WclNp3rGnETR45dtGI8sXHPoKPBMQahbV6Jn+lpHwjyKeRPqsAdnNe206XeJf0KJZqu27h0b207x
+YyxHrm1lRQmQ2CCUc3UJGNN9MTdzgeF+UykgATnVEQeFfOtweTWM51KtrO2BJ5nd2yRZwAAAAtFB
+mxFJ4QpSZTAh//6plgCA/T0Wy5gAvm0Vfzbv/yvA0pY5qQFWg4As147pIIxBnfHCYrWxVsfcQMGZ
+KWYHZJXULfDHpaxs288Xnd0MuMo+/81lY+em89wFxxq4lWMgPt/GzLRfOivAbO41Gl5Pa/9Mq23U
+Cleeuj9I77o19djBIwb61UldF4n+B12pxbQpzQu/Kpzw7jLvHD+wRN3sURzuVPX2MR0y2HkupI8Z
+MFv8hBUdXsXRALisWKogACrAw0LaRSCI9PQavWs2/CIfHHGMmcxdK4g/K0TDx3aAe3s3YkMU7CSg
+TVem92Yf5PLeTgXRW70zLdwsh8pRL9+jJkvDzGfjK0P/sSJVRXO9HesUh9pMMrlnaIOZXYX9LMc5
+T3Dfdgn0mPMbCjyYXrR8h9+GQ0GNZvJNxkFCaJaEQ6S+tOdgsfNLyxXNTbJ9SFTEFPG66cKvvJP/
+oEd3O5CqH7qSf7yfyoBPNzL/hA4U3vqxob2as38fzr3eux9vnfRVwRujfE+WboTx1seqq2H8cU6i
+tGm7lbKe4wEt7+Z7zAdxCVkw/yT+oiN0UCAJcDAXOd7DiFo89XIL9jpovJhh3W6QpFKDTM6m5rbj
+TfkAyqg/jcNkUfcbjPX9IjgSgVtD+f3F3DsEnQ5M1xBczXOY5pzqMuGH+QxyyM81jRDl5YjzjvsO
+Ht7PLDsWcJX3kOs5voGv6rjZT0xE8ULFqcdE7IwBJEyQvzowyflHlMiFyncmRdyuwdO/3E8WNYeW
+RcQpWV2NmICX7LWhuCjOmQ7K0nQMrWacnCHFCPlZC5tkvAgmLbo5F8dQOnAP83wtThS68oCvvTpC
++JGqAUnhmowO4tKsID8lgOCOW86YfNTVz6TiNmORtB2jdAO4qOKSqf1Pr1pAOvRa4XoFu26T0rL/
+wuxh2fstu3mo1OL4XmPTaxszQo1tHwO1s+NLByz/wb52CpvQAAACk0GbMknhDomUwIf//qmWAHzq
+97ghAB2ZeZicojR1BXkxcch2pyjIIIRuVTuJK1JDdf5UjAnwkM14vamafmf3L+kyKUUdwsrWVQnM
+lZwr8dy+KzylazlRhajU4mvJHRP/Xw+frZmTlt8scXe0NgGCPLdQDGvz2/d32WUBOu+lmRtNqzRz
+N4k/vtOCWgcIYkMUx1sPCZxXISk4mdw/8zNjKBFs/wHYAK7hhDZoA/6Q7YpU2OWK6Q1RRYxpEKMw
+teWLfjULwQ9CvOMTrdEPksaiD1FTMBxVrP5U9PxSqbtW48QFTPAJXaP3MKK3dNq2c6IU2vAc6ZzE
+rEDjA4Ok92JAXthoT+NGg+sdlHU3mD9HbAf5hr0j2ixOzn1/qUR3KMcy0Jk7xEGRSkuTOCveXC8u
+r2WQR4JmuqSN76ECVx5/o4BlXtj4LTRYRyZI6pmMCa+ltWZygJL5HF+7XaS0dwLKcnsDr5IvDrli
+/E47SZczweTlfq97ohL1V3Mq9dLbMwjk180wPE4Vlo4KA8AohAmrUKZVcJfCOMGNen3M7w/BNTJr
+AcNLI3fkLQFHQVVUwkMPfptTslmRYouqx+yIUTU948BccXYdG/wpmNlHlALU7KXFdz86rcbKCICY
+VxrFrTf2kJr0g+OoCm4G5h3wLf+m+i5DPSiQ2w/TjcUM0hVZ/PsfR87RjlGbW0q0mxhVd8tH/ESK
+ESC+IOGBWNRiZRbfsb4xffy7F3FD3QNM4Qira9cNZnKPB0G8Ysae43RlvK3j2JvfSYNA4pG4f60U
+fVFEHouMLJKcgc/prnG9vSKCO8ZABnx0dFQWAfPZz+Try3l9O0+hQDTKXcyoPqN1FF34stJMrhRi
+i9M0ft54JF1p/8avysFJAAACwEGbU0nhDyZTAh///qmWAHy62IyyC8EoAoNtOiJPsp88tvF0Alk/
+VxylnOvMr7ldmSz7egzccySWK+mf9bdx3GMJP5N+BhkxEHo1zXJXenenEsot83tGvsrgR3yOB7K1
+qSPTory0fmrYrR2EJmjr4C8RYCYRccPUaEgQN/fzsZOuR/zlROUH6mlHFGiO5LZk1XDP4DqM0t/G
+LpXOq3XnkNmcG+pY/sBpOgNC05SY5rskQz5EYrX+3C38Tui+xkwlZB560aLmz0twVfxau1QdCy4N
+o5ls74PdystOfTZzFWIWNCmvXRcP46ynhFEWCW1JnP0ZjkvAhws9wnmE+7wREs3P5QA2zxxx7Rcd
+ErvMFHmUHEN9f1aSc5n33mXIEzgx/m4pvYst8bJ0tj2ESFu8xBqizk6NMZZAwWBdKnMTepFf3/JZ
+ENgDhjgBM8MXIA4H0EzbXLjfR+/dsBka42Vn3VovsbzDrdT7JotjB3eOJ48duN1qRNVhwyoNQl7h
+sE8hiHeoZ5hX13R78ZK6HK+A/Whn+DJS4kBrxGlMYtD2duUdWiZwQiriilH3Y8oqm5m8YIbNZm4/
++Q46n3lzcwwcZ7eC0uGo+pGA0CaJOQ9g9RGX3AKhkEIR33GGHukBQk/vcemWVNPnENlddbngZ/em
+pWBSvg0aRbDctzutBHjhMjfNOOJXqQtnrO1bhseO6PG40DOuX+KL/t90uTtXuEuCQayjPLOU6bFY
+Ukb2p34GCiqcZo3Gq62OnQ7jw2frLVLxS0HPRLLhS3Xj8R/gYSRMHoIsxg5JIYLKI6/B6Egs6r9z
+ZVkNdIZz/6/DUxHlA5A/zuNdAl0c6Y1nQtUaNeS03XEyTlDBnayC03bChTXrHJiVvkcJ9jwJOGNE
+/YAvTRgxkKZhbg6k+nWetXCwN8Rq6o0j5Ts5IZh88PnLsB3r+7xcAAAC/UGbdEnhDyZTAh///qmW
+AHz+2gPtUmAAsCnA+KY4Uz+pl1m9GCvcuEQo0vAezn3kfXBzqVs0VcvhcxT6x51Tl4zGSmQmW2JX
+rPy0DZaOFXJrWXdt9fGRVH3DfDP6f61Sv4HBw3ruVbH7J1wnTuQ95xBfc6ebkOzWBykwaG8gNLIT
+Wf+szZA24SKGrNrOMPCxyd+DFs0TvGJEx6LnqpxoYn295fJanu0GSc9Ht+Dc89sxVoT1P2lRGMgP
+5XE00tINPJYzoEU8IhQ5+Sft67DjIpztys4XgjbJNFJF4j0aZxR7axMKUURFJT3pw7Hk8Y/oJSPz
+wIGVRZu+ROm5+v7BoXgXsAyiOAkGNhkNIBXb99yj9Fc+u2Sej1dW58QBFzZZxwjj4f2D6YCAOfKj
+T66P0r5I/z23iLemSMJi2DjfHu5ztbgph6b1G8JzpTYf95XggmTP2itoWO5qYMreH7mAeDUGAcaY
+iB6Ws6aKCWdxKZagiVQllfjNmBwKqXY6ubxjR4vNbSUzE9APaAcm3wruhIuZNeDGLLgACxetPuWv
+/jQQUoNQ5Xw6gtdJ8OXXMjnlnrjdyOtNkvEFb36DCleQXjK46Xw9AyLXXy+392mhFQ3KlMdKWbb/
+9cR0RmS+jPI33btFrYfZO5tLPVhdi87FTONtamRc2p+qbG6S7j+eJttveg7jbg6c4Dxc9q1YL/X5
+6FjsrYqwlprxuGMLl0Q9p65eILE9BdiaM4BLKKmC81zLw2YL10e+gin9YFtVxCbK0wf+LsyMOstD
+K0gEg1yB6iA/uHnvGR0x5oA/7CPHt6Sufe2TbrOtbJ+2Ljx3Wan2d0DhcUHqCDyyO9MSaClsxfx6
+LZo+R1LQAyK4lwbdjmu8+YDlzX41U1HEa+e04wDWjp8GS5SHubBjSwDH2P0Kr+OGDqnlu1SML23w
+tKYzDG8BwtSmtqaKEQb3lHTKXEMVhv2ARl7cMYZqzeG0v/MrSY6fd/bEKodZiXhZnMz6o3v0jUGe
+Df9VHljT2ZTjIAAAAr1Bm5VJ4Q8mUwIf//6plgB6CV+dT/5RtAR6+ySSlQm9SUToyZroLGrhrolD
+KQQUX/CZ27wDG00iEbAb3AJL6XfvGG/3muDMUIxtUelJRCJoIH0maltS+CNAtMvlPvqgYxwvIAyP
+nZz+A5RLieIjSw/FRIai37S7lFC3dSQ1wPLOG63Fz0pl3W3V/2NAP2qlKpw86Mrpvh+gwGK+L8ff
+8oighRBQbLELOgrvKM022V+oK4i1Mi7w2M3+5LIVvwO1yTcxBAwLEfA3utFqxNOd82W2rjeK0FZq
+A0b+6nJE8CWUFydxfPlp5XCDxrnh8ZC0ZqvgIefrMpBt8PwD8m/yqrJyWoXCJzv8mdkaiUzCdUOu
+6RnAifMDDjdm7qhMfcKS8fk06Mr+/EHxdnurB85NTY7dsV2DYZezs30IXFEYnsrGsIpRw8aV21il
+8LQB96IHeMwpBSCpk65f/5msxfh0gEmFeQsjxQNM1NYiT23hABq4nQZ2Sz1DIP0evnPkERYwyySS
+VUl1aE83J60z24m9yZQmJ+9DTTu6k85m/1DN+DJy5E/s9a16XYWMxOwfw73ZlWSOchcrE4Xn39r9
+QM/B1ixZRAyH73QNV7Y6UhU5/y5ODYWd3860ZbWPxOkKf9X5eAAZmY4NKeQAkyZiy+n9Hnfq0QE1
+5CGVBxR4d9+/qpxsRDS+rZlacpcOH59+grvCMQnF2jI77HrgLyr4lvczv181Lu2HhZQIGErJaxE+
+6O9/KquwjbNW0S48Iqgl4RSHp89YqfpHnLX8DTc02lOt7KD/qOPUl0bE2Fo6mnBnUlur86NHjE8G
+yqmykFQBIF1ajSXgJTfFEAGwPJoRRseaXg5RXBc59kgfuIxGnYHrv7+9ZstmlsFxFozV+de7TvOl
+NMHr1cUIDvJJkUWILrO4sU1XndX6soxI6qJz2A1LiQAAAwNBm7ZJ4Q8mUwIf//6plgB6CV+qiAFz
+TighwnB9TC3fCjEYU9bAwXyjcxepjpc6iI/ANllhu1i40FH19kGJPENel5swyFfBDwAN5IodJiyP
+HcoaXGANmDURR9ruD7BVRYiThnn4hfNWY5MXtnEt1tTGT109Vb2RnclwY38jw6bVL69b1k6uLSQV
+wr7kpX5dE5gVVQ2axRA7vUouiobYEhmSUZslecnTiaD6wgngw+Ngf4utGfSGespfA9mB7G+kixhK
+JXQ1C3z/9BH/3/LmffBPN2kNKfCWIs8jkAN8QEVsPOqOTQKwphWgqRsQWrMecuVXiEv82AQxr0rT
+MyVrnaTZ3maQVYZLRHZ3PMmq3CkWM0a30PVrQPnveof98VSR0AkCp+VWNpsTDmIpdTtdCRSefn67
+3d3o/BDlkfeTwZjB++cOnIEqkf27/TGoj2VaOHAQvMpBt1P12K9/mVLQpPh+QmVv2zb/N0Y96bmf
+N39rfnkUUHK/RGicLxlgAfTiCiiSbCcvUvwpTSWidknlOIS7rI2awesnvw5IbdmISw6K+9xOU6Yb
+OdJdkfEvTObXaTCSV+Z4z/m4bRSgy+tai+HKczZnNlopyw2aQTLROKfqgjWZJruKGMgwhIXOkTDf
+YcHKkjIcW2qS1aArPuBSjhqOU4chEWO5L2+ntTsWYwojecVKreIVrZ2zuwPrPSHY9vwf3ZkCIzMP
+KNqe071aqmak5GgvXl6eCPrN7Ob+Qk2RJPswr8aDx559DMGTp8uSHh+yf9pKiPzUEvQHdCZJaCfX
+J9alN5a6Z7/BEkuEkV7PWxL/vp7dOhm8lzYIaft1095bPWcfMy47XftqQlqRu5w/DT2Y7XWQVDC+
+dpvqvh6bPoDSmZyirW8jOTlh0i2ZOB1FUX4FJZjNCQJRTV6sU40UamRcIJMjMT4SQeSVt9fFVtn7
+rI3HD+LI1uPMytTdAodFiR+9JHYs7Y59JajBjMchFoBEgtIpvssOOWZXTelemn+EvV+c8QCOpaRI
+nPRdoyiif4AAAAJUQZvXSeEPJlMCCH/+qlUAHzLxBZ5ga+MYALQwWbf2YW8vPGB/PKVW3N5dO9aH
+h+SKyk8GJCMZZmbBJLDqND3FAXnw8bRfwn5k3m/jLeeiLZXo65toBuRDn9CibaDrwO3yWoHFnX5u
+j05iAA0EMJG57ohYLu0YLlYE1nfglDc0EvoJMt0rt/q+GskHIKscd4kBRBiOZkOnQw2oco4HEDUK
+B0GigNtoUL2+ZCHPGfz7kI2RqBjfs1YJFQlhinKDcPv9kDnC2IoUR36RFTwaI5axaMwOEJ1qbOOP
+sKEbsEWLkpY2msDKGVuGH6hcBmnBZQ9yaW3MosdYzdgKSYmYhRMj3cUhTpFILE3jomux+kyPsVeO
+ch1ZcHWCUNKmEE3qHja+UJTen9tFqVRGMLo8MNsUx289K2NP/H3rUxRKuHo8dkfiBCmbh6XqEMNS
+2suD/srXCAKOUURq5v+9bNt2DiVz7aRXN6bqXd0RhI4xseTCMKOy7JNdWils3xfiQl8Qzln8pTdH
+muENLy8ZLnQfLW+kHdMtcxHQlZytsagoI09t0lZ4JNwtY6GdhYHWOsfzWE2GJ3m0A1SlmFeA7vKF
+wSiUJYg/Ry3a71qCyMD0JPLEzpq9a3yoGRRBNvVbh8UIaRjknjHQEFk4MmImgknHrYYzHpetF1My
+MYvIia8tHKzwfdKOtOKPhq+WkCDCCPkRv0f5DQP1fuXCs9OdimfYSRAbAod0HlKeI+VHP+vDnX2a
+KrJREeF5yILVT/F+myJIUGczdmDh+IJ7DuJPHJ3rqOKbMCTeou0AAAJFQZv4SeEPJlMCCH/+qlUA
+H1+EavB8GQiAC6dcyV+278LwbHd6a9E9xGvUknN26CfZJa0prvmEsnCnSi4tIRb/EsocekJlsmvb
+BhHrAtYm1+oe1zpqRh3DkiSZcgsala2BiHhYHom6sx96XrAX+HpHX/mkuNSFUUCGJkq5QSrEHmxY
+05t3Q5aOrRY+b2TMJjvUQ1/qxCsfJghNiZXSBr0GmFLpIvKvY56bT6JeDyXZ278tDB2VQ8TfXSqH
+T07mQi2cyQcFSYp4ckXHWLJRxvfXlkv5bMAHHJGdz4EWScbgL3gCOJb7gw5/ThYInhvdwZdfkTnc
+prdNOpB5magAyw5TxHHE96cSHNFU27tTgmfzVX4IF64IObeW2ZOlugSFtpguWq+gkf0a3EpnpHt2
+lugJ7u7lVc33eSDdYDysXiB/02tBtzFyMR07kjn0ol3aMGtko0vcIQfsx31Rtu+029sjljQmn4yV
+/cxUHAqrzhCUlQFHFtSuEUlhbm2t6Vw/KtBUYYpe1zbZyY2Fr+DLduNP2b4ue5qgSzoPsf+OAden
+vAABGaCCpAffbas0Gzr0eqr41T6znRsIWMzNoXpIXvT26gDa4qxiiE6ioGYKt2QWesLNz7JwWN3y
+GZLZ338EubwQb8vR3mJ78Z32ZHEEhbCcQBf5wRf1bfd4PIt3uBGQJjvNygvYwlsQjUU3u6Bg79SY
+vFc8n91SXh0Vti79fy8ARnHeIEZ8q97oM1O/jhRGJ+HPIKibgi5mAa7s78MaoIXbAxxI04EAAAFB
+QZobSeEPJlMCCH/+qlUAHobvZVu4EAI4GFVvm3CN2mupH+9ADcgB5IQb88s3euagd9kZLkWyCSCT
+E/1YOoouPGW/0yntbjqAk7VkaA4ebon4fLWTjnyIxCLVPJuOC99sUbVw6D/L+NNNUPUhp69hizMg
++jOg5x/VuUk9oVtAR18eOqjO6sK3tJltdxrXox3P4cdavIHycaN+3YU9Ilek1uiV/peclSOy2IYI
+dEJKGwFxh309bF9tIvTalY2X0BSYzGkCDjgAPqPmfMt02bMkVHkrmzW2RAYxJbq2PIRQMxMxxNtc
+BYK7Nc8X/XWT/oD2yZ6OIDdfSUXIqaV6DQx2gHw/rrpmu1Nq+gDNPFXjmHxfmMZyXGMH7nttjw5J
+uBMl53PqMjmh3U9NI4DX899aSS+47b0JvkEfmsfsnMacYn+AAAABJEGeOUURPDf/AFZPysS8CRA5
+28AIuWlZVrC4PvcNZDwfuSl3cHT32o/B7+o67WpyQ2CKX70Z2CzCZpL2fwbjQAZ3WmawSB5oCZOY
+OfMLaAsufCSblv1qgc0hr0eDM+5LG+FAe6Yc8xXiagWMDraNpoU8Oeq1T+I9ckfHXewhQ0oCoczd
+fsXbwj2fVw6XVWlGi955/IdGYok9upGmb4wMpCGiH8DR5jKDCfW3D7W1Z7USlVMl51tR4jDe2zHb
+CuzJ3yiBrML1O3MakHZ9DU3bL9EGXp2YX76QDC377aGLUg9On1Jtoj5C7xS04gSNy+96lZ/VKNDX
+QQd7Mgvch1jvvYAdyIf9DoAOX5oy31379vefeKD2T06KsROY336toYqow5DjfpEAAAErAZ5aakN/
+AFZPjqBmKAgFwAkuauGw2sEamPqc1SbqJs9KcCpn5IqrG8B4fIgpqWR+uLDnfpQ9T87tD9NHPu2t
+dfa5BjBKgLgYRfNFTU/OpLBE/JrIHS3DaG/8Ge8C412U8GcqKmfLQz1SEqD6rigKWLgADDdAP2O1
+rAkZbU9AVBSIJDeecqKASi2FbvICK66s/ooaXxoe405baoCUnQEGylXZiqRIiSZOLDB59a7b4+wY
+hJVP4a6FZyKScCiU1HKP1JtqEcFy2pppjNAAEQ6pRT+u+Or/OUYGdkOQwdlV07TJ/gHhspBX+Zp+
+J8hHK5O9VH12KHHfL9I78xkoHigGnFD4/zgWtri2LpJdR/itNalUfqy8PLAlbG9hJJ7/AnawCTCG
+LaWqToHgCcgAAAFqQZpcSahBaJlMCCH//qpVAB3S8P+4AJWY7qW0qwiPBure7zmr4Pd+csErxG7G
+nvdpOVnufDWdwOM8ek9aqCYabXTdpktBKzcn03mijw3A+KDqWksZwvwrNyv8ZJ8+mV/XBPCdOIlN
+gdcFqd0gLwBWAH6ivQrGShxSWS0teHW5dcCQ/ZwOvVmgIcasIhKK4As631w6Zs4jyKjQhcPxBQKu
+8mBsTegmuKHoT6yEhmp5UOim8l4DqIAKz9DW/v7c/ypSjAqwJgHpNsIkVqy3wbGAMfgIglKUy6cL
+2/DPq4VpKgNW0cX0tOlsOR/0w1Y0iNMXU9Amh1/zuhS5/dTwv+O2cJcdMopX82XBqE3ugYO1uDsQ
+ldpGIaF0Gj0i9Zm1EE30iHtQfCdKfBaberAQK+zZmfuQLiENy9oFg9Q23xeaeP7WA5UDPkP/kzZk
+gw7EqtwDuUU7wor1/hp5pW5u2pben/cYxg7v01vb58EAAAELQZp+SeEKUmUwURLBD/6qVQAd1cpj
+0p1IAA4nLUKXclBDmuR0c9IebDOP4A8UQayObtneOTaUuXx31Iz71i/X0k+ivUBwpSD7qPY3Ogub
+Zd7v/iDqRu+XJO6nhHxf0+7LFLyvaghqoNz9/Oo/LX/38jF5H+I2bIIz98OFYy94o4rPpSH+Hm0o
+Yz2SXVlNISvGpz3Sa8Iht9/dnRfv9Y8ktt+rod6+6zDRUdrkik1/0i6D5+XNekZQ8vbW81oWzlii
++eJDPaM55IHeSiS4mf2jdniKGuBQG/jyQF5MYKebUASht/CFmTMpNuIxBhFtvQAPcY3DZRKFwkrP
+X5ZVigu0I1dtAvzO4ea+X35BAAAA+wGenWpDfwBUD4628CFljwuAD7AHNWmzXf07rXvZDgzxYxCi
+tQi/WED6mB1fY7PPtc8hb21ubEAw9xmaJB+dbbncaX1pKOR2+B6okYdZlNQzNjjHlb8PV2lxr42o
+Z0Ux/6eh2rBHgDggwdR+ziFGrMd8MdCY97ZMxVWalonix48u4Tw3SaxAqEABx9f/TNNXDGqUQye9
+iAyNBXXbL52tMeNF7VcF4aRTzEFP3GRmajsgS+dyA5rpbVhCRrsAk2nQ3jkkmcwnwNWeW00qF6Oe
+shMTlymJI9DO96WqvZs9FcMRb6gaHJdruITXpcQoHckRYdHFyNzARbyAy43oAAAAqkGagUnhDomU
+wIIf/qpVAB3/jlwupdaM8ZZYlHMYuWAAcdI7IgHlIzce8a/r6dR0emeMOl0PLgVSXsruOqo6Ja2t
+o/uaaRjlLZMdKUsNo7sLhYfxQDOOAtaA63zXQq4n0UAEBnS1nlAC6d42WjQVx/DuaL3Dzfc8bzJy
+nQrrrYu8q9s/rbfPIh1SJnAAqaZ/5Wsn6++JaBY2EUAzViSHIvnluBD0/ZEzVx31AAABO0Gev0UV
+PDf/AFQTq1KDpJ4EO1VwAWK9J3vTXg0car5XjeHmYL1+eFb+m0SmWLIcaJ1+IiU62RjrwxhWCmA/
+WJHWL3azLLc9DWGibA0exBBPieeTolKw6k8hdpwUCaYCoE7zt/9Sy8DtvJAGHfK53ijhIHiUdb+p
+d9HJNY1iDiCBQwWR8VItzDyHWvE8fvVpH1rEadNG/pyBUMYDh9G2mkBEtipMo504RJUyOlnwAB5M
+l7GqpivUw70TwL/e7t44XvZ+xk3ivAbDgI4meTVBWp/EzT9qjvGBXgQPEVobIXKSbMdKtRypt65t
+mGO1eWufYGxHFxW6AhH9p7ld+g69aDdCSC1IbX9dILKlSZ4lclQQDOkINdczZUovt9EfapPCw3Sy
+q+ajT6coDg+13IM05CqIsMglTaTdxkUHHQAAAUoBnsBqQ38AUc+OtvAKc92vn8wATqi3pzmdrw9d
+9qwF5dsD4aK8JkuP9k04oKlZkqS8QYrCotp7cYTYpTiaaRnotSWWy5jxxvBtiNGOWNukfoIrUls1
+JIPzOYA/Z4SysKOILQJvE0DJ4mYkFaxGt6BChejKtJAK1DUx0kMUQmT6o000weP5IKPJTyOw5hNR
+gp2caGgXOZBeBb5qNfMx3WMRRXQqFdumeTq4VZhOtSWBD5OYJjs3aJnXCBmJp0i6t37fwP80MgG2
+s3/vvswi6ao220mk4OMZdCAQ/D6f0Eaa1bDmsITPn0Nz4332oOwma3oBpO1uS/OLg411zF9L1iCs
+VwOocw/OP4F6laRW4HAvarDhfThZKzTA1iMLUaCcwWAd9gYTQCwg8fvtSF8ngDfe1UIwpYe2jbUV
+WmxBdJ0C72EIa7+0JPcBgyoAAADRQZrESahBaJlMCH///qmWAHJ+MKAl+Mo93AR97cVej6AFjG3Q
+Hnc9kCm718Gv76JwzHB/mmWzT7Zv+mkYbQ3JYKbsRoXJohpMZ+XwxOKVDfefDCkWOmBteV8jJ4Le
+n87VD9pChQjl5GllZ302PcY/t8pP+bYJHbRATebRz5fKHpLqEZuKYLQ89JzKpgJAdi8G14igDmy7
+bklXEQdETj7yWLMqVvMlkJRzL+iAyN0OeVU6UJMFnIPE1iNoiSr5L4PdsheLQHTTYfioL7BIzkgK
+XaEAAAEwQZ7iRREsN/8AUdOrUoOkngPvgn++3AAEp6YkzOC8pDcUDdN6SzsqyuwOvdb/mltKJgmY
+4eJnc/oRe1IVFdIfQ5hbFRkteBxeFOLuEeBojzzRqKzgQrhUpjLnnIAI/VDOTsYtsuSdMEMzgPgt
+UvJb/usITkzVTDjcGjIwpZjIycAipamsgDg1taTwVgD5wAwWkfBKeYjxt4dWDsN5UVLNesgWwQQl
+2WLcF9up3iTCQEbY/Xok65r/b+3SyVITcFUcpN762WaQszyDqfxdC5Hw2GCdZNoF7Qrgm32HyLqi
+ANudueY83D9tLmHVTutIZywFxftnXHghDnbFidEQv9qeIt4e3Y7CX5+PmNISvB4yScStqIumK5Qd
+TOoa9at0Ky9In0B1KYcGFsr1sy7KbpjnywAAATQBnwNqQ38AT4+OtvAddY7WFOjYAJ3vGyVPHyGB
+Ie9wa4p7q2t9gCyp4b/rnFynFdRUAmk5bH1VDX8VQbGWyx/oFbNpb4xfKYBzBp2jtFJaVszXRf9q
+WxUVlo5DpUPYRckgkZANes6JHd7WAcYv0Ss9aD+NG2MIy1BsvYONL4kPU+rayFnomvp+tEGaJtXw
+OMNAXayAduZTc5B8tWO9jsmA3Wev/eZXH5EJH5YmcVZ3tl5Iwz60t4/FHbAGVKhgzi/RCoLIVDm8
+6a4oZbp1MQXTnu4gh3TmhEC53iiT9SO0clBeaxwrMbqShQzZSkWYiuqQClKZZRc1IxBGVDVAXcXQ
+kg1Y3O994jW/HVHq1DRRSDPO4ISL/stPf01c6/apYHtSVVvbAv5dBO43VIHK2v5Ou6WHpQAAAMtB
+mwVJqEFsmUwIIf/+qlUAHJ+OXCT/lAB4XxD9A7WPsJfyY4xPq7ij4wo4r8w1ms+YYttrssAgwLdE
+r3mXph6wzI0mZPKmubamDLFVPWIH8vM4pdu55qmHPvy+hnat00qfpRYPwlGFrnjsCCwiXSqVE62F
+kYGWjLhcyF0q+EyO+7DKsjKj+QONMx07lOcW2KptvqjhmIz//veOcXNC6LadooKTM+y2VvM+SXjN
+lNjXXy4+CmPfWA6+HljWUxZu3WIQPhIsWltNpqcXwQAAATBBmyZJ4QpSZTAgh//+qlUAG8vGJzKA
+Dwv1rF3sqq6t7njtmKhEdxaNldGO7DE3uDCBsxwXb4kq3hM/QAnzF/Gui4uDPu44gC+Ea7ge5NGb
+1LJTDADn+s0i0EOM81z2jSsXZWZazhBiDllB88w7Elp906iBM8NemTLHnmxJr1pMUkkkuk8/pe8G
+xUufknm3D7QJVarO3d5Jzr6MNdfd9V3boP3EK3KZnUfgse58vwwcue8iJzy04WNrKgzNvOmhONn9
+0Vz5+BzmazF7RFc2Y6HW2yuvd7hf+o882uD1V/C/5qpx90F0st0GxhWuDrd3oAKeGWBZT7bcq61E
+gdeOpRj1lVeD59erIl1fRTLQjdL0NXfRYU+6AUCO4pZ733biJy1qP7//hI27XEopgbr19EWBAAAA
+tUGbSEnhDomUwU0TBD/+qlUAG8vHU3wAA/iUVJfrOocHUTgTSk0uVTV0p3LpVQJBSXrsEbbI/k6v
+YUIy2IwVtS9ZtSw8V4g15hCtsoALdLODVnC9UWM+m/IMILN0aRKQhIsb/FZv7BHYxtvrR7JpXQgX
+g9yMAgihL4HedYTkeYvYbKEgUIzArmcdmmxBulW13ItdaSva1HfHfhgnjQG4sVap7btDxmUFFTtX
+/LDBMigq6CEKkYEAAAEvAZ9nakN/AE1xndG0M/S9pCYAJqLS4jfLGXZaP6pKCppAHuQOTOZbsG4y
+dSEfoyry1+nNMMOoPYKUDVPMUVWlf39rBneT4/COIRSoChN4/z6gOBQcFy1H8XBXtCzMdqd+2xbI
+KY+KfrT30oZPv4Xs00yD7Tx+qVYqqic5JEq7A1CSh7NGfJEPC4d02VoiXtunY8GrYjrMOg8PNv9p
+6dzjNYgxaChZ2b1SYAaPLW/rdjO+5Dmd/ZXXnL3PJUTg4LwyYU2LOt2LAtGJhBNX5MoFq6xqZQ2D
+OqPkFDkTIImIYCOAxf0Pd2Y6bZ5Dd9hSHtTzmerscuYXhEm0OaAiD6Yw1M4/aYvadrLp1hIRj3G8
+uRhgPJoYEW36Yow+DRsjD1aGHlyOMIg5qiupOyxvhoe0AAABWEGbbEnhDyZTAh///qmWAG0+MKCY
+0aBAoAErKWylUtZOJfzoqeC+V20HTf+Hi0yooljbo/RTs5B2nl791mqjOol/tv8WH7euRus1h47a
+Orp2a1dp1C8D5CnBZe6ZVbACRzc/6E+XpyDvI9D07gPlc9Oa9sCSzFj9a97WKB6uCDwN1UV1MlVN
+EGnfLNYvBqOsWZntmz+tGx5g/nSn9n7i0vGAd5lN3Vc5THM4q9n3d9s4geONrAIn1VAw3wReij04
+puOZthWWkVMo4WSiO4DWQPK17FDMS7mhZXiqrPLlB2Vrdp/li5vz/ARmkyUOzRnMmtkJs3dVCqh/
+vHKFHYt33aBdvs3l8YtoiE2AVzyDm+cAYlL2zf7mNhYMfAijiNbanBJrU4usuYn5F0m4Si5yXT/m
+3oa/cUrKsuoC3Qe6CGgMOwdzvgsQkjPYUryLhY+O5d/RapczUz0iAAABRkGfikURPDv/ADZbRqbE
+//5vfDsbZoATT2qe0QN/rK/0D0e7BTOB4MElz7cefjJ5bDmaf2RYPyb0BPy+IY21LmIMBeEkKcpw
+aPGchqHktduHn479ZzjYlnl7k+8S6HudkN9sxnOfBChanuRc2VeifncmVo0MtVev4R0ZIWjZVqTU
+NvIdIf+A5J93EbHwvZhNw9Z/GMnfI7Bdz5imuW5Hs37pH05jnRvYhpUe4jCVkjnv8HxxOAUq4MDs
+HTQBVY1nAiyRGoFIsTKiZ2IV7FZD6ylF2PMXjHItKrDc4VBdg2HMCHu8O29FeizAkC/GNQWkex39
+fVvCLaoRpcwQ7YE2cTPysuCCl1fKi4Eoj4tJLvXMRhExJpDksy8Vq3soy91Ulbe3/b57AMbKRSyk
+WsKExoxcISTnvTIH0SgOVDQN4VxkIUWqAMyBAAABQgGfqXRDfwBNX1k703Hx4qI9wAl51ysQ+8Y4
+emFGCfVY3h320RtZEnl95keedZL5JpiDW7pDcgGj17C9901LP7eu3Q2Q4fe4dXkPAJVK8kWOpo5j
+WbKVN4SmuPKvDP9AGUmfNVR5HQIh+6M5yEWiWWj93OQI4AvPWOnv6twHzIAECyj56Acc5Q/9wDeb
+BjiAoo2uTlInfCW61vvuEN9nsm9H+7oH99skDyKKuh+i+aBPhACvFUahOA+kJBICU+vch+aijS7j
+yKoPT78fy3c2Ex4aHel2dZ+3XTMAFInJccawyRuxUwke1CzlAeV5RSJzrjByUpiqLuU2h3wQgAov
+LJQTApxwTfI87zBDIzRZc5pwebU30Ajk9xxBCZwndT3tnupfIkGIHsrY4BQPwNsV9JecTsQ4ApOK
+sADu3qGd7PugJmAAAADbAZ+rakN/AEtf2fXmmk2CFVtcHgBJc1Ou5ZJgNXd9336fQdYY1rUHOi0L
+4jcbajhEMmq+tjkQJYdTz6tro0j1hh3cWJDSkszs+sudZB1S2OY48FIMcJCHRJblZ2D1o3BjV/nR
+xH53QRBf3vYtKYP3vgAvGevXYXdtYDz808q+BCJwx2epVdcya7l1GgOdu9kCCORnc8RIugBd90Ad
+Yzsb458VFZzERT8pOZUxfSELE7NYLoqnSeiMiMMu8g7GuW+QhQYV1zZrqPahiuLcWn6uRRO89223
+Q6VNzAOmAAAA2EGbrkmoQWiZTBTw7/6plgBnoJm5A/8X7dp8LycAI6sM0dY37/i2UpNyo0X488F0
+64vFVv13yVOVcT/pOiWERQmm5B5P2SX4DhWVXStdQrOlTi6uGruPkq8WmgCyuwgsRk3X0tX0TZYl
+b3+VuRGrJvDi7fKdGl3cknfQanW3kIBOUP44eA5HJSvYU6w7kIEcbfeMTgSorbtl/r7mJqttxdSH
+SE1nLbCov1LflVFcLH3XZvi3SsqmacW5H5aGTdYZfQtaX8RC32z9x3hr7Fm9KzrD8Bj63QIwIQAA
+APoBn81qQ38ASWo1y+lxfxkXK8PG+AE152E9ZAcZbzKVRevtJ4A5ACvxEsxruDznHyQR8xXTlH0s
+qVMrwsKuR+jr4Pz2z9lAinDxVKR/2hkQnzmgBOPrPWo8S06n++Z9KrDmqpcc7jrDahWA2rDBK8Tx
+dTDSbSZ83XcPe5b42A0GfJcmGeFxBLRqS9cFDf9XU4npHxlvNTZl6g3GO0+iQ9bI3+nqVtGkfopa
+hGHswlcnTojcDiM/iuDWKOFQWns7FKqdv4Asa0zFu6Kjv6xCvkrNcGK3Jl731hej5Y18rQCYKcz4
+NLevtdey72GtkVQpHK/kGsA4hQ9BkKmBAAAApkGbz0nhClJlMCG//qeEAMzgWhZvhDV9WCwHUwDW
+DUBfROy+UPvwMzgBHXNX5LWtxm874tfDMUqYsnfyyEmuT0H570c1JLzdh3nCIUgmugJNq1jTRZOj
+/Pm/pX6QkMou/n0RTW8RPRES31tRxPk2PjOc3wtE/VZ8CCKrVUqAyfz10hXcAxTjHIaUb/tmFgv/
+HYuAI6NcUNyU9Bn28Dq/rZUUk9bEZKkAAAXLbW9vdgAAAGxtdmhkAAAAAAAAAAAAAAAAAAAD6AAA
+H0AAAQAAAQAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAABAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAABPV0cmFrAAAAXHRraGQAAAADAAAAAAAAAAAAAAAB
+AAAAAAAAH0AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAABA
+AAAAA8AAAAEsAAAAAAAkZWR0cwAAABxlbHN0AAAAAAAAAAEAAB9AAAAIAAABAAAAAARtbWRpYQAA
+ACBtZGhkAAAAAAAAAAAAAAAAAAAoAAABQABVxAAAAAAALWhkbHIAAAAAAAAAAHZpZGUAAAAAAAAA
+AAAAAABWaWRlb0hhbmRsZXIAAAAEGG1pbmYAAAAUdm1oZAAAAAEAAAAAAAAAAAAAACRkaW5mAAAA
+HGRyZWYAAAAAAAAAAQAAAAx1cmwgAAAAAQAAA9hzdGJsAAAAuHN0c2QAAAAAAAAAAQAAAKhhdmMx
+AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA8ABLABIAAAASAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAGP//AAAANmF2Y0MBZAAW/+EAGWdkABas2UDwJ/uEAAADAAQAAAMA
+UDxYtlgBAAZo6+PLIsD9+PgAAAAAHHV1aWRraEDyXyRPxbo5pRvPAyPzAAAAAAAAABhzdHRzAAAA
+AAAAAAEAAABQAAAEAAAAABRzdHNzAAAAAAAAAAEAAAABAAABaGN0dHMAAAAAAAAAKwAAAAMAAAgA
+AAAAAQAAEAAAAAACAAAEAAAAAAEAAAgAAAAAAQAADAAAAAABAAAEAAAAAAgAAAgAAAAAAQAADAAA
+AAABAAAEAAAAAAEAABAAAAAAAgAABAAAAAADAAAIAAAAAAEAABAAAAAAAgAABAAAAAAJAAAIAAAA
+AAEAAAwAAAAAAQAABAAAAAABAAAQAAAAAAIAAAQAAAAAAQAAEAAAAAACAAAEAAAAAAEAABAAAAAA
+AgAABAAAAAAJAAAIAAAAAAEAABAAAAAAAgAABAAAAAABAAAIAAAAAAEAAAwAAAAAAQAABAAAAAAB
+AAAQAAAAAAIAAAQAAAAAAQAAEAAAAAACAAAEAAAAAAIAAAgAAAAAAQAADAAAAAABAAAEAAAAAAEA
+ABQAAAAAAQAACAAAAAABAAAAAAAAAAEAAAQAAAAAAQAADAAAAAABAAAEAAAAAAEAAAgAAAAAHHN0
+c2MAAAAAAAAAAQAAAAEAAABQAAAAAQAAAVRzdHN6AAAAAAAAAAAAAABQAAAhNwAAA8UAAAJsAAAC
+VQAAAUYAAAE6AAABgQAAARgAAAE1AAABTgAAASkAAADmAAABRQAAAMcAAADbAAAA+AAAASYAAADt
+AAABJwAAALYAAAExAAABJAAAAPYAAAE6AAABGAAAAhgAAAEyAAAB6gAAAkEAAALnAAADNAAAAzgA
+AAM7AAAC7wAAAmsAAAGrAAABuwAAAWkAAADZAAAA8AAAAREAAAFjAAABLAAAASEAAAF9AAACIwAA
+AYcAAAHCAAACrAAAAtUAAAKXAAACxAAAAwEAAALBAAADBwAAAlgAAAJJAAABRQAAASgAAAEvAAAB
+bgAAAQ8AAAD/AAAArgAAAT8AAAFOAAAA1QAAATQAAAE4AAAAzwAAATQAAAC5AAABMwAAAVwAAAFK
+AAABRgAAAN8AAADcAAAA/gAAAKoAAAAUc3RjbwAAAAAAAAABAAAAMAAAAGJ1ZHRhAAAAWm1ldGEA
+AAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1k
+YXRhAAAAAQAAAABMYXZmNTkuMTYuMTAw
+">
+  Your browser does not support the video tag.
+</video></div></div>
+</div>
+</div>
+<div class="section" id="analisis-en-frecuencia-transformada-de-fourier">
+<h2><span class="section-number">3.3. </span>Análisis en frecuencia: Transformada de Fourier<a class="headerlink" href="#analisis-en-frecuencia-transformada-de-fourier" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una herramienta de gran relevancia para el análisis de señales es la Transformada de Fourier</p>
+<p>La transformada de Fourier de una señal <span class="math notranslate nohighlight">\(g(t)\)</span> se define como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+G(f) &amp;= \mathcal{F}[g(t)] = \int_{-\infty}^{\infty} g(t) \exp(-j2\pi f t) \,dt \\
+&amp;= \int_{-\infty}^{\infty} g(t) \cos(2\pi f t) \,dt - j \int_{-\infty}^{\infty} g(t) \sin(2\pi f t) \,dt
+\end{align}
+\end{split}\]</div>
+<p>donde</p>
+<ul class="simple">
+<li><p>Usamos el operador <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> para denotar la transformada</p></li>
+<li><p>Tipicamente se usa <span class="math notranslate nohighlight">\(G\)</span> para la transformación de <span class="math notranslate nohighlight">\(g\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(G\)</span> es ahora una función de la frecuencia</p></li>
+</ul>
+<p>Usando la transformada de Fourier podemos analizar las frecuencias de oscilación predominantes de una señal</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">matrix_DFT</span><span class="p">(</span><span class="n">signal</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+    <span class="n">W_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">Omega</span> <span class="o">=</span> <span class="n">W_N</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Omega</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Omega</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
+
+<span class="n">Fs</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">Fs</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">1.5</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Fs</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Gabs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">matrix_DFT</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo [s]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Gabs</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Frecuencia [Hz]&quot;</span><span class="p">);</span>
+<span class="n">display</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Las frecuencias predominantes son: </span><span class="si">{</span><span class="n">f</span><span class="p">[</span><span class="n">Gabs</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">]</span><span class="si">}</span><span class="s2"> [Hz]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Las frecuencias predominantes son: [1.  1.5] [Hz]&#39;
+</pre></div>
+</div>
+<img alt="../../_images/analysis_16_1.png" src="../../_images/analysis_16_1.png" />
+</div>
+</div>
+<p><strong>Representación en coordenadas polares</strong></p>
+<p>Es usual descomponer la transformada de Fourier en el espectro de amplitud y el espectro de fase</p>
+<div class="math notranslate nohighlight">
+\[
+G(f) = |G(f)| \exp({j\varphi(f)})
+\]</div>
+<p>Donde</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(|G(f)|\)</span> es el espectro de amplitud</p></li>
+<li><p><span class="math notranslate nohighlight">\(\varphi(f)\)</span> es el espectro de fase (ángulo)</p></li>
+</ul>
+<p><strong>Propiedad:</strong> La transformada de Fourier es invertible</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+g(t) &amp;= \mathcal{F}^{-1}[G(f)] =\int_{-\infty}^{\infty} G(f) \exp(j2\pi f t) \,df \\
+&amp;= \int_{-\infty}^{\infty} G(f) \cos(2\pi f t) \,df + j \int_{-\infty}^{\infty} G(f) \sin(2\pi f t) \,df
+\end{align}
+\end{split}\]</div>
+<p><strong>Propiedad:</strong> La convolución en el tiempo se convierte en multiplicación en frecuencia y viceverza (Lathi &amp; Ding, 2009, Sec 3.3.6)</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{F}[g(t)*y(t)] = \mathcal{F}[g(t)] \mathcal{F}[y(t)] = G(f) Y(f)
+\]</div>
+<p><strong>Propiedad:</strong> La transformada de Fourier es un operador lineal</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\mathcal{F}[a g_1(t) + b g_2(t) ] &amp;= a\mathcal{F}[g_1(t)] + b \mathcal{F}[g_2(t) ] \\ &amp;= a G_1(f) + b G_2(f)
+\end{align}
+\end{split}\]</div>
+<p><strong>Teorema:</strong> (de) Parseval:</p>
+<p>La energía de una señal se preserva. La transformada de Fourier no pierde información. (Lathi &amp; Ding, 2009, Sec 3.7.1)</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{-\infty}^{\infty} |g(t)|^2 \,dt = \int_{-\infty}^{\infty} |G(f)|^2 \,df
+\]</div>
+<p><strong>Teorema:</strong> (de) Wiener-Khinchin:</p>
+<p>La transformada de Fourier de la autocorrelación es la <em>densidad espectral de potencia</em> y viceverza (Lathi &amp; Ding, 2009, 3.7.5)</p>
+<div class="math notranslate nohighlight">
+\[
+|G(f)|^2 = \int_{-\infty}^{\infty} \rho_{gg}(\tau) \exp({-j2\pi f \tau }) \,dt = \mathcal{F}[\rho_{gg}(\tau)]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\rho_{gg}(\tau) = \int_{-\infty}^{\infty} |G(f)|^2 \exp({j2\pi\tau f}) \,df  = \mathcal{F}^{-1}[|G(f)|^2]
+\]</div>
+<p>La densidad espectral es la potencia asignada a cada frecuencia de la señal</p>
+<div class="section" id="transformada-de-fourier-discreta-dft">
+<h3><span class="section-number">3.3.1. </span>Transformada de Fourier discreta (DFT)<a class="headerlink" href="#transformada-de-fourier-discreta-dft" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para computar la transformada de Fourier sobre señales muestreadas (discretas) usamos la DFT</p>
+<p>El resultado es una transformada de Fourier definida en un conjunto discreto de frecuencias</p>
+<p>Sea una señal discreta <span class="math notranslate nohighlight">\(g[n]\)</span> con  <span class="math notranslate nohighlight">\(n \in [0, N-1]\)</span> y tiempo de muestreo <span class="math notranslate nohighlight">\(T_s\)</span>, es decir <span class="math notranslate nohighlight">\(t[n] = n T_s\)</span></p>
+<p>La DFT se define como</p>
+<div class="math notranslate nohighlight">
+\[
+G[k] = \sum_{n=0}^{N-1} g[n]  \exp \left(-j2\pi f[k] t[n] \right) = \sum_{n=0}^{N-1} g[n] \exp \left( -j 2\pi \frac{k n}{N} \right) ,
+\]</div>
+<p>donde</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f[k] = k f_0 ~~ \forall k \in [-\frac{(N-1)}{2}, \frac{(N-1)}{2}]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f_0 = \frac{F_s}{N}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_s = \frac{1}{T_s}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(t[n] = n T_s\)</span></p></li>
+</ul>
+<p>La DFT es también invertible</p>
+<div class="math notranslate nohighlight">
+\[
+g[n] = \frac{1}{N} \sum_{k=0}^{N-1} G[k]  \exp \left( j2\pi \frac{k n}{N} \right)
+\]</div>
+<p>Notar que N puntos en el tiempo se mapean con N frecuencias independientes</p>
+<p>Para tener una notación más clara definiremos</p>
+<div class="math notranslate nohighlight">
+\[
+W_N = \exp \left( -j \frac{2\pi}{N} \right)
+\]</div>
+<p>Luego podemos escribrir la DFT como</p>
+<div class="math notranslate nohighlight">
+\[
+G[k] = \sum_{n=0}^{N-1} g[n] W_N^{kn}
+\]</div>
+<p>Podemos escribir el sistema de ecuaciones</p>
+<div class="math notranslate nohighlight">
+\[
+G[k] = \sum_{n=0}^{N-1} g[n] W_N^{kn}
+\]</div>
+<p>en <strong>forma matricial</strong> como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\begin{pmatrix} 
+G[0] \\
+G[1] \\
+G[2] \\
+\vdots \\
+G[N-1] \\
+\end{pmatrix} &amp;=
+\begin{pmatrix}
+1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 \\
+1 &amp; W_N &amp; W_N^2 &amp; \cdots &amp; W_N^{N-1} \\
+1 &amp; W_N^2 &amp; W_N^4 &amp; \cdots &amp; W_N^{N-2} \\
+\vdots &amp; \dots &amp; \dots &amp; \ddots &amp;  \vdots \\
+1 &amp; W_N^{N-1} &amp; W_N^{N-2} &amp; \cdots &amp; W_N \\
+\end{pmatrix} 
+\begin{pmatrix} 
+g[0] \\
+g[1] \\
+g[2] \\
+\vdots \\
+g[N-1] \\
+\end{pmatrix} \nonumber  \\
+G &amp;= \Omega g,
+\end{align}
+\end{split}\]</div>
+<p>que corresponde a <span class="math notranslate nohighlight">\(N\)</span> tiempos definidos como</p>
+<div class="math notranslate nohighlight">
+\[
+t = 0, ~ T_s, ~2 T_s , ~3 T_s, \ldots, ~(N-1) T_s 
+\]</div>
+<p>y a <span class="math notranslate nohighlight">\(N\)</span> frecuencias definidas como</p>
+<div class="math notranslate nohighlight">
+\[
+f = -\frac{F_s}{2}, \ldots,  0, ~\frac{F_s}{N}, ~2 \frac{F_s}{N} , ~3 \frac{F_s}{N}, \ldots, ~\frac{F_s}{2} 
+\]</div>
+<p>En el ejemplo anterior implementamos la DFT como una multiplicación matricial usando Numpy</p>
+<ul class="simple">
+<li><p>Multiplicación entre una matriz de NxN y un vector de Nx1</p></li>
+<li><p>N sumas de N multiplicaciones, complejidad cuadrática</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">matrix_DFT</span><span class="p">(</span><span class="n">signal</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+    <span class="n">W_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">Omega</span> <span class="o">=</span> <span class="n">W_N</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Omega</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">S</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="transformada-rapida-de-fourier-o-fft">
+<h3><span class="section-number">3.3.2. </span>Transformada rápida de Fourier o FFT<a class="headerlink" href="#transformada-rapida-de-fourier-o-fft" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La computación de la DFT tiene complejidad <span class="math notranslate nohighlight">\(\mathcal{O}(N^2)\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Existen varios algoritmos exactos con complejidad <span class="math notranslate nohighlight">\(\mathcal{O}(N\log N)\)</span> para calcular la DFT: La <em>Fast Fourier Transform</em> (FFT)</p>
+</div>
+<p>El algoritmo de FFT más conocido es el de Cooley-Tukey, en donde se obtiene una FFT recursiva que explota las periodicidades en la matriz <span class="math notranslate nohighlight">\(\Omega\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+G[k] &amp;=  \sum_{n=0}^{N-1} g_n \exp \left(-j2\pi \frac{k n}{N} \right) \\
+&amp;= \sum_{n=0}^{N/2-1} g_{2n} \exp \left(-j2\pi \frac{k 2n}{N}  \right) + \sum_{n=0}^{N/2-1} g_{2n+1} \exp \left(-j2\pi \frac{k (2n+1)}{N} \right) \\
+&amp;= \sum_{n=0}^{N/2-1} g_{2n} \exp \left(-j2\pi \frac{k n}{N/2} \right) + \exp \left(-j2\pi  \frac{k}{N} \right) \sum_{k=0}^{N/2-1} g_{2n+1} \exp \left(-j2\pi \frac{k n}{N/2} \right) \\ 
+&amp;= G_E[k] + \exp \left( -j2\pi \frac{k}{N} \right) G_O[k] ~~ \forall k \in [0,N/2] 
+\end{align} 
+\end{split}\]</div>
+<p>Notar que se calculan dos “medias” DFT</p>
+<p>Para continuar usaremos la siguiente propiedad de la exponencial compleja</p>
+<div class="math notranslate nohighlight">
+\[
+ \exp \left(-j2\pi \frac{k+ N/2}{N}\right) = \exp \left(-j2\pi \frac{k}{N} \right) \exp \left(-j\pi\right) =  - \exp \left(-j2\pi \frac{k}{N} \right)
+\]</div>
+<p>Además por periodicidad/simetría de la DFT</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+G_E[k + N/2] &amp;=  \sum_{n=0}^{N/2-1} g_{2n} \exp \left( -j2\pi \frac{(k+ N/2)n}{N/2} \right) \\
+&amp;= \sum_{n=0}^{N/2-1} g_{2n} \exp \left(-j2\pi \frac{k n}{N/2} \right)  \exp \left(-j2\pi n \right) = G_E[k]
+\end{align}
+\end{split}\]</div>
+<p>Finalmente</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+G[k] &amp;=  G_E[k] + \exp \left( -j2\pi \frac{k}{N} \right) G_O[k] ~~~ \forall k \in [0,N/2] \\
+G[k + N/2] &amp;=  G_E[k + N/2] - \exp \left( -j2\pi \frac{k}{N} \right) G_O[k + N/2] \\
+ &amp;=  G_E[k] - \exp \left( -j2\pi \frac{k}{N} \right) G_O[k] \\
+\end{align}
+\end{split}\]</div>
+<p><strong>En resumen</strong></p>
+<p>Para obtener <span class="math notranslate nohighlight">\(G[k]\)</span> y <span class="math notranslate nohighlight">\(G[k + N/2]\)</span>:</p>
+<ul class="simple">
+<li><p>Calculamos <span class="math notranslate nohighlight">\(G_E[k]\)</span> y <span class="math notranslate nohighlight">\( \exp \left( -j2\pi \frac{k}{N} \right) G_O[k]\)</span></p></li>
+<li><p>Sumamos o restamos los términos, respectivamente</p></li>
+</ul>
+<p>Es decir que reducimos los cálculos necesarios a la mitad</p>
+<p><strong>Ejemplo</strong></p>
+<p>Sea una señal aleatoria con dias muestras</p>
+<p>Calculemos y comparemos la DFT de los pares (puntos naranjos) e impares (cruces azules)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/analysis_25_0.png" src="../../_images/analysis_25_0.png" />
+</div>
+</div>
+<p>La función <code class="docutils literal notranslate"><span class="pre">np.close</span></code> retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si todos los elementos de los arreglos tienen una diferencia menor a <code class="docutils literal notranslate"><span class="pre">1e-8</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">W_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">matrix_DFT</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">Se</span> <span class="o">=</span> <span class="n">matrix_DFT</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># Transformada de Fourier de los pares</span>
+<span class="n">So</span> <span class="o">=</span> <span class="n">matrix_DFT</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># Transformada de Fourier de los impares</span>
+<span class="n">display</span><span class="p">(</span><span class="n">S</span><span class="p">[:</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">],</span> <span class="n">Se</span> <span class="o">+</span> <span class="n">W_N</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">So</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">S</span><span class="p">[:</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">],</span> <span class="n">Se</span> <span class="o">+</span> <span class="n">W_N</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">So</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">:],</span> <span class="n">Se</span> <span class="o">-</span> <span class="n">W_N</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">So</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">:],</span> <span class="n">Se</span> <span class="o">-</span> <span class="n">W_N</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">So</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4.771+0.j   , -2.542-2.455j,  0.814-1.043j, -0.19 +1.447j,
+        0.153+0.623j])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4.771+0.j   , -2.542-2.455j,  0.814-1.043j, -0.19 +1.447j,
+        0.153+0.623j])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.627-2.642e-16j,  0.153-6.228e-01j, -0.19 -1.447e+00j,
+        0.814+1.043e+00j, -2.542+2.455e+00j])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.627+0.j   ,  0.153-0.623j, -0.19 -1.447j,  0.814+1.043j,
+       -2.542+2.455j])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>El algoritmo FFT continua dividiendo en pares hasta llegar a <span class="math notranslate nohighlight">\(N\log N\)</span> productos, como muestra la siguiente figura</p>
+<a class="reference internal image-reference" href="../../_images/FFT.gif"><img alt="../../_images/FFT.gif" src="../../_images/FFT.gif" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="implementaciones-de-la-fft">
+<h2><span class="section-number">3.4. </span>Implementaciones de la FFT<a class="headerlink" href="#implementaciones-de-la-fft" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Python: numpy.fft y <a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/fft.html">scipy.fft</a></p></li>
+<li><p>C: The Fastest Fourier Transform in the WEst (FFTW)</p></li>
+<li><p>OpenCV: Enfocado en señales bidimensionales (lo veremos más adelante)</p></li>
+</ul>
+<p>En lo que sigue usaremos:</p>
+<a class="reference internal image-reference" href="../../_images/fftpack_scipy.png"><img alt="../../_images/fftpack_scipy.png" src="../../_images/fftpack_scipy.png" style="width: 600px;" /></a>
+<p><strong>Funciones principales</strong></p>
+<p>Para obtener la transformada de Fourier usando el modulo <code class="docutils literal notranslate"><span class="pre">fft</span></code> de scipy usamos</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fft.fft</span></code> y <code class="docutils literal notranslate"><span class="pre">fft.ifft</span></code>: Calcula la transformada y la transformada inversa (caso general)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fft.rfft</span></code> y <code class="docutils literal notranslate"><span class="pre">fft.irfft</span></code>: Calcula la transformada y la transformada inversa para señales con valores reales</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fft.fftfreq</span></code> y <code class="docutils literal notranslate"><span class="pre">fft.rfftfreq</span></code>:  Crea una arreglo de frecuencias consistente con las funciones anteriores</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.fft</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Ejemplo:</strong> Comparación entre implementación matricial usando NumPy y FFT de scipy</p>
+<p>Primero creamos una serie de tiempo con frecuencia de muestreo <span class="math notranslate nohighlight">\(F_s\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fs</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">Fs</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">1.5</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">g</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/analysis_33_0.png" src="../../_images/analysis_33_0.png" />
+</div>
+</div>
+<p>Para calcular la FFT usamos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">G</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-40.159 +0.j   , -18.56 -31.249j,   5.084 +3.316j,  -0.89 +15.197j,
+        18.825 -8.57j ,  -1.823 +9.025j,  -2.887 -6.027j,  11.564 -8.763j,
+        -6.345 +5.115j, -16.713+11.074j])
+</pre></div>
+</div>
+</div>
+</div>
+<p>La FFT es imaginaria, podemos recuperar</p>
+<ul class="simple">
+<li><p>el espectro de magnitud usando la función <code class="docutils literal notranslate"><span class="pre">np.abs</span></code></p></li>
+<li><p>el espectro de fase usando <code class="docutils literal notranslate"><span class="pre">np.angle</span></code></p></li>
+</ul>
+<p>Para generar el vector de frecuencias asociado a la FFT usamos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">),</span> <span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">Fs</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">freq</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente dibujamos los espectros de magnitud</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">matrix_DFT</span><span class="p">(</span><span class="n">g</span><span class="p">))[:</span><span class="nb">len</span><span class="p">(</span><span class="n">freq</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Numpy matmul&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.75</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> 
+        <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">g</span><span class="p">)),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fftpack&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.75</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Frecuencia [Hz]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/analysis_39_0.png" src="../../_images/analysis_39_0.png" />
+</div>
+</div>
+<p>y comparamos los tiempos de cómputo</p>
+<p>¿Cuántos órdenes de magnitud más rápido es la FFT?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -n 10 np.abs(matrix_DFT(g))
+<span class="o">%</span><span class="k">timeit</span> -n 10 np.abs(scipy.fft.fft(g))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35.6 ms ± 3.83 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+The slowest run took 4.22 times longer than the fastest. This could mean that an intermediate result is being cached.
+51.1 µs ± 38.7 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/signals"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="signals.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>¿Qué es una señal?</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../image-processing/intro.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Introducción al procesamiento de imágenes digitales</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

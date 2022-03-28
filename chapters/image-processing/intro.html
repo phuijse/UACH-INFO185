@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Procesamiento de imágenes digitales &#8212; INFO239 Comunicaciones</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="5. Análisis de imágenes en frecuencia" href="analysis.html" />
+    <link rel="prev" title="3. Análisis de Señales" href="../signals/analysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sistemas de comunicación y Señales
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../signals/intro.html">
+   1. Sistemas de comunicación digitales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../signals/signals.html">
+   2. ¿Qué es una señal?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../signals/analysis.html">
+   3. Análisis de Señales
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Procesamiento de Imágenes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Procesamiento de imágenes digitales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="analysis.html">
+   5. Análisis de imágenes en frecuencia
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filters.html">
+   6. Filtrado de imágenes
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/image-processing/intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/UACH-INFO185"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/UACH-INFO185/issues/new?title=Issue%20on%20page%20%2Fchapters/image-processing/intro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/UACH-INFO185/master?urlpath=tree/chapters/image-processing/intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#una-imagen-como-caso-particular-de-una-senal-2d">
+   4.1. Una imagen como caso particular de una señal 2D
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definiendo-una-imagen-digital">
+   4.2. Definiendo una imagen digital
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulacion-de-imagenes-con-python">
+   4.3. Manipulación de imágenes con Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-de-color-rgb">
+   4.4. Modelo de color RGB
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vision-humana">
+   4.5. Visión humana
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#otros-modelos-de-colores">
+   4.6. Otros modelos de colores
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Procesamiento de imágenes digitales</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#una-imagen-como-caso-particular-de-una-senal-2d">
+   4.1. Una imagen como caso particular de una señal 2D
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definiendo-una-imagen-digital">
+   4.2. Definiendo una imagen digital
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulacion-de-imagenes-con-python">
+   4.3. Manipulación de imágenes con Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-de-color-rgb">
+   4.4. Modelo de color RGB
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vision-humana">
+   4.5. Visión humana
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#otros-modelos-de-colores">
+   4.6. Otros modelos de colores
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="n">YTVideo_formato</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">modestbranding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="procesamiento-de-imagenes-digitales">
+<h1><span class="section-number">4. </span>Procesamiento de imágenes digitales<a class="headerlink" href="#procesamiento-de-imagenes-digitales" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>En esta lección veremos:</p>
+<ul class="simple">
+<li><p>Imágenes son señales bidimensionales</p></li>
+<li><p>Definición de una imagen digital</p></li>
+<li><p>Percepción humana y modelos de color</p></li>
+</ul>
+<div class="section" id="una-imagen-como-caso-particular-de-una-senal-2d">
+<h2><span class="section-number">4.1. </span>Una imagen como caso particular de una señal 2D<a class="headerlink" href="#una-imagen-como-caso-particular-de-una-senal-2d" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El siguiente es un ejemplo de una señal que tiene dos variables independientes</p>
+<div class="math notranslate nohighlight">
+\[
+x, y \rightarrow I(x,y)
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YTVideo_formato</span><span class="p">(</span><span class="s1">&#39;AEJgW2jUdMs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="400"
+    src="https://www.youtube.com/embed/AEJgW2jUdMs?rel=0&modestbranding=1"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Podemos interpretar las variables independientes <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> como coordenadas en el espacio, donde la variable dependiente <span class="math notranslate nohighlight">\(I(x,y)\)</span> se visualuza como un mapa de colores</p>
+</div>
+<p>Bajo estas consideraciones se obtiene lo que llamamos una <strong>imagen</strong>. A continuación definiremos formalmente una imagen</p>
+</div>
+<div class="section" id="definiendo-una-imagen-digital">
+<h2><span class="section-number">4.2. </span>Definiendo una imagen digital<a class="headerlink" href="#definiendo-una-imagen-digital" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una imagen digital es una señal con:</p>
+<ul class="simple">
+<li><p>Dos variables indepedientes discretas <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> que representan el espacio</p></li>
+<li><p>Una o más variables dependientes <span class="math notranslate nohighlight">\(I(x,y)\)</span> que representan la intensidad del color según una codificación</p></li>
+</ul>
+<p>En la práctica las imágenes digitales son un arreglo de NxM componentes</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span>, el número de filas, que podemos interpretar como el <strong>alto</strong> de la imagen</p></li>
+<li><p><span class="math notranslate nohighlight">\(M\)</span>, el número de columnas, que podemos interpretar como el <strong>ancho</strong> de la imagen</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Cada elemento del arreglo se llama <strong>pixel</strong> (picture element)</p>
+</div>
+<p>Los píxeles pueden ser</p>
+<ul class="simple">
+<li><p>unidimensionales (imagen en blanco y negro)</p></li>
+<li><p>multidimensionales (RGB, HSV, HSL)</p></li>
+</ul>
+<p>Un pixel suele representarse como una tupla de enteros de 8 bit sin signo, <em>i.e.</em> la intensidad está en el rango  <span class="math notranslate nohighlight">\([0, 255]\)</span>. Otra representación común es una tupla de valores flotantes en el rango <span class="math notranslate nohighlight">\([0.0, 1.0]\)</span>. A estos rangos les otorgamos una interpretación como mapa de color</p>
+<p>En la siguiente figura podemos ver una imagen digital en escala de grises</p>
+<a class="reference internal image-reference" href="../../_images/image_matrix.png"><img alt="../../_images/image_matrix.png" src="../../_images/image_matrix.png" style="width: 600px;" /></a>
+<ul class="simple">
+<li><p>A la izquierda: Representación en mapa de color, donde negro es 0.0 y blanco es 1.0</p></li>
+<li><p>A la derecha: Representación numérica</p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Atención</p>
+<p>¿Qué representa una imagen?</p>
+</div>
+<p>Comúnmente una imagen es una representación de la intensidad lumínica en el rango óptico</p>
+<p>Pero también se pueden representar otros rangos de radiación como los rayos X (radiografía), la radiación infraroja (termografía) y otros fenómenos que no son electromagnéticos, por ejemplo un ultrasonido</p>
+<table style="margin-left:auto;margin-right:auto;">
+<tr><td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Valdivian_sea_lions.JPG" width="300">
+</td><td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Termografia_kot.jpg" width="300">
+</td></tr>
+<tr><td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Lung_X-ray.jpg/600px-Lung_X-ray.jpg" width="250">
+</td><td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/CRL_Crown_rump_length_12_weeks_ecografia_Dr._Wolfgang_Moroder.jpg" width="300"
+</td></tr>
+</table>
+<p>*Todas las imágenes de esta lámina son de wikipedia</p>
+<div class="admonition attention">
+<p class="admonition-title">Atención</p>
+<p>¿Cómo se obtiene una imagen digital?</p>
+</div>
+<p>Para el caso electromagnético se aprovecha el <a class="reference external" href="https://es.wikipedia.org/wiki/Efecto_fotoel%C3%A9ctrico">efecto fotoeléctrico</a>, es decir los electrones que se desprenden de un material semi-conductor cuando un fotón los impacta, como muestra la siguiente figura</p>
+<a class="reference internal image-reference" href="../../_images/photons-hit-silicon.jpg"><img alt="../../_images/photons-hit-silicon.jpg" src="../../_images/photons-hit-silicon.jpg" style="width: 400px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Hoy en día las cámaras digitales, webcams, celulares y también microscopios y telescopios utilizan tecnologías <em>Charged Coupled Device</em> (CCD) y <em>Complementary Metal-Oxide Semiconductor</em> (CMOS) para capturar imágenes digitales</p>
+</div>
+<a class="reference internal image-reference" href="../../_images/CCD_sensor_diagram.jpg"><img alt="../../_images/CCD_sensor_diagram.jpg" src="../../_images/CCD_sensor_diagram.jpg" style="width: 400px;" /></a>
+<p>Un sensor CCD está dividido en una grilla y cada elemento de la grilla “cuenta” los fotones que lo golpean. Luego la cuenta se mapea como un valor numérico entero o flotante. Los receptores pueden ajustarse para aceptar fotones de un cierto rango de frecuencias (color)</p>
+</div>
+<div class="section" id="manipulacion-de-imagenes-con-python">
+<h2><span class="section-number">4.3. </span>Manipulación de imágenes con Python<a class="headerlink" href="#manipulacion-de-imagenes-con-python" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hay bastantes opciones para manipular imágenes con Python. Sin embargo en este curso utilizaremos principalmente la librería <a class="reference external" href="https://opencv.org/">OpenCV</a> y en menor medida la librería <a class="reference external" href="https://pillow.readthedocs.io/en/stable/">pillow</a>.</p>
+<p>OpenCV es una librería de visión computacional que incluye funcionalidad para leer, procesar, filtrar y realizar inteligencia artificial con imágenes. Además se caracteríza por ser sumamente eficiente, es una librería escrita en C++ con <em>bindings</em> para Python y otros lenguajes</p>
+<p>El siguiente ejemplo muestra como leer una imagen con OpenCV</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="n">valdivia</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/valdivia.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si estudiamos en mayor detalle que es lo que obtuvimos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tipo: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">valdivia</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tamaño: </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">valdivia</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tipo: </span><span class="si">{</span><span class="n">valdivia</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tipo: &lt;class &#39;numpy.ndarray&#39;&gt;
+Tamaño: (350, 650, 3)
+Tipo: uint8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hemos obtenido un tensor de 350 filas, 650 columnas y 3 canales</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Los datos de la imagen se recuperan como una estructura <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> de la librería NumPy. Esto nos habilita para hacer todo tipo de manipulación numérica con la imagen como si está fuera una matriz</p>
+</div>
+<p>Visualizemos la imagen que acabamos de importar</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">valdivia</span><span class="p">)</span>  <span class="c1"># Para mostrar la imagen en el cuadernillo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_14_0.png" src="../../_images/intro_14_0.png" />
+</div>
+</div>
+<p>Los colores están un poco extraños</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>La librería OpenCV utiliza como convensión de canales el estándar BGR (Blue-Green-Red). Mientras que pillow y otras librerías esperan una imagen en RGB.</p>
+</div>
+<p>Podemos cambiar de estándar de canal con la función <code class="docutils literal notranslate"><span class="pre">cvtColor</span></code> y el <em>flag</em> adecuado como se muestra a continuación</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valdivia</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">valdivia</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">valdivia</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_16_0.png" src="../../_images/intro_16_0.png" />
+</div>
+</div>
+<p>Como ya se dijo, una vez importada podemos operar con la imagen como su fuera cualquier otro tensor en formato ndarray</p>
+<p>Por ejemplo podemos tomar un trozo o <em>slice</em> de la imagen con</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centro_de_valdivia</span> <span class="o">=</span> <span class="n">valdivia</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span> <span class="p">:</span><span class="mi">200</span><span class="p">]</span>
+
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">centro_de_valdivia</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_18_0.png" src="../../_images/intro_18_0.png" />
+</div>
+</div>
+<p>O podríamos espejar la imagen inviertiendo su eje horizontal</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">valdivia</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_20_0.png" src="../../_images/intro_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="modelo-de-color-rgb">
+<h2><span class="section-number">4.4. </span>Modelo de color RGB<a class="headerlink" href="#modelo-de-color-rgb" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La imagen que estabamos usando tiene tres canales y cada canal se interpreta como la intensidad de color</p>
+<ul class="simple">
+<li><p>en rojo</p></li>
+<li><p>en verde</p></li>
+<li><p>en azul</p></li>
+</ul>
+<p>respectivamente</p>
+<p>Esto corresponde al modelo de colores RGB (red, green, blue)</p>
+<blockquote>
+<div><p>Combinando distintos valores de intensidad en rojo, verde y azul se obtienen los demás colores</p>
+</div></blockquote>
+<p>Podemos visualizar cada canal por separado como una imagen en escala de grises, por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_valdivia</span> <span class="o">=</span> <span class="n">valdivia</span><span class="p">[</span><span class="mi">200</span><span class="p">:,</span> <span class="p">:</span> <span class="p">:]</span>
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">sub_valdivia</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_23_0.png" src="../../_images/intro_23_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">sub_valdivia</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_24_0.png" src="../../_images/intro_24_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">sub_valdivia</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_25_0.png" src="../../_images/intro_25_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="vision-humana">
+<h2><span class="section-number">4.5. </span>Visión humana<a class="headerlink" href="#vision-humana" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El ojo humano tiene en su retina dos tipos de fotoreceptores: <strong>bastones y conos</strong></p>
+<p>Los bastones</p>
+<ul class="simple">
+<li><p>120 millones aprox en la retina</p></li>
+<li><p>Perciben intensidad pero no color</p></li>
+<li><p>Requieren poco brillo para producir una señal</p></li>
+<li><p>Tienen baja agudeza (menos sencibles a los detalles)</p></li>
+</ul>
+<p>Los conos</p>
+<ul class="simple">
+<li><p>6 millones aprox en la retina</p></li>
+<li><p>Existen tres tipos de conos, cada uno sintonizado a una longitud de onda</p></li>
+<li><p>Requieren mucho brillo para producir una señal</p></li>
+<li><p>Tienen alta agudeza visual</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/cones_rods.png"><img alt="../../_images/cones_rods.png" src="../../_images/cones_rods.png" style="width: 800px;" /></a>
+<p>Referencia: <a class="reference external" href="http://www.danielgmurphy.com/physics/1_intro/contents_phyics1.html">http://www.danielgmurphy.com/physics/1_intro/contents_phyics1.html</a></p>
+<p>La respuesta retinal inspira la siguiente transformación de RGB a escala de grises:</p>
+<div class="math notranslate nohighlight">
+\[
+I = 0.299 R + 0.587 G + 0.114 B
+\]</div>
+<p>Esta transformación está implementada en OpenCV. Para convertir una imagen a color a escala de grises utilizamos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valdivia</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/valdivia.jpg&#39;</span><span class="p">)</span>
+<span class="n">valdivia_bw</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">valdivia</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">valdivia_bw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_29_0.png" src="../../_images/intro_29_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="otros-modelos-de-colores">
+<h2><span class="section-number">4.6. </span>Otros modelos de colores<a class="headerlink" href="#otros-modelos-de-colores" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>RGB no es el único modelo de color. Por ejemplo el modelo <strong>HSV</strong> (Hue, Saturation, Value) es muy usado en software de diseño y computación gráfica</p>
+<ul class="simple">
+<li><p>Hue: Corresponde al tono o color puro</p></li>
+<li><p>Saturation: Corresponde a ajustar el brillo</p></li>
+<li><p>Value: Corresponde a mezclar con negro para generar sombras</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/hsv_cilinder.jpg"><img alt="../../_images/hsv_cilinder.jpg" src="../../_images/hsv_cilinder.jpg" style="width: 400px;" /></a>
+<p>Por ejemplo, la imagen anterior en HSV</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valdivia</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/valdivia.jpg&#39;</span><span class="p">)</span>
+<span class="n">sub_valdivia_hsv</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">valdivia</span><span class="p">[</span><span class="mi">200</span><span class="p">:,</span> <span class="p">:</span> <span class="p">:],</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2HSV</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">sub_valdivia_hsv</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_32_0.png" src="../../_images/intro_32_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">sub_valdivia_hsv</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_33_0.png" src="../../_images/intro_33_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">sub_valdivia_hsv</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_34_0.png" src="../../_images/intro_34_0.png" />
+</div>
+</div>
+<p>El estándar <strong><a class="reference external" href="https://en.wikipedia.org/wiki/YCbCr">YCbCr</a></strong> corresponde a una familia de modelos muy usado en fotografía digital</p>
+<ul class="simple">
+<li><p>Y, se llama luma, corresponde a la luminancia</p></li>
+<li><p>Cb y Cr, se llaman chroma, corresponde a la “diferencia en azul” y “diferencia en rojo”</p></li>
+</ul>
+<p>Existe una transformación directa entere YCbCr y RGB</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Y = K_R R + K_G G + K_B B \\
+C_b = 0.5 \frac{B - Y}{1 - K_B} \\
+C_R = 0.5 \frac{R - Y}{1 - K_R}
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(K_R + K_G + K_B = 1\)</span></p>
+<p>Los distintos modelos de la familia YCbCr se diferencia en sus valores de <span class="math notranslate nohighlight">\(K_R\)</span>, <span class="math notranslate nohighlight">\(K_G\)</span> y <span class="math notranslate nohighlight">\(K_B\)</span></p>
+<p>Por ejemplo la imagen anterior en YCbCr</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valdivia</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/valdivia.jpg&#39;</span><span class="p">)</span>
+<span class="n">sub_valdivia_YCbCr</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">valdivia</span><span class="p">[</span><span class="mi">200</span><span class="p">:,</span> <span class="p">:</span> <span class="p">:],</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2YCrCb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">sub_valdivia_YCbCr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_37_0.png" src="../../_images/intro_37_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">sub_valdivia_YCbCr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_38_0.png" src="../../_images/intro_38_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">sub_valdivia_YCbCr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/intro_39_0.png" src="../../_images/intro_39_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/image-processing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../signals/analysis.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Análisis de Señales</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="analysis.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Análisis de imágenes en frecuencia</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -82,11 +82,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
@@ -104,17 +99,17 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="clases/unidad1/01_sistemas_de_comunicacion.html">
+  <a class="reference internal" href="chapters/signals/intro.html">
    1. Sistemas de comunicación digitales
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="clases/unidad1/02_se%C3%B1ales.html">
+  <a class="reference internal" href="chapters/signals/signals.html">
    2. ¿Qué es una señal?
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="clases/unidad1/03_an%C3%A1lisis_de_se%C3%B1ales.html">
+  <a class="reference internal" href="chapters/signals/analysis.html">
    3. Análisis de Señales
   </a>
  </li>
@@ -126,40 +121,18 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="clases/unidad1/04_im%C3%A1genes.html">
-   4. Introducción al procesamiento de imágenes digitales
+  <a class="reference internal" href="chapters/image-processing/intro.html">
+   4. Procesamiento de imágenes digitales
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="clases/unidad1/05_an%C3%A1lisis_de_im%C3%A1genes.html">
+  <a class="reference internal" href="chapters/image-processing/analysis.html">
    5. Análisis de imágenes en frecuencia
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="clases/unidad1/06_filtrado_de_im%C3%A1genes.html">
+  <a class="reference internal" href="chapters/image-processing/filters.html">
    6. Filtrado de imágenes
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Compresión y Teoría de la Información
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="clases/unidad1/08_compresi%C3%B3n.html">
-   7. Transmisión y Compresión
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="clases/unidad1/09_codificaci%C3%B3n_de_fuente.html">
-   8. Teoría de la Información - Parte 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="clases/unidad1/10_codificaci%C3%B3n_de_canal.html">
-   9. Teoría de la Información - Parte 2
   </a>
  </li>
 </ul>
@@ -196,6 +169,22 @@ const thebe_selector_output = ".output, .cell_output"
             
             
             <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/UACH-INFO185"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/UACH-INFO185/issues/new?title=Issue%20on%20page%20%2Fsearch.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
 
@@ -274,6 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
     
       Por Pablo Huijse Heise<br/>
     
+        &copy; Derechos de autor 2022.<br/>
   </p>
 </footer>
 </main>
