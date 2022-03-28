@@ -6,7 +6,7 @@ parts:
   chapters:
   - file: "chapters/signals/intro"
   - file: "chapters/signals/signals"
-  - file: "chapters/signals/signal-analysis"
+  - file: "chapters/signals/analysis"
 - caption: "Procesamiento de Im\xE1genes"
   numbered: true
   chapters:
