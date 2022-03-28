@@ -1,0 +1,15 @@
+blockdiag {
+    orientation = portrait
+    default_fontsize = 12; 
+    A [label="Fuente"]
+    B [label="Transmisor"]
+    C [label="Canal", color=lightblue]
+    D [label="Ruido"]
+    E [label="Receptor"]
+    F [label="Destino"]
+    A -> B [label = "mensaje"]
+    B -> C [label = "señal"];
+    C -> E -> F
+    D -> C [style=dashed]
+
+}
