@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. ¿Qué es una señal? &#8212; INFO239 Comunicaciones</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="3. Análisis de Señales" href="03_an%C3%A1lisis_de_se%C3%B1ales.html" />
+    <link rel="prev" title="1. Sistemas de comunicación digitales" href="01_sistemas_de_comunicacion.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sistemas de comunicación y Señales
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_sistemas_de_comunicacion.html">
+   1. Sistemas de comunicación digitales
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. ¿Qué es una señal?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_an%C3%A1lisis_de_se%C3%B1ales.html">
+   3. Análisis de Señales
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Procesamiento de Imágenes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_im%C3%A1genes.html">
+   4. Introducción al procesamiento de imágenes digitales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_an%C3%A1lisis_de_im%C3%A1genes.html">
+   5. Análisis de imágenes en frecuencia
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_filtrado_de_im%C3%A1genes.html">
+   6. Filtrado de imágenes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Compresión y Teoría de la Información
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_compresi%C3%B3n.html">
+   7. Transmisión y Compresión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_codificaci%C3%B3n_de_fuente.html">
+   8. Teoría de la Información - Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_codificaci%C3%B3n_de_canal.html">
+   9. Teoría de la Información - Parte 2
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/clases/unidad1/02_señales.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/UACH-INFO185/master?urlpath=tree/clases/unidad1/02_señales.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definiciones">
+   2.1. Definiciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caracteristicas-de-una-senal">
+   2.2. Carácterísticas de una señal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clasificacion-de-senales">
+   2.3. Clasificación de señales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen">
+   2.4. Resumen
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>¿Qué es una señal?</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definiciones">
+   2.1. Definiciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caracteristicas-de-una-senal">
+   2.2. Carácterísticas de una señal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clasificacion-de-senales">
+   2.3. Clasificación de señales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen">
+   2.4. Resumen
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="que-es-una-senal">
+<h1><span class="section-number">2. </span>¿Qué es una señal?<a class="headerlink" href="#que-es-una-senal" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="definiciones">
+<h2><span class="section-number">2.1. </span>Definiciones<a class="headerlink" href="#definiciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Definición de diccionario</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Una señal es un signo, símbolo o gesto que entrega un mensaje relacionado a una situación particular</p>
+</div>
+<p><strong>Ejemplo:</strong> Señales de advertencia de peligro (Vialidad, Chile)</p>
+<a class="reference internal image-reference" href="../../_images/señales_advertencia.png"><img alt="../../_images/señales_advertencia.png" src="../../_images/señales_advertencia.png" style="width: 300px;" /></a>
+<p><strong>Ejemplo:</strong> Semáforo chileno (Imagen tomada de Diario La Segunda)</p>
+<a class="reference internal image-reference" href="../../_images/semaforos.jpg"><img alt="../../_images/semaforos.jpg" src="../../_images/semaforos.jpg" style="width: 300px;" /></a>
+<p>El mensaje que entrega la señal puede cambiar en el tiempo o en el espacio</p>
+<p><strong>Definición matemática</strong></p>
+<p>Podemos usar lenguaje matemático para formalizar la definición anterior</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Una señal es una <strong>función</strong> del tiempo (u otra variable) que entrega información (mensaje) sobre un fenómeno físico</p>
+</div>
+<p>Una función es un mapeo entre dos variables</p>
+<div class="math notranslate nohighlight">
+\[
+f: x \to y
+\]</div>
+<p>donde</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x\)</span> es la variable <strong>independiente</strong>, algunos ejemplos típicos son el tiempo (1d), la superficie (2d), el volumen (3d), etc</p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span> es la variable <strong>dependiente</strong>, algunos ejemplos son el potencial eléctrico en un componente, la presión en el aire (sonido), la intensidad de un pixel (color), etc</p></li>
+</ul>
+<p>Veamos algunos ejemplos de señales ¿Cúantas variables independientes y dependientes hay en cada caso?</p>
+<p><strong>Ejemplo:</strong> Evolución de los mercados accionarios</p>
+<a class="reference internal image-reference" href="../../_images/stock_market.png"><img alt="../../_images/stock_market.png" src="../../_images/stock_market.png" style="width: 400px;" /></a>
+<p><strong>Ejemplo:</strong> Transito de un exoplaneta frente a su estrella</p>
+<a class="reference internal image-reference" href="../../_images/transit.gif"><img alt="../../_images/transit.gif" src="../../_images/transit.gif" style="width: 400px;" /></a>
+<p><strong>Ejemplo:</strong> Actividad eléctrica cerebral en múltiples zonas del craneo</p>
+<a class="reference internal image-reference" href="../../_images/scalp.gif"><img alt="../../_images/scalp.gif" src="../../_images/scalp.gif" style="width: 400px;" /></a>
+<p><strong>Ejemplo:</strong> Tensor de imágenes obtenidas con resonancia magnética</p>
+<a class="reference internal image-reference" href="../../_images/fmri.jpg"><img alt="../../_images/fmri.jpg" src="../../_images/fmri.jpg" style="width: 400px;" /></a>
+</div>
+<div class="section" id="caracteristicas-de-una-senal">
+<h2><span class="section-number">2.2. </span>Carácterísticas de una señal<a class="headerlink" href="#caracteristicas-de-una-senal" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Sea una señal definida como una función <span class="math notranslate nohighlight">\(g(t)\)</span> donde <span class="math notranslate nohighlight">\(t\)</span> es el tiempo (variable independiente)</p>
+<p>Asumiremos que <span class="math notranslate nohighlight">\(g(t)\)</span> sólo existe entre <span class="math notranslate nohighlight">\(t=0\)</span> y <span class="math notranslate nohighlight">\(t=T\)</span></p>
+<p>En base a esto podemos definir su</p>
+<ul class="simple">
+<li><p><strong>Duración:</strong> Tiempo final menus tiempo final, en este caso: <span class="math notranslate nohighlight">\(T\)</span></p></li>
+<li><p><strong>Energía:</strong> Corresponde a la norma de la señal</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+E_g = ||g|| = \int_{0}^{T} | g(t) |^2 dt 
+\]</div>
+<blockquote>
+<div><p>La energía es una medida del tamaño/área de la señal</p>
+</div></blockquote>
+<img alt="../../_images/sigsize1.png" src="../../_images/sigsize1.png" />
+<ul class="simple">
+<li><p><strong>Potencia:</strong> Energía por unidad de tiempo</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+P_g = \lim_{T\to\infty} \frac{1}{T} \int_{0}^{T} |g(t)|^2 dt 
+\]</div>
+<p>que se mide usualmente en <span class="math notranslate nohighlight">\(10 \log_{10}(P) [dBm]\)</span> donde dB corresponde a decibel</p>
+<blockquote>
+<div><p>La potencia mide la fuerza o intensidad de la señal</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Razón señal a ruido (SNR)</strong>: Corresponde a la potencia de la señal dividido por la potencia del ruido.</p></li>
+</ul>
+<blockquote>
+<div><p>La SNR es una medida de la calidad de la señal</p>
+</div></blockquote>
+</div>
+<div class="section" id="clasificacion-de-senales">
+<h2><span class="section-number">2.3. </span>Clasificación de señales<a class="headerlink" href="#clasificacion-de-senales" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos hacer una clasificación general de las señales en función del dominio de sus variables independientes y dependientes</p>
+<ul class="simple">
+<li><p>Señal de tiempo continuo o de tiempo discreto</p></li>
+<li><p>Señal analógica: variable dependiente continua</p></li>
+<li><p>Señal digital: variable dependiente cuantizada (digital)</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/signal2.png"><img alt="../../_images/signal2.png" src="../../_images/signal2.png" style="width: 500px;" /></a>
+<p>Notemos que:</p>
+<ul class="simple">
+<li><p>Las señales “naturales” son en general analógicas de tiempo continuo: Una señal analógica puede digitalizarse muestreando en el tiempo (reloj) y cuantizando en su magnitud</p></li>
+<li><p>Los sistemas de comunicación digitales se basan en pulsos eléctricos de tiempo discreto</p></li>
+<li><p>Hoy en día las tecnologías digitales han reemplazando a las análogicas ¿Por qué?</p></li>
+</ul>
+<blockquote>
+<div><p>La comunicación digital es más resistente al ruido y a las distorsiones (Lathi &amp; Ding, 2009, Sec 1.2)</p>
+</div></blockquote>
+<p>También podemos clasificar una señal según como la podemos modelar matematicamente</p>
+<p>Una señal <strong>determinística</strong> es aquella que puede describirse completamente por una ecuación matemática</p>
+<p><strong>Ejemplo:</strong> Una sinusoide en el tiempo con frecuencia fundamental <span class="math notranslate nohighlight">\(f\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+s(t) = \cos(2\pi f t)
+\]</div>
+<p>Por otro lado una señal <strong>estocástica</strong> es aquella que sólo puede ser descrita probabilisticamente, es decir en términos de su densidad de probabilidad</p>
+<p><strong>Ejemplo:</strong> Una señal de ruido Gaussiano con media <span class="math notranslate nohighlight">\(\mu\)</span> y covarianza <span class="math notranslate nohighlight">\(\Sigma\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+z \sim \mathcal{N}(\mu, \Sigma)
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si bien esto es útil para ordenar las ideas hay que considerar que en muchos casos tendremos señales que combinan aspectos determinísticos y estocásticos</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">1.124</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Señal determinista&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Señal estocástica&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_señales_7_0.png" src="../../_images/02_señales_7_0.png" />
+</div>
+</div>
+<p>También podemos clasificar una señal según su comportamiento en el tiempo</p>
+<ul class="simple">
+<li><p>Señal periódica: es aquella que se repite luego de un cierto tiempo P. Este tiempo se denomina periodo</p></li>
+<li><p>Señal aperiódica: es aquella que no se repite regularmente en el tiempo.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">1.0</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Señal Periódica&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Señal Aperiódica&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_señales_9_0.png" src="../../_images/02_señales_9_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="resumen">
+<h2><span class="section-number">2.4. </span>Resumen<a class="headerlink" href="#resumen" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos describir y clasificar una señal según</p>
+<ul class="simple">
+<li><p>La dimensionalidad de sus variables</p></li>
+<li><p>El dominio de sus variables</p></li>
+<li><p>Los modelos matemáticos que la describen</p></li>
+<li><p>Su comportamiento temporal o espacial</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./clases/unidad1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01_sistemas_de_comunicacion.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>Sistemas de comunicación digitales</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03_an%C3%A1lisis_de_se%C3%B1ales.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Análisis de Señales</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
