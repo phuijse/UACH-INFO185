@@ -1,0 +1,19 @@
+blockdiag {
+    default_fontsize = 12; 
+    Q1 [label="¿Es A?"]
+    Q2 [label="¿Es B?"]
+    Q3 [label="¿Es C?"]
+    A [shape = circle];
+    B [shape = circle];    
+    C [shape = circle];
+    D [shape = circle];
+    
+    
+    Q1 -> A [label = "S", fontsize=16]
+    Q1 -> Q2 [label = "N", fontsize=16]
+    Q2 -> B [label = "S", fontsize=16]
+    Q2 -> Q3 [label = "N", fontsize=16]
+    Q3 -> C [label = "S", fontsize=16]
+    Q3 -> D [label = "N", fontsize=16]
+
+}

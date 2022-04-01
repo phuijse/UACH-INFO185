@@ -1,0 +1,12 @@
+blockdiag {
+    node_width = 200;
+    default_fontsize = 14; 
+    A [label="Transformación"]
+    B [label="Cuantización"]
+    C [label="Codificación de fuente"]
+    D [label="Codificación de canal"]
+
+    A -> B -> C -> D
+    B -> C [folded]
+
+}
