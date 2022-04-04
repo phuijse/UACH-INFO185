@@ -1,0 +1,937 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9. Transmisión de información y Compresión &#8212; INFO239 Comunicaciones</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="8. Codificación de canal" href="coding2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sistemas de comunicación y Señales
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../signals/intro.html">
+   1. Sistemas de comunicación digitales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../signals/signals.html">
+   2. ¿Qué es una señal?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../signals/analysis.html">
+   3. Análisis de Señales
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Procesamiento de Imágenes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image-processing/intro.html">
+   4. Procesamiento de imágenes digitales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image-processing/analysis.html">
+   5. Análisis de imágenes en frecuencia
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image-processing/filters.html">
+   6. Filtrado de imágenes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Compresión y teoría de la información
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="coding1.html">
+   7. Codificación de fuente
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="coding2.html">
+   8. Codificación de canal
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   9. Transmisión de información y Compresión
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/information-theory/compression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/UACH-INFO185"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/UACH-INFO185/issues/new?title=Issue%20on%20page%20%2Fchapters/information-theory/compression.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/UACH-INFO185/master?urlpath=tree/chapters/information-theory/compression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-transmisor-de-shannon">
+   9.1. Modelo transmisor de Shannon
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cuantizacion">
+   9.2. Cuantización
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#joint-photographic-experts-group-jpeg">
+   9.3. Joint Photographic Experts Group (JPEG)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformacion-preprocesamiento">
+     9.3.1. Transformación: Preprocesamiento
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformacion-transformada-coseno">
+     9.3.2. Transformación: Transformada Coseno
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cuantizacion-en-jpeg">
+     9.3.3. Cuantización en JPEG
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#codificacion-de-fuente">
+     9.3.4. Codificación de fuente
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algoritmos-de-compresion-para-video">
+   9.4. Algoritmos de compresión para video
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Transmisión de información y Compresión</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-transmisor-de-shannon">
+   9.1. Modelo transmisor de Shannon
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cuantizacion">
+   9.2. Cuantización
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#joint-photographic-experts-group-jpeg">
+   9.3. Joint Photographic Experts Group (JPEG)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformacion-preprocesamiento">
+     9.3.1. Transformación: Preprocesamiento
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformacion-transformada-coseno">
+     9.3.2. Transformación: Transformada Coseno
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cuantizacion-en-jpeg">
+     9.3.3. Cuantización en JPEG
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#codificacion-de-fuente">
+     9.3.4. Codificación de fuente
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algoritmos-de-compresion-para-video">
+   9.4. Algoritmos de compresión para video
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="transmision-de-informacion-y-compresion">
+<h1><span class="section-number">9. </span>Transmisión de información y Compresión<a class="headerlink" href="#transmision-de-informacion-y-compresion" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Digamos que queremos transmitir un video en 4K a través de internet</p>
+<p>¿Cúanto pesa una imagen en resolución 4K a color y con 255 niveles de intensidad?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3840</span><span class="o">*</span><span class="mi">2160</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>199065600
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aproximadamente 200 [Mb]</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Un video es una secuencia de imágenes corriendo a una cierta tasa medida en cuadros por segundo (fps). Un estándar típico es 24 fps, lo cual es suficiente para dar la ilusión de movimiento fluido.</p>
+</div>
+<p>¿Cuánto ancho de banda se necesita para ver un video a 24 fps en tiempo real (sin audio)?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">200</span><span class="o">*</span><span class="mi">24</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4800
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es decir casi 4.8 [Gb/s]$.</p>
+<p>Si comparamos este valor con la velocidad de descarga de los planes de internet, resulta ser claramente infactible</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>¿Cómo pueden entonces funcionar los servicios de streaming de video por internet?</p>
+</div>
+<p>En general estos servicios comprimen la información durante el proceso de codificación</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Comprimir es codificar la información usando “menos bits” que la representación original</p>
+</div>
+<p>La compresión puede ser de tipo</p>
+<ul class="simple">
+<li><p><em>Lossless</em> (sin pérdidas): Los datos originales pueden reconstruirse perfectamente</p></li>
+<li><p><em>Lossy</em> (con pérdidas): Se reconstruye una versión aproximada de los datos originales</p></li>
+</ul>
+<p>Los compresores de audio, imágenes y video son en general de tipo <em>lossy</em></p>
+<p>En esta sesión estudiaremos el bloque transmisor del estándar JPEG para imágenes y sus derivados para video</p>
+<div class="section" id="modelo-transmisor-de-shannon">
+<h2><span class="section-number">9.1. </span>Modelo transmisor de Shannon<a class="headerlink" href="#modelo-transmisor-de-shannon" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Recordemos el modelo de Shannon</p>
+<a class="reference internal image-reference" href="../../_images/shannon-diagram.svg"><img alt="../../_images/shannon-diagram.svg" src="../../_images/shannon-diagram.svg" width="500" /></a>
+<p>El <strong>transmisor</strong> puede subdividirse en cuatro etapas</p>
+<a class="reference internal image-reference" href="../../_images/transmitter.svg"><img alt="../../_images/transmitter.svg" src="../../_images/transmitter.svg" width="600" /></a>
+<dl class="simple myst">
+<dt>donde</dt><dd><p>Transformación
+Cambia la representación de los datos de forma tal de disminuir su redudancia y correlación</p>
+</dd>
+<dd><p>Cuantización
+Reduce la cantidad de bits que se usan para representar la señal. <strong>Este paso provoca pérdidas en la señal</strong>, por lo que sólo se ocupa cuando no es necesario recuperar la señal de forma perfecta luego de transmitir</p>
+</dd>
+<dd><p>Codificación de fuente
+Reescribe la señal usando un <strong>código de largo variable</strong></p>
+</dd>
+<dd><p>Codificación de canal
+Robustece el código para que pueda transmitirse por un canal posiblemente ruidoso con menos errores</p>
+</dd>
+</dl>
+<p>En lecciones anteriores hemos visto la FFT, la cual es ampliamente utilizada para transformar señales de audio e imágenes. También se estudiaron los pasos de codificación junto a la teoría de la información.</p>
+<p>A continuación se explica en detalle en que consiste la <strong>cuantización</strong></p>
+</div>
+<div class="section" id="cuantizacion">
+<h2><span class="section-number">9.2. </span>Cuantización<a class="headerlink" href="#cuantizacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>La cuantización es una operación de redondeo o truncamiento</p>
+</div>
+<p>El ejemplo más clásico se conoce como cuantización escalar. Esta operación recibe una señal <span class="math notranslate nohighlight">\(x\)</span> y retorna un nuevo valor definido como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+    Q(x)=
+    \begin{cases}
+      r_0, &amp; x \in [d_0, d_1) \\
+      r_1, &amp; x \in [d_1, d_2) \\
+      \vdots &amp; \vdots \\
+      r_i, &amp; x \in [d_i, d_{i+1}) \\
+      \vdots &amp; \vdots \\
+      r_{L-1}&amp; x \in [d_{L-1}, d_{L}) \\
+    \end{cases}
+\end{equation}
+\end{split}\]</div>
+<p>donde el diseñador del cuantizar debe decidir la cantidad y valor de <span class="math notranslate nohighlight">\(r_i\)</span> y también los límites o fronteras <span class="math notranslate nohighlight">\(d_i\)</span></p>
+<p>Un caso particular es la <strong>cuantización uniforme</strong> donde la diferencia entre los niveles <span class="math notranslate nohighlight">\(q\)</span> es constante</p>
+<p>Si <span class="math notranslate nohighlight">\(d_0 = -V\)</span> y <span class="math notranslate nohighlight">\(d_L = V\)</span>, una cuantización uniforme de <span class="math notranslate nohighlight">\(L\)</span> niveles sería</p>
+<div class="math notranslate nohighlight">
+\[
+q = \frac{2V}{L}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d_{i} = d_{i-1} + q  = d_0 + i q = -V + i \frac{2V}{L}
+\]</div>
+<p>y el valor de representación es el punto medio de cada nivel</p>
+<div class="math notranslate nohighlight">
+\[
+r_i = \frac{1}{2} (d_i + d_{i+1}) = -d_0 + \frac{2i+1}{2} \Delta = -V + (2i+1) \frac{V}{L}
+\]</div>
+<p>También podríamos definir <span class="math notranslate nohighlight">\(q\)</span> y usar la fórmula</p>
+<div class="math notranslate nohighlight">
+\[
+x_q = -V + \frac{q}{2} + q\cdot \text{floor}\left(\frac{x+V}{q} \right)
+\]</div>
+<p>La calidad de la señal cuantizada se mide usando el error de cuantización o diferencia cuadrática entre el valor real y su versión cuantizada</p>
+<div class="math notranslate nohighlight">
+\[
+d_c = \|Q(x) -x\|^2
+\]</div>
+<p><strong>Ejemplo</strong></p>
+<p>Cuantización uniforme de una señal sinusoidal con distintos valores de <span class="math notranslate nohighlight">\(q \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quantize_uniform</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_min</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x_min</span> <span class="o">+</span> <span class="n">q</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">x_min</span><span class="p">)</span><span class="o">/</span><span class="n">q</span><span class="p">)</span><span class="o">*</span><span class="n">q</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">quantize_uniform</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">q</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">quantize_uniform</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">q</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s1</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Señal original&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cuantización uniforme q=0.1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s3</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cuantización uniforme q=0.2&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/compression_10_0.png" src="../../_images/compression_10_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="joint-photographic-experts-group-jpeg">
+<h2><span class="section-number">9.3. </span>Joint Photographic Experts Group (JPEG)<a class="headerlink" href="#joint-photographic-experts-group-jpeg" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>A modo de ejemplo estudiaremos en detalle el (ampliamente utilizado) estándar <a class="reference external" href="https://es.wikipedia.org/wiki/Organizaci%C3%B3n_Internacional_de_Normalizaci%C3%B3n">ISO</a>/ITU para comprimir imágenes digitales conocido como JPEG.</p>
+<p>En esencia JPEG corresponde a un método de compresión con pérdidas (<em>lossy</em>) que considera los siguientes pasos</p>
+<ol class="simple">
+<li><p>Transformación:</p>
+<ol class="simple">
+<li><p>Conversión a estándar YCbCr</p></li>
+<li><p><strong>Submuestreo de canales de color</strong></p></li>
+<li><p>Transformada discreta coseno (DCT) por bloques de 8x8 píxeles</p></li>
+</ol>
+</li>
+<li><p>Cuantización:</p>
+<ol class="simple">
+<li><p><strong>Cuantización escalar con matriz Q por bloques de 8x8 pixeles</strong></p></li>
+</ol>
+</li>
+<li><p>Codificación de fuente:</p>
+<ol class="simple">
+<li><p>Reordenamiento zig-zag</p></li>
+<li><p>Codificación Run-length</p></li>
+<li><p>Codificación de Huffman</p></li>
+</ol>
+</li>
+</ol>
+<p>(los pasos en <strong>bold</strong> tienen pérdidas)</p>
+<p>Un archivo en formato JPEG contiene los bloques de 8x8 codificados (cuerpo) y el diccionario de codificación (header)</p>
+<p>El siguiente diagrama muestra el bloque transmisor JPEG:</p>
+<a class="reference internal image-reference" href="../../_images/jpg-transmisor.png"><img alt="../../_images/jpg-transmisor.png" src="../../_images/jpg-transmisor.png" style="width: 500px;" /></a>
+<p>Para descomprimir una imagen JPEG se realizan los pasos anteriores en reversa, por ende se necesita tener el diccionario de codificación. El siguiente diagrama muestra el bloque receptor JPEG:</p>
+<a class="reference internal image-reference" href="../../_images/jpg-receptor.png"><img alt="../../_images/jpg-receptor.png" src="../../_images/jpg-receptor.png" style="width: 500px;" /></a>
+<p>A continuación estudiaremos cada uno de estos pasos</p>
+<div class="section" id="transformacion-preprocesamiento">
+<h3><span class="section-number">9.3.1. </span>Transformación: Preprocesamiento<a class="headerlink" href="#transformacion-preprocesamiento" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Primero se convierte la imagen a estándar YCbCr. Luego (opcionalmente) se reduce la resolución de los canales chroma (Cb y Cr) con respecto al canal de luminancia (Y)</p>
+<p>Algunas estándares de submuestreo de color son</p>
+<a class="reference internal image-reference" href="../../_images/422.jpg"><img alt="../../_images/422.jpg" src="../../_images/422.jpg" style="width: 600px;" /></a>
+<p>Donde por ejemplo 4:2:2 significa que los canales chroma tienen la mitad de la resolución de la luminancia</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Este submuestreo aprovecha que el sistema visual humano es más sencible a la iluminación que al color</p>
+</div>
+<p><strong>Ejemplo</strong></p>
+<p>Podemos usar opencv y numpy para hacer submuestreo 4:2:2 como se muestra a continuación</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">chroma_subsampling_422</span><span class="p">(</span><span class="n">image_rgb</span><span class="p">):</span>
+    <span class="n">Y</span><span class="p">,</span> <span class="n">Cr</span><span class="p">,</span> <span class="n">Cb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image_rgb</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2YCrCb</span><span class="p">))</span>
+    <span class="n">Cr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">Cr</span><span class="p">[::</span><span class="mi">2</span><span class="p">,</span> <span class="p">:],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">Cb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">Cb</span><span class="p">[::</span><span class="mi">2</span><span class="p">,</span> <span class="p">:],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">image_subsampled</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">Y</span><span class="p">,</span> <span class="n">Cr</span><span class="p">,</span> <span class="n">Cb</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image_subsampled</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint8&#39;</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_YCrCb2RGB</span><span class="p">)</span> 
+
+<span class="n">mario</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;data/mario.png&quot;</span><span class="p">)</span> 
+<span class="n">mario</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">mario</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+<span class="n">mario_ss</span> <span class="o">=</span> <span class="n">chroma_subsampling_422</span><span class="p">(</span><span class="n">mario</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mario</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Imagen original&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mario_ss</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Imagen submuestreada&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/compression_14_0.png" src="../../_images/compression_14_0.png" />
+</div>
+</div>
+<p><strong>Ejemplo 2</strong></p>
+<p>En el ejemplo anterior hay diferencias notorias causadas por el submuestreo, pero en imágenes naturales estas diferencias son casi imperceptibles</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valdivia</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;data/valdivia-hd.png&quot;</span><span class="p">)</span> 
+<span class="n">valdivia</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">valdivia</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+<span class="n">valdivia_ss</span> <span class="o">=</span> <span class="n">chroma_subsampling_422</span><span class="p">(</span><span class="n">valdivia</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">valdivia</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Imagen original&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">valdivia_ss</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Imagen submuestreada&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/compression_16_0.png" src="../../_images/compression_16_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="transformacion-transformada-coseno">
+<h3><span class="section-number">9.3.2. </span>Transformación: Transformada Coseno<a class="headerlink" href="#transformacion-transformada-coseno" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Luego de submuestrear el algoritmo JPEG se aplica secuencialmente en bloques disjuntos de 8x8 píxeles</p>
+<p>Cada bloque se lleva al dominio de la frecuencia usando la transformada discreta coseno</p>
+<p>Sea una señal discreta y bidimensional <span class="math notranslate nohighlight">\(g[n_1, n_2]\)</span> con índices <span class="math notranslate nohighlight">\(n_1 \in [0, N_1-1]\)</span> y <span class="math notranslate nohighlight">\(n_2 \in [0, N_2-1]\)</span> su DCT es</p>
+<div class="math notranslate nohighlight">
+\[
+G_C[k_1, k_2] = \sum_{n_1=0}^{N_1-1} \sum_{n_2=0}^{N_2-1} 4 g[n_1, n_2] \cos \left ( \frac{\pi k_1}{2N_1}(2n_1+1)  \right) \cos \left ( \frac{\pi k_2}{2N_2}(2n_2+1)  \right) 
+\]</div>
+<p>y su inversa</p>
+<div class="math notranslate nohighlight">
+\[
+g[n_1, n_2] = \frac{1}{N_1 N_2}\sum_{k_1=0}^{N_1-1} \sum_{k_2=0}^{N_2-1} w[k_1]w[k_2]G[k_1, k_2] \cos \left ( \frac{\pi k_1}{2N_1}(2n_1+1)  \right) \cos \left ( \frac{\pi k_2}{2N_2}(2n_2+1)  \right), 
+\]</div>
+<p>donde</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+w[k] =\begin{cases}
+1/2 &amp; \text{ssi} ~~ k=0\\
+1 &amp; \text{ssi} ~~ k \neq 0
+\end{cases} 
+\end{split}\]</div>
+<p>La DCT bidimensional:</p>
+<ul class="simple">
+<li><p>se puede descomponer en 2 aplicaciones de la DCT 1D</p></li>
+<li><p>es lineal, y cumple el principio de conservación de energía. Podemos llevar una imagen al espacio de frecuencias sin pérdida de información</p></li>
+<li><p>es equivalente a la DFT de una señal “simetricamente extendida”</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y[k] =\begin{cases}
+x[k] &amp; \text{ssi} ~~ k&lt;N\\
+x[2N-1-k] &amp; \text{ssi} ~~ N \leq k &lt; 2N - 1 
+\end{cases} 
+\end{split}\]</div>
+<p>Es decir que podemos usar el algoritmo FFT para calcular eficientemente la DCT</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>La convolución en espacio original no es multiplicación en el espacio DCT</p>
+</div>
+<p><strong>Ejemplo:</strong></p>
+<p>Así se ve una imagen simetricamente extendida</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valdivia_bw</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">valdivia</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2YCR_CB</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">valdivia_bw_sym</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">valdivia_bw</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">fliplr</span><span class="p">(</span><span class="n">valdivia_bw</span><span class="p">)))</span>
+<span class="n">valdivia_bw_sym</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">valdivia_bw_sym</span><span class="p">),</span> <span class="n">valdivia_bw_sym</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">valdivia_bw_sym</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/compression_20_0.png" src="../../_images/compression_20_0.png" />
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Debido a esta “simetría incorporada” la DCT no tiene artefactos de borde como la FFT</p>
+</div>
+<p><strong>Ejemplo:</strong></p>
+<p>La transformada coseno y su inversa están implementada en opencv como <a class="reference external" href="https://docs.opencv.org/4.x/d2/de8/group__core__array.html#ga85aad4d668c01fbd64825f589e3696d4">cv2.dct</a>. La imagen debe convertirse a flotante antes de aplicar la DCT.</p>
+<p>A continuación se aplica la DCT a los bloques de 8x8 de la imagen anterior</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dct_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">valdivia_bw</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">valdivia_bw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">valdivia_bw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">8</span><span class="p">):</span>
+        <span class="n">dct_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="mi">8</span><span class="p">),</span><span class="n">j</span><span class="p">:(</span><span class="n">j</span><span class="o">+</span><span class="mi">8</span><span class="p">)]</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">dct</span><span class="p">(</span><span class="n">valdivia_bw</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="mi">8</span><span class="p">),</span><span class="n">j</span><span class="p">:(</span><span class="n">j</span><span class="o">+</span><span class="mi">8</span><span class="p">)]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Cómo se ven estos bloques?</p>
+<p>Por ejemplo el bloque número 15 y su DCT:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_values</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">tile</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">):</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">tile</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="n">tile</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="mf">2.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">tile</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span> <span class="k">if</span> <span class="n">label</span> <span class="o">&gt;</span> <span class="n">mid</span> <span class="k">else</span> <span class="s1">&#39;white&#39;</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">label</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">,</span> 
+                    <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+            
+<span class="n">block_idx</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">bloque_pixels</span> <span class="o">=</span> <span class="n">valdivia_bw</span><span class="p">[</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="p">:</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="o">+</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="p">:</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">bloque_dct</span> <span class="o">=</span> <span class="n">dct_matrix</span><span class="p">[</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="p">:</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="o">+</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="p">:</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">bloque_pixels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">,</span> 
+             <span class="n">vmin</span><span class="o">=</span><span class="n">valdivia_bw</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">valdivia_bw</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> 8x8 image block&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">block_idx</span><span class="p">));</span> 
+<span class="n">plot_values</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bloque_pixels</span><span class="p">)</span>
+<span class="c1"># DCT 8x8</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">bloque_dct</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">,</span> 
+             <span class="n">vmin</span><span class="o">=</span><span class="n">dct_matrix</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">dct_matrix</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;8x8 DCT&quot;</span><span class="p">)</span>
+<span class="n">plot_values</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bloque_dct</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/compression_24_0.png" src="../../_images/compression_24_0.png" />
+</div>
+</div>
+<p>Una imagen tiene mucha correlación entre sus píxeles vecinos</p>
+<p>Al llevarla al espacio de frecuencia esta información se concentra en el cero (centro) del espectro</p>
+<ul class="simple">
+<li><p>La frecuencia cero del bloque DCT es la esquina superior izquierda</p></li>
+<li><p>La frecuencia aumenta de izquierda a derecha y de arriba hacia abajo</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Muchos de los coeficientes de alta frecuencia de la DCT tienen valores bajos</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>La DCT ha disminuido la redundancia en la información</p>
+</div>
+</div>
+<div class="section" id="cuantizacion-en-jpeg">
+<h3><span class="section-number">9.3.3. </span>Cuantización en JPEG<a class="headerlink" href="#cuantizacion-en-jpeg" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En este paso se busca cuantizar cada matriz DCT de 8x8 y reducir la “cantidad de valores posibles”</p>
+<p>Recordemos que JPEG cuantiza en el espacio de frecuencia</p>
+<ul class="simple">
+<li><p>Cada bloque de 8x8 de componentes DCT se cuantiza por separado</p></li>
+<li><p>El nivel de cada uno de los componentes se redondea según una matriz de cuantización Q</p></li>
+<li><p>Q fue diseñada tal que componentes de alta frecuencia se cuantizan en menos niveles</p></li>
+<li><p>Existen muchas implementaciones de la matriz Q según fabricante y equipo: <a class="reference external" href="https://www.impulseadventure.com/photo/jpeg-quantization.html">https://www.impulseadventure.com/photo/jpeg-quantization.html</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">61</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">55</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">56</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">62</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">77</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">113</span><span class="p">,</span> <span class="mi">92</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">101</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">72</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">99</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El bloque cuantizado se obtiene como <span class="math notranslate nohighlight">\(\text{ROUND}\left(\frac{G_C}{Q}\right)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">block_idx</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">bloque_pixels</span> <span class="o">=</span> <span class="n">valdivia_bw</span><span class="p">[</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="p">:</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="o">+</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="p">:</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">bloque_dct</span> <span class="o">=</span> <span class="n">dct_matrix</span><span class="p">[</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="p">:</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="o">+</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="p">:</span><span class="mi">8</span><span class="o">*</span><span class="n">block_idx</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">bloque_cuantizado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">bloque_dct</span><span class="o">/</span><span class="n">Q</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">bloque_pixels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">valdivia_bw</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">valdivia_bw</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> 8x8 image block&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">block_idx</span><span class="p">));</span> 
+<span class="n">plot_values</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bloque_pixels</span><span class="p">)</span>
+<span class="c1"># DCT 8x8</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">bloque_dct</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">dct_matrix</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">dct_matrix</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;8x8 DCT&quot;</span><span class="p">)</span>
+<span class="n">plot_values</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bloque_dct</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">bloque_cuantizado</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">)</span>
+<span class="n">plot_values</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">bloque_cuantizado</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;8x8 Cuantizado</span><span class="se">\n</span><span class="si">%d</span><span class="s2"> nonzero&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">bloque_cuantizado</span><span class="p">)));</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/compression_29_0.png" src="../../_images/compression_29_0.png" />
+</div>
+</div>
+<p><strong>Ejemplo</strong></p>
+<p>El nivel de cuantización de JPEG se controla como un valor denominado tipicamente como calidad que va entre 0 y 100</p>
+<p>A mayor calidad se aplica menor cuantización, resultando en un archivo más pesado</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cuantizar_y_reconstruir</span><span class="p">(</span><span class="n">dct_matrix</span><span class="p">,</span> <span class="n">percent</span><span class="p">):</span>    
+    <span class="n">im_recon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">dct_matrix</span><span class="p">)</span>
+    <span class="n">nnz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">dct_matrix</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">percent</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">):</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="mi">5000</span><span class="o">/</span><span class="n">percent</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="mi">200</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">percent</span> 
+    <span class="n">Q_dyn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">S</span><span class="o">*</span><span class="n">Q</span> <span class="o">+</span> <span class="mi">50</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="n">Q_dyn</span><span class="p">[</span><span class="n">Q_dyn</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dct_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">8</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dct_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">8</span><span class="p">):</span>
+            <span class="n">quant</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dct_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="mi">8</span><span class="p">),</span><span class="n">j</span><span class="p">:(</span><span class="n">j</span><span class="o">+</span><span class="mi">8</span><span class="p">)]</span><span class="o">/</span><span class="n">Q_dyn</span><span class="p">)</span> 
+            <span class="n">im_recon</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="mi">8</span><span class="p">),</span><span class="n">j</span><span class="p">:(</span><span class="n">j</span><span class="o">+</span><span class="mi">8</span><span class="p">)]</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">dct</span><span class="p">(</span><span class="n">quant</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">DCT_INVERSE</span><span class="p">)</span>
+            <span class="n">nnz</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">quant</span><span class="p">)</span>    
+    <span class="n">im_min</span><span class="p">,</span> <span class="n">im_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">im_recon</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">im_recon</span><span class="p">)</span>
+    <span class="n">im_recon</span> <span class="o">=</span> <span class="p">(</span><span class="n">im_recon</span> <span class="o">-</span> <span class="n">im_min</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">im_max</span><span class="o">-</span><span class="n">im_min</span><span class="p">)</span> <span class="c1"># Min-Max Rescaling</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="n">im_recon</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint8&#39;</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">valdivia_bw</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">);</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Imagen original </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">valdivia_bw</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span><span class="o">/</span><span class="mf">1e+6</span><span class="si">:</span><span class="s2">0.3f</span><span class="si">}</span><span class="s2"> MB&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="p">(</span><span class="n">quality</span><span class="p">,</span><span class="n">ax_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">97</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">ax</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="mi">1</span><span class="p">:])):</span>
+    <span class="n">imc</span><span class="p">,</span> <span class="n">nnz</span> <span class="o">=</span> <span class="n">cuantizar_y_reconstruir</span><span class="p">(</span><span class="n">dct_matrix</span><span class="p">,</span> <span class="n">quality</span><span class="p">)</span>
+    <span class="n">ax_</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imc</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys_r</span><span class="p">);</span> 
+    <span class="n">ax_</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">quality</span><span class="si">}</span><span class="s2">% de calidad </span><span class="si">{</span><span class="n">nnz</span><span class="o">*</span><span class="mi">8</span><span class="o">/</span><span class="mf">1e+6</span><span class="si">:</span><span class="s2">0.3f</span><span class="si">}</span><span class="s2"> MB&quot;</span><span class="p">)</span>
+    <span class="n">ax_</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/compression_31_0.png" src="../../_images/compression_31_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="codificacion-de-fuente">
+<h3><span class="section-number">9.3.4. </span>Codificación de fuente<a class="headerlink" href="#codificacion-de-fuente" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En JPEG se ocupa códificación de Huffmann, pero existen dos pasos previos a aplicar la codificación</p>
+<p>El primer es el reordenamiento zig-zag de los bloques de 8x8. Luego de cuantizar el bloque de 8x8 este se reordena como una tira de largo 64 aplicando un reordenamiento de tipo zig-zag</p>
+<a class="reference internal image-reference" href="../../_images/Zig-Zag-reordering-matrix.png"><img alt="../../_images/Zig-Zag-reordering-matrix.png" src="../../_images/Zig-Zag-reordering-matrix.png" style="width: 500px;" /></a>
+<p>El reordenamiento en zig zag crea un vector donde los componentes están ordenados por frecuencia y los ceros (de las frecuencias altas) quedan más cerca</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Puedes revisar el algoritmo para generar el arreglo zig-zag en distintos lenguajes aquí: <a class="reference external" href="https://rosettacode.org/wiki/Zig-zag_matrix">https://rosettacode.org/wiki/Zig-zag_matrix</a></p>
+</div>
+<p>Luego de reordenar se aplica Run Length Enconding (RLE), una codificación sencilla y sin pérdida, que es muy eficiente cuando tenemos valores que se repiten</p>
+<p>Los datos codificados son tuplas (nrep, valor) concatenadas, donde nrep es la cantidad de veces que se repitió valor, como muestra la siguiente figura</p>
+<a class="reference internal image-reference" href="../../_images/rle.jpg"><img alt="../../_images/rle.jpg" src="../../_images/rle.jpg" style="width: 500px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El reordenamiento zig-zag hace más eficiente el RLE pues tiende a dejar todos los ceros juntos</p>
+</div>
+<p>Luego de RLE se aplica la codificación de Huffmann que vimos en una lección anterior</p>
+</div>
+</div>
+<div class="section" id="algoritmos-de-compresion-para-video">
+<h2><span class="section-number">9.4. </span>Algoritmos de compresión para video<a class="headerlink" href="#algoritmos-de-compresion-para-video" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Consideremos ahora el caso en que tenemos un stream de video (sin audio) y queremos transmitirlo comprimido</p>
+<p>Un algoritmo clásico es Motion-JPEG el cual se basa en el algoritmo JPEG que ya hemos visto. Tiene dos variantes</p>
+<a class="reference internal image-reference" href="../../_images/MJPEG.png"><img alt="../../_images/MJPEG.png" src="../../_images/MJPEG.png" style="width: 450px;" /></a>
+<ul class="simple">
+<li><p>La primera denominada <strong>intraframe</strong> consiste en aplicar el algoritmo JPEG a cada cuadro como si fueran imágenes independientes. Es un algoritmo simple pero ingenuo ya que no está tomando en cuenta que existe mucha correlación entre cuadros</p></li>
+<li><p>La segunda denominada <strong>interframe</strong> consiste en aplicar el algoritmo JPEG a las diferencias entre cuadros. Si los movimientos son lentos las diferencias entre cuadros serán pequeñas y la codificación entrópica podrá reducir mucho más el tamaño. En general se codifica un cuadro completo denominado keyframe y luego una cierta cantidad de diferencias entre el keyframe y los cuadros siguientes.</p></li>
+</ul>
+<p>Esta idea es la que está detrás de algoritmos más modernos como MPEG</p>
+<a class="reference internal image-reference" href="../../_images/MPEG.png"><img alt="../../_images/MPEG.png" src="../../_images/MPEG.png" style="width: 500px;" /></a>
+<p>MPEG es un estándar de codificación para video de tipo inter-frame que explota la redundancia entre los bloques de 8x8 de un cuadro y su sucesor</p>
+<p>Existen tres tipos de cuadro/frame en MPEG-1</p>
+<ul class="simple">
+<li><p>I: Se comprime el frame completo con JPEG. Se envía una frame I cada N frames</p></li>
+<li><p>P: Se predicen las diferencias con respecto al frame I o P anterior.</p></li>
+<li><p>B: Se calculan diferencias en base al frame I o P más cercano anterior y posterior</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/information-theory"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="coding2.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>Codificación de canal</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
