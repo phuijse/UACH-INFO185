@@ -13,10 +13,9 @@ parts:
   - file: "chapters/image-processing/intro"
   - file: "chapters/image-processing/analysis"
   - file: "chapters/image-processing/filters"
-#  - file: "chapters/image-processing/restoration"
-#- caption: "Compresi\xF3n y Teor\xEDa de la Informaci\xF3n"
-#  numbered: true
-#  chapters:
-#  - file: "clases/unidad1/08_compresi\xF3n"
-#  - file: "clases/unidad1/09_codificaci\xF3n_de_fuente"
-#  - file: "clases/unidad1/10_codificaci\xF3n_de_canal"
+- caption: "Compresión y teoría de la información"
+  numbered: true
+  chapters:
+  - file: "chapters/information-theory/coding1"
+  - file: "chapters/information-theory/coding2"
+    #  - file: "chapters/informaion-theory/coding1"
