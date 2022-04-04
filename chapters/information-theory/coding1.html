@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. Codificación de fuente &#8212; INFO239 Comunicaciones</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="8. Codificación de canal" href="coding2.html" />
+    <link rel="prev" title="6. Filtrado de imágenes" href="../image-processing/filters.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sistemas de comunicación y Señales
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../signals/intro.html">
+   1. Sistemas de comunicación digitales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../signals/signals.html">
+   2. ¿Qué es una señal?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../signals/analysis.html">
+   3. Análisis de Señales
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Procesamiento de Imágenes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image-processing/intro.html">
+   4. Procesamiento de imágenes digitales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image-processing/analysis.html">
+   5. Análisis de imágenes en frecuencia
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../image-processing/filters.html">
+   6. Filtrado de imágenes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Compresión y teoría de la información
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Codificación de fuente
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="coding2.html">
+   8. Codificación de canal
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/information-theory/coding1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/UACH-INFO185"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/UACH-INFO185/issues/new?title=Issue%20on%20page%20%2Fchapters/information-theory/coding1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/UACH-INFO185/master?urlpath=tree/chapters/information-theory/coding1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-a-la-teoria-de-la-informacion">
+   7.1. Introducción a la Teoría de la información
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cantidad-de-informacion-segun-shannon">
+     7.1.1. Cantidad de información (según Shannon)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entropia">
+     7.1.2. Entropía
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#codigo-de-largo-de-palabra-variable">
+     7.1.3. Código de largo de palabra variable
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#codificacion-de-huffman">
+   7.2. Codificación de Huffman
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teorema-de-codificacion-de-fuente-de-shannon-source-coding-theorem">
+   7.3. Teorema de codificación de fuente de Shannon (
+   <em>
+    Source coding theorem
+   </em>
+   )
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Codificación de fuente</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-a-la-teoria-de-la-informacion">
+   7.1. Introducción a la Teoría de la información
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cantidad-de-informacion-segun-shannon">
+     7.1.1. Cantidad de información (según Shannon)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entropia">
+     7.1.2. Entropía
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#codigo-de-largo-de-palabra-variable">
+     7.1.3. Código de largo de palabra variable
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#codificacion-de-huffman">
+   7.2. Codificación de Huffman
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teorema-de-codificacion-de-fuente-de-shannon-source-coding-theorem">
+   7.3. Teorema de codificación de fuente de Shannon (
+   <em>
+    Source coding theorem
+   </em>
+   )
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="codificacion-de-fuente">
+<h1><span class="section-number">7. </span>Codificación de fuente<a class="headerlink" href="#codificacion-de-fuente" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Sea una fuente (<em>source</em>) que emite símbolos. El conjunto de todos los símbolos que puede emitir esta fuente se llama alfabeto de fuente.</p>
+<p><strong>Ejemplo</strong></p>
+<p>Considere el siguiente famoso libro digitalizado</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/quijote.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">texto</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[:</span><span class="mi">101</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo...
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los símbolos de esta fuente incluyen las letras, los números, <a class="reference external" href="https://es.wikipedia.org/wiki/Signos_ortogr%C3%A1ficos">los signos ortográficos</a>, el espacio en blanco y el salto de linea.</p>
+<p>La <strong>codificación de fuente</strong> (<em>source coding</em>) es el proceso que asigna un código a cada símbolo emitido por la fuente</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Un código es una secuencia de símbolos, los cuales tienen su propio alfabeto: El alfabeto de código.</p>
+</div>
+<p><strong>Ejemplo</strong></p>
+<p>Un código muy utilizado para transmitir información es el código binario. El alfabeto del código binario tiene dos elementos: <code class="docutils literal notranslate"><span class="pre">0</span></code> y <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>A partir de estos elementos se pueden formar todo tipo de palabras de código: <code class="docutils literal notranslate"><span class="pre">00</span></code>, <code class="docutils literal notranslate"><span class="pre">01</span></code>, <code class="docutils literal notranslate"><span class="pre">101</span></code>, <code class="docutils literal notranslate"><span class="pre">10001</span></code>, …</p>
+<p>Digamos que queremos codificar el famoso texto anterior utilizando código binario. La cantidad de símbolos en el alfabeto de fuente es:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">texto</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si utilizamos un código binario de largo fijo para cada símbolo necesitariamos al menos 5 bits: <span class="math notranslate nohighlight">\(2^6 = 64 &gt; 49\)</span></p>
+<p>El largo del texto es:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3029
+</pre></div>
+</div>
+</div>
+</div>
+<p>Y por lo tanto la cantidad de bits utilizando 6 bits por símbolo será:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span><span class="o">*</span><span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18174
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cerca de 18.000 bits</p>
+<p>Sin embargo, esta forma ingenua de codificar no considera el importante hecho de que no todos los símbolos son igual de frecuentes/probables</p>
+<p>De los 49 símbolos, los 5 más frecuentes son:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39; &#39;, 540), (&#39;a&#39;, 316), (&#39;e&#39;, 312), (&#39;o&#39;, 201), (&#39;s&#39;, 189)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>y los 5 menos frecuentes son:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">()[:</span><span class="o">-</span><span class="mi">6</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;B&#39;, 1), (&#39;N&#39;, 1), (&#39;A&#39;, 1), (&#39;C&#39;, 1), (&#39;S&#39;, 1)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Consejo</p>
+<p>Podemos reducir la cantidad de bits del texto si usamos códigos más cortos para las letras más frecuentes</p>
+</div>
+<p>Para crear un código de largo de palabra variable en base a la probabilidad de aparición de los símbolos debemos estudiar antes la teoría de la información</p>
+<div class="section" id="introduccion-a-la-teoria-de-la-informacion">
+<h2><span class="section-number">7.1. </span>Introducción a la Teoría de la información<a class="headerlink" href="#introduccion-a-la-teoria-de-la-informacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La Teoría de la Información (TI) es el estudio matemático de la cuantificación y transmisión de la información. Fue propuesto por <strong><a class="reference external" href="https://es.wikipedia.org/wiki/Claude_Shannon">Claude Shannon</a></strong> en 1948: <em>A Mathematical Theory of Communication</em>.</p>
+<p>TI proporciona formas para describir la información de un proceso y tiene importantes aplicaciones en telecomunicaciones, computación y biología (genética). También ha tenido una fuerte influencia en la teoría de codificación y compresión.</p>
+<p>Partamos con un ejemplo</p>
+<p><strong>Ejemplo:</strong> Las dos fuentes</p>
+<p>Sean dos fuentes <strong>F1</strong> y <strong>F2</strong> que pueden emitir uno entre cuatro símbolos: <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span> o <span class="math notranslate nohighlight">\(D\)</span></p>
+<p><strong>F1</strong> es completamente aleatoria, es decir: <span class="math notranslate nohighlight">\(P(A) = P(B) = P(C) = P(D) = \frac{1}{4}\)</span></p>
+<p>Si queremos predecir el próximo valor emitido por <strong>F1</strong> ¿Cúal es el número mínimo de preguntas con respuesta si/no que debemos hacer?</p>
+<a class="reference internal image-reference" href="../../_images/information1.svg"><img alt="../../_images/information1.svg" src="../../_images/information1.svg" width="600" /></a>
+<blockquote>
+<div><p>La respuesta es 2 para cualquiera de los símbolos</p>
+</div></blockquote>
+<p><strong>F2</strong> en cambio emite <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span> y <span class="math notranslate nohighlight">\(D\)</span> con probabilidades <span class="math notranslate nohighlight">\(P(A) =\frac{1}{2}\)</span>, <span class="math notranslate nohighlight">\(P(B) =\frac{1}{4}\)</span>, <span class="math notranslate nohighlight">\(P(C) = \frac{1}{8}\)</span> y <span class="math notranslate nohighlight">\(P(D) =\frac{1}{8}\)</span>, respectivamente</p>
+<p>Si queremos predecir el próximo valor retornado por <strong>F2</strong> ¿Cúal es el número mínimo de preguntas con respuesta si/no que debemos hacer?</p>
+<a class="reference internal image-reference" href="../../_images/information2.svg"><img alt="../../_images/information2.svg" src="../../_images/information2.svg" width="800" /></a>
+<blockquote>
+<div><p>La respuesta es 1 para <span class="math notranslate nohighlight">\(A\)</span>, 2 para <span class="math notranslate nohighlight">\(B\)</span> y 3 para <span class="math notranslate nohighlight">\(C\)</span> y <span class="math notranslate nohighlight">\(D\)</span></p>
+</div></blockquote>
+<div class="section" id="cantidad-de-informacion-segun-shannon">
+<h3><span class="section-number">7.1.1. </span>Cantidad de información (según Shannon)<a class="headerlink" href="#cantidad-de-informacion-segun-shannon" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La cantidad de información de un símbolo <span class="math notranslate nohighlight">\(x\)</span> es el logaritmo en base dos del recíproco de su probabilidad de aparición</p>
+<div class="math notranslate nohighlight">
+\[
+I(x) = \log_2 \left(\frac{1}{P(x)} \right) = \log_2 P(x)^{-1} = - \log_2 P(x),
+\]</div>
+<p>que es equivalente a la mínima cantidad de preguntas si/no que debemos hacer para adivinar su valor</p>
+<p>La cantidad de información se mide en <strong>bits</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Un <strong>bit</strong> es la cantidad de información requerida para escoger entre <strong>dos</strong> alternativas equiprobables</p>
+</div>
+<p>La cantidad de información es también llamada <strong>sorpresa</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Mientras más improbable es un símbolo, más nos sorprendemos cuando observamos que ocurre</p>
+</div>
+</div>
+<div class="section" id="entropia">
+<h3><span class="section-number">7.1.2. </span>Entropía<a class="headerlink" href="#entropia" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Sea una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> (fuente) con <span class="math notranslate nohighlight">\(N\)</span> resultados posibles (símbolos) <span class="math notranslate nohighlight">\(\{x_1, x_2, \ldots, x_N\}\)</span> donde cada símbolo <span class="math notranslate nohighlight">\(x_i\)</span> tiene una probabilidad <span class="math notranslate nohighlight">\(p_i \in [0, 1]\)</span> y <span class="math notranslate nohighlight">\(\sum_{i=1}^N p_i = 1\)</span></p>
+<p>Por ende cada símbolo tiene una cantidad de información  <span class="math notranslate nohighlight">\(I(x_i) = -\log_2 \left( p_i \right)\)</span></p>
+<p>Definimos la <strong>cantidad de información promedio</strong> de <span class="math notranslate nohighlight">\(X\)</span> como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+H (X) &amp;= \mathbb{E}_{x\sim X} \left [ - \log P(X=x) \right ]  \nonumber \\
+&amp;= - \sum_{i=1}^N P(X=x_i) \log_2 P(X=x_i)  \nonumber \\
+&amp;= - \sum_{i=1}^N p_i \log_2 p_i  \quad \text{[bits/símbolo]} \nonumber
+\end{align}
+\end{split}\]</div>
+<p>que se conoce como <strong>Entropía de Shannon</strong></p>
+<p><strong>Propiedades de la entropía</strong></p>
+<ul class="simple">
+<li><p>La entropía es siempre positiva <span class="math notranslate nohighlight">\(H(X) \geq 0\)</span>. La igualdad se cumple si un <span class="math notranslate nohighlight">\(x_i\)</span> tiene <span class="math notranslate nohighlight">\(p_i=1\)</span> (caso más predecible)</p></li>
+<li><p>La entropia está acotada <span class="math notranslate nohighlight">\(H(X) \leq H_0\)</span>, donde <span class="math notranslate nohighlight">\(H_0= \log_2(N)\)</span> es la entropia si <span class="math notranslate nohighlight">\(p_i = \frac{1}{N}~ \forall i\)</span> (caso menos predecible)</p></li>
+<li><p>La redundancia de <span class="math notranslate nohighlight">\(X\)</span> es <span class="math notranslate nohighlight">\(1 - H(X)/H_0\)</span></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Mientras más predecible es <span class="math notranslate nohighlight">\(X\)</span> menor es su entropía y mayor es su redundancia</p>
+</div>
+<p><strong>Ejemplo:</strong> El retorno de las dos fuentes</p>
+<p>En promedio, ¿Cuántas preguntas por símbolo hace la fuente <strong>F1</strong>?</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(1 \frac{1}{4} + 1 \frac{1}{4} + 1 \frac{1}{4} + 1 \frac{1}{4} = 2\)</span> preguntas por símbolo. Su entropía es <span class="math notranslate nohighlight">\(2\)</span> [bits]</p>
+</div></blockquote>
+<p>En promedio, ¿Cuántas preguntas por símbolo hace la fuente <strong>F2</strong>?</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(1 \frac{1}{2} + 2 \frac{1}{4} + 3 \frac{1}{8} + 3 \frac{1}{8} = 1.75\)</span> preguntas por símbolo. Su entropía es <span class="math notranslate nohighlight">\(1.75\)</span> [bits]</p>
+</div></blockquote>
+<p>Si cada fuente retorna un mensaje de 100 símbolos ¿Cúanta información produjo cada una?</p>
+<blockquote>
+<div><p><strong>F1</strong> produce 200 bits mientras que <strong>F2</strong> produce 175 bits</p>
+</div></blockquote>
+<p>Mientras más predecible menos información se necesita</p>
+<p><strong>Ejemplo:</strong> Moneda con truco</p>
+<p>Sea una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> que modela el resultado de lanzar una moneda y asumamos que el resultado puede tomar solo dos valores: Cara <span class="math notranslate nohighlight">\(o\)</span> o Cruz <span class="math notranslate nohighlight">\(x\)</span></p>
+<ul class="simple">
+<li><p>La probabilidad de que salga cara es <span class="math notranslate nohighlight">\(p_o = p\)</span></p></li>
+<li><p>La probabilidad de que salga cruz es <span class="math notranslate nohighlight">\(p_x = 1- p\)</span></p></li>
+</ul>
+<p>Luego la entropía es</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+H(X) &amp;= -\sum_{i=1}^2 p_i \log_2 p_i \nonumber \\ 
+&amp;= -p_x \log (p_x) - p_o \log p_o \nonumber \\
+&amp;= - p \log(p) - (1-p) \log(1-p)
+\end{align}
+\end{split}\]</div>
+<p>Reflexione:</p>
+<ul class="simple">
+<li><p>¿En que casos la entropía es mínima? ¿En qué caso es máxima?</p></li>
+<li><p>¿Puedes relacionar la entropía con la aleatoridad/sorpresa del resultado de lanzar la moneda?</p></li>
+</ul>
+<p>Ojo: <span class="math notranslate nohighlight">\(\lim_{z\to 0^+} z \log 1/z = 0\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;I(o)&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;I(x)&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;H(X)&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/coding1_22_0.png" src="../../_images/coding1_22_0.png" />
+</div>
+</div>
+<p><strong>Ejemplo:</strong> Entropía del fragmento del famoso libro</p>
+<p>La entropía o cantidad de información promedio por símbolo es</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">freq</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="n">H</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.212472766686091
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego podemos estimar la cantidad de bits del famoso texto como:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12759.580010292168
+</pre></div>
+</div>
+</div>
+</div>
+<p>Más adelante veremos que tan acertado está este cálculo</p>
+<p><strong>Ejemplo:</strong> Meteorólogos del siglo XIX</p>
+<p>Nos encontramos a finales del siglo XIX. La estación meteorológica de Niebla hace una predicción del tiempo en Valdivia. Esta información se envía a Valdivia a través de telégrafo.</p>
+<p>Calcule la cantidad de información promedio que envía la estación a Valdivia en cada uno de los siguientes escenarios usando la <strong>entropía de Shannon</strong></p>
+<ul class="simple">
+<li><p>Dos posibilidades: Lluvia y nublado, con probabilidad <span class="math notranslate nohighlight">\(1/2\)</span> y <span class="math notranslate nohighlight">\(1/2\)</span>, respectivamente</p></li>
+<li><p>Una posibilidad: Lluvia, con probabilidad <span class="math notranslate nohighlight">\(1\)</span></p></li>
+<li><p>Cuatro posibilidades: Lluvia, Nublado, Nubosidad parcial, soleado, con probabilidad <span class="math notranslate nohighlight">\(1/2\)</span>, <span class="math notranslate nohighlight">\(1/4\)</span>, <span class="math notranslate nohighlight">\(1/8\)</span> y <span class="math notranslate nohighlight">\(1/8\)</span>, respectivamente</p></li>
+</ul>
+<p><strong>Respuesta:</strong></p>
+<p>Las probabilidades de cada mensaje son <span class="math notranslate nohighlight">\(2^{-1}\)</span>, <span class="math notranslate nohighlight">\(2^{-2}\)</span>, <span class="math notranslate nohighlight">\(2^{-3}\)</span> y <span class="math notranslate nohighlight">\(2^{-3}\)</span>. Luego la cantidad de información de cada mensaje es: 1, 2, 3 y 3 bits, respectivamente. Por ende la entropía es <span class="math notranslate nohighlight">\(1/2 + 1/2 + 3/8 + 3/8 = 1.75\)</span> bits</p>
+</div>
+<div class="section" id="codigo-de-largo-de-palabra-variable">
+<h3><span class="section-number">7.1.3. </span>Código de largo de palabra variable<a class="headerlink" href="#codigo-de-largo-de-palabra-variable" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para el <strong>escenario 3</strong> del ejemplo anterior códifique las alternativas usando un alfabeto de códigos binarios</p>
+<blockquote>
+<div><p>¿Cómo le asignamos un código a cada alternativa?</p>
+</div></blockquote>
+<p><strong>Opción 1:</strong> Código de largo fijo</p>
+<p>Tenemos cuatro estados.</p>
+<p>Si todos los estados tienen igual cantidad de bits, necesitamos 2 bits para representarlos: 00, 01, 10, 11</p>
+<p>En este caso resulta equivalente a asumir equiprobabilidad y la entropía es 2 bits</p>
+<p><strong>Opción 2:</strong> Código de largo variable (prefijo)</p>
+<p>Se usa 1, 2, 3 y 3 bits para cada estado, según su probabilidad de aparición. En este caso la entropía es 1.75 bits</p>
+<p>Podemos describir este escenario según</p>
+<ul class="simple">
+<li><p>Primera decisión equiprobable: Lluvia <strong>(0)</strong> vs El resto (1)</p></li>
+<li><p>Segunda decisión equiprobable: Nublado <strong>(10)</strong> vs El resto menos lluvia (11)</p></li>
+<li><p>Tercera decisión equiprobable: Nubosidad parcial <strong>(110)</strong> vs soleado <strong>(111)</strong></p></li>
+</ul>
+<p>Podemos representar graficamente usando un dendograma como se muestra a continuación</p>
+<a class="reference internal image-reference" href="../../_images/dendogram.png"><img alt="../../_images/dendogram.png" src="../../_images/dendogram.png" style="width: 500px;" /></a>
+<ul class="simple">
+<li><p>Algoritmo de codificación con forma de árbol en base 2</p></li>
+<li><p>Los mensajes codificados están en las hojas del árbol</p></li>
+<li><p><strong>Código préfijo</strong>: Ningún código puede ser prefijo de otro.</p></li>
+<li><p>El código prefijo garantiza decodificación sin ambiguedad</p></li>
+</ul>
+<p><strong>Ejercicio</strong></p>
+<p>Decodifique la predicción del tiempo para los próximos tres días: 101100</p>
+<p><strong>Ejercicio</strong></p>
+<p>Si el código de lluvia fuera <strong>1</strong> en lugar de 0, decodifique el siguiente mensaje: 11111</p>
+<p>(Este es un ejemplo de código ambiguo)</p>
+</div>
+</div>
+<div class="section" id="codificacion-de-huffman">
+<h2><span class="section-number">7.2. </span>Codificación de Huffman<a class="headerlink" href="#codificacion-de-huffman" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La codificación de Huffman es un algoritmo sencillo de codificación de tipo prefijo:</p>
+<ol class="simple">
+<li><p>Se estima la probabilidad <span class="math notranslate nohighlight">\(p_i\)</span> de cada símbolo</p></li>
+<li><p>Se ordenan los símbolos en orden descendente según <span class="math notranslate nohighlight">\(p_i\)</span></p></li>
+<li><p>Juntar los dos con probabilidad menor en un grupo, su probabilidad se suma</p></li>
+<li><p>Volver al paso 2 hasta que queden dos grupos</p></li>
+<li><p>Asignarle 0 y 1 a las ramas izquierda y derecha del árbol, respectivamente</p></li>
+<li><p>El código resultante se lee desde la raiz hasta la hoja</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/huff.png"><img alt="../../_images/huff.png" src="../../_images/huff.png" style="width: 600px;" /></a>
+<p><strong>Ejemplo:</strong> Codificación de Huffman del famoso texto</p>
+<p>Primero estimamos la frecuencia usando <code class="docutils literal notranslate"><span class="pre">collections.Counter</span></code></p>
+<p>Luego construimos el dendograma usando <code class="docutils literal notranslate"><span class="pre">heapq</span></code></p>
+<p>Terminamos con un diccionario que transforma cada símbolo del texto en un código</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implemetación adaptada de https://rosettacode.org/wiki/Huffman_coding#Python</span>
+<span class="kn">import</span> <span class="nn">heapq</span>
+<span class="c1"># Construir dendograma con las probabilidades ordenadas</span>
+<span class="n">dendograma</span> <span class="o">=</span> <span class="p">[[</span><span class="n">frequencia</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">texto</span><span class="p">),</span> <span class="p">[</span><span class="n">simbolo</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]]</span> <span class="k">for</span> <span class="n">simbolo</span><span class="p">,</span> <span class="n">frequencia</span> <span class="ow">in</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="n">heapq</span><span class="o">.</span><span class="n">heapify</span><span class="p">(</span><span class="n">dendograma</span><span class="p">)</span>
+<span class="c1"># Crear el código</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">dendograma</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">lo</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">dendograma</span><span class="p">)</span>
+    <span class="n">hi</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">dendograma</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">codigo</span> <span class="ow">in</span> <span class="n">lo</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">codigo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span> <span class="o">+</span> <span class="n">codigo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">codigo</span> <span class="ow">in</span> <span class="n">hi</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">codigo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span> <span class="o">+</span> <span class="n">codigo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">dendograma</span><span class="p">,</span> <span class="p">[</span><span class="n">lo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">hi</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">lo</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hi</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="c1"># Convertir código a diccionario</span>
+<span class="n">dendograma</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">dendograma</span><span class="p">)[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="n">dendograma</span> <span class="o">=</span> <span class="p">{</span><span class="n">simbolo</span> <span class="p">:</span> <span class="n">codigo</span> <span class="k">for</span> <span class="n">simbolo</span><span class="p">,</span> <span class="n">codigo</span> <span class="ow">in</span> <span class="n">dendograma</span><span class="p">}</span> 
+<span class="n">display</span><span class="p">(</span><span class="n">dendograma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;\n&#39;: &#39;11011100100&#39;,
+ &#39; &#39;: &#39;111&#39;,
+ &#39;(&#39;: &#39;11011100101&#39;,
+ &#39;)&#39;: &#39;11011100110&#39;,
+ &#39;,&#39;: &#39;100010&#39;,
+ &#39;.&#39;: &#39;00010010&#39;,
+ &#39;:&#39;: &#39;0001111110&#39;,
+ &#39;;&#39;: &#39;00010011&#39;,
+ &#39;A&#39;: &#39;110111001110&#39;,
+ &#39;B&#39;: &#39;110111001111&#39;,
+ &#39;C&#39;: &#39;110111010000&#39;,
+ &#39;E&#39;: &#39;0001111111&#39;,
+ &#39;F&#39;: &#39;11011101001&#39;,
+ &#39;M&#39;: &#39;110111010001&#39;,
+ &#39;N&#39;: &#39;110111010100&#39;,
+ &#39;Q&#39;: &#39;1101110110&#39;,
+ &#39;S&#39;: &#39;110111010101&#39;,
+ &#39;T&#39;: &#39;110111010110&#39;,
+ &#39;U&#39;: &#39;110111010111&#39;,
+ &#39;a&#39;: &#39;010&#39;,
+ &#39;b&#39;: &#39;100011&#39;,
+ &#39;c&#39;: &#39;10100&#39;,
+ &#39;d&#39;: &#39;11010&#39;,
+ &#39;e&#39;: &#39;001&#39;,
+ &#39;f&#39;: &#39;10101110&#39;,
+ &#39;g&#39;: &#39;1010110&#39;,
+ &#39;h&#39;: &#39;1010100&#39;,
+ &#39;i&#39;: &#39;11000&#39;,
+ &#39;j&#39;: &#39;00011110&#39;,
+ &#39;l&#39;: &#39;0110&#39;,
+ &#39;m&#39;: &#39;110110&#39;,
+ &#39;n&#39;: &#39;0111&#39;,
+ &#39;o&#39;: &#39;1011&#39;,
+ &#39;p&#39;: &#39;000110&#39;,
+ &#39;q&#39;: &#39;000101&#39;,
+ &#39;r&#39;: &#39;0000&#39;,
+ &#39;s&#39;: &#39;1001&#39;,
+ &#39;t&#39;: &#39;10000&#39;,
+ &#39;u&#39;: &#39;11001&#39;,
+ &#39;v&#39;: &#39;1010101&#39;,
+ &#39;x&#39;: &#39;110111011100&#39;,
+ &#39;y&#39;: &#39;1101111&#39;,
+ &#39;z&#39;: &#39;10101111&#39;,
+ &#39;á&#39;: &#39;110111000&#39;,
+ &#39;é&#39;: &#39;11011101111&#39;,
+ &#39;í&#39;: &#39;0001110&#39;,
+ &#39;ñ&#39;: &#39;000111110&#39;,
+ &#39;ó&#39;: &#39;0001000&#39;,
+ &#39;ú&#39;: &#39;110111011101&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora podemos convertir el texto en una tira binaria</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto_codificado</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">letra</span> <span class="ow">in</span> <span class="n">texto</span><span class="p">:</span>
+    <span class="n">texto_codificado</span> <span class="o">+=</span> <span class="n">dendograma</span><span class="p">[</span><span class="n">letra</span><span class="p">]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">texto_codificado</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0001111111011111111001011111101101100110101100100000111110100011110110010111110111010001010011110100101010001010001011111010001111101001100111011111011111011110111101101000110000001111011110111110001011100111000001000010111110101010010110000110100100000110110001100010111011110111111010100010111110110110011010010101001011111100001100000111011000011010111110001011100100111110101011100010101010001110010111110010111111101010011000110100100110101011010111111101000111101101011100111111010001111011001001111010111101011100101111110101001100001100001100110001000010111000101110101101001000001010110010111010011110000110001010110110010101000101110000101110100000111001111111010111001100101010010111111101111111101011001001101010110101111110100101100000000001110101011000000010010111110111010111011101011110110110011001011111010001111010011010101101011111110110110111000100111110101010101010001011100010111001001111101000100000011100100001011100010111100101001100001101100010100000100001111110110010100111&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos usar <code class="docutils literal notranslate"><span class="pre">bytearray</span></code> para convertir nuestra tira de caracteres 0 y 1 a un arreglo de Bytes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">texto_codificado</span><span class="p">),</span> <span class="mi">8</span><span class="p">):</span> <span class="c1"># Si el largo del texto no es múltiplo de 8 debemos hacer padding</span>
+    <span class="n">byte</span> <span class="o">=</span> <span class="n">texto_codificado</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">byte</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Guardando el archivo en disco:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;quijote_comprimido.bin&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="c1"># Texto codificado</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="o">!</span>du -B1 --apparent-size quijote_comprimido.bin
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1608	quijote_comprimido.bin
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pesa 1608 Bytes, es decir 12864 bits</p>
+<p>En la práctica, para poder descomprimir el texto necesitamos también anexar el diccionario de codificación (dendograma)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;quijote_comprimido.bin&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="c1"># Agregamos el diccionario en el header    </span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dendograma</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;quijote_comprimido.bin&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="c1"># salto de linea</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;quijote_comprimido.bin&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="c1"># Texto codificado</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="o">!</span>du -B1 --apparent-size quijote_comprimido.bin
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2446	quijote_comprimido.bin
+</pre></div>
+</div>
+</div>
+</div>
+<p>En el script <span class="xref myst">quijote_recuperado.py</span> puedes revisar como se descomprime el texto</p>
+</div>
+<div class="section" id="teorema-de-codificacion-de-fuente-de-shannon-source-coding-theorem">
+<h2><span class="section-number">7.3. </span>Teorema de codificación de fuente de Shannon (<em>Source coding theorem</em>)<a class="headerlink" href="#teorema-de-codificacion-de-fuente-de-shannon-source-coding-theorem" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Dada una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> con entropía <span class="math notranslate nohighlight">\(H(X)\)</span> existe una codificación de largo variable cuyo largo de palabra promedio <span class="math notranslate nohighlight">\(\bar L\)</span> satisface</p>
+<div class="math notranslate nohighlight">
+\[
+H(X) \leq \bar L &lt; H(X) + 1
+\]</div>
+<p>Es decir que el límite inferior teórico del largo de palabra es <span class="math notranslate nohighlight">\(H(X)\)</span>. Esta codificación sin pérdida y de largo variable la llamamos <strong>codificación entrópica</strong></p>
+<p>Este teorema nos dice cuanto podemos comprimir una señal sin que hayan pérdidas antes de enviarla por un canal (libre de ruido)</p>
+<p>También justifica la definición de entropía como medida de la cantidad de información</p>
+<p>Otra forma de ver el teorema:</p>
+<p>Sea una fuente <span class="math notranslate nohighlight">\(X\)</span> que emite <span class="math notranslate nohighlight">\(N\)</span> mensajes.</p>
+<blockquote>
+<div><p>Los N mensajes pueden comprimirse en <span class="math notranslate nohighlight">\(N H(X)\)</span> [bits] o más con riesgo de pérdida despreciable (<span class="math notranslate nohighlight">\(N\to\infty\)</span>)</p>
+</div></blockquote>
+<p>Por el contrario</p>
+<blockquote>
+<div><p>Si comprimimos en menos de <span class="math notranslate nohighlight">\(N H(X)\)</span> [bits] la pérdida está garantizada</p>
+</div></blockquote>
+<p><strong>Demostración</strong></p>
+<p>Sea una codificación C para una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> con N posibles símbolos</p>
+<p>Cada símbolo <span class="math notranslate nohighlight">\(x_i\)</span> tiene una probabilidad de ocurrencia <span class="math notranslate nohighlight">\(p_i \in [0, 1]\)</span> con <span class="math notranslate nohighlight">\(\sum_i p_i = 1\)</span> y un largo de código <span class="math notranslate nohighlight">\(L_i\)</span></p>
+<p>Luego el largo promedio de los códigos es</p>
+<div class="math notranslate nohighlight">
+\[
+\bar L = \sum_{i=1}^N p_i L_i
+\]</div>
+<p>¿Qué valores de <span class="math notranslate nohighlight">\(L_i\)</span> resultan en el menor <span class="math notranslate nohighlight">\(\bar L\)</span>?</p>
+<blockquote>
+<div><p>El largo óptimo es <span class="math notranslate nohighlight">\(L_i^* = -\log_2 p_i\)</span> y el promedio sería <span class="math notranslate nohighlight">\(\bar L^* = H(X)\)</span></p>
+</div></blockquote>
+<p>Digamos que proponemos otro largo <span class="math notranslate nohighlight">\(\hat L_i = - \log_2 q_i\)</span>, asumiendo que <span class="math notranslate nohighlight">\(\sum_i q_i = 1\)</span></p>
+<p>Luego el largo promedio sería</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\bar L &amp;= \sum_{i=1}^N p_i \hat L_i  = - \sum_{i=1}^N p_i \log_2 q_i \nonumber \\
+&amp;= - \sum_{i=1}^N p_i \log_2 q_i - \sum_{i=1}^N p_i \log_2 p_i + \sum_{i=1}^N p_i \log_2 p_i \nonumber \\
+&amp;= - \sum_{i=1}^N p_i \log_2 p_i + \sum_{i=1}^N p_i \log_2 \frac{p_i}{q_i} \nonumber \\
+&amp;= H(X) + \sum_{i=1}^N p_i \log_2 \frac{p_i}{q_i} \geq H(X) \nonumber
+\end{align}
+\end{split}\]</div>
+<p>Con esto probamos que no hay mejor largo que <span class="math notranslate nohighlight">\(-\log_2 p_i\)</span></p>
+<p>Notemos que los <span class="math notranslate nohighlight">\(L_i^*\)</span> no tendrían porque ser un número enteros</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En general la codificación óptima cumple: <span class="math notranslate nohighlight">\(H(X) \leq \bar L^* &lt; H(X) + 1\)</span></p>
+</div>
+<ul class="simple">
+<li><p>Se puede estar entre esas cotas con el algoritmo de Huffman</p></li>
+<li><p>La codificación aritmética en cambio casi siempre llega a la cota inferior</p></li>
+<li><p>La codificación de Huffman y aritmética son <strong>codificaciones entrópicas</strong></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/information-theory"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../image-processing/filters.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Filtrado de imágenes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="coding2.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Codificación de canal</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
