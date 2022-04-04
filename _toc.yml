@@ -18,4 +18,4 @@ parts:
   chapters:
   - file: "chapters/information-theory/coding1"
   - file: "chapters/information-theory/coding2"
-    #  - file: "chapters/informaion-theory/coding1"
+  - file: "chapters/information-theory/compression"
