@@ -32,4 +32,5 @@ sphinx:
     - smartquotes
     - substitution
     - html_admonition
+    - sphinx_proof
 
