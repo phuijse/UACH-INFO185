@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
@@ -439,18 +440,15 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference internal image-reference" href="../../_images/shannon-diagram.svg"><img alt="../../_images/shannon-diagram.svg" src="../../_images/shannon-diagram.svg" width="500" /></a>
 <p>El <strong>transmisor</strong> puede subdividirse en cuatro etapas</p>
 <a class="reference internal image-reference" href="../../_images/transmitter.svg"><img alt="../../_images/transmitter.svg" src="../../_images/transmitter.svg" width="600" /></a>
+<p>donde</p>
 <dl class="simple myst">
-<dt>donde</dt><dd><p>Transformación
-Cambia la representación de los datos de forma tal de disminuir su redudancia y correlación</p>
+<dt>Transformación</dt><dd><p>Cambia la representación de los datos de forma tal de disminuir su redudancia y correlación</p>
 </dd>
-<dd><p>Cuantización
-Reduce la cantidad de bits que se usan para representar la señal. <strong>Este paso provoca pérdidas en la señal</strong>, por lo que sólo se ocupa cuando no es necesario recuperar la señal de forma perfecta luego de transmitir</p>
+<dt>Cuantización</dt><dd><p>Reduce la cantidad de bits que se usan para representar la señal. <strong>Este paso provoca pérdidas en la señal</strong>, por lo que sólo se ocupa cuando no es necesario recuperar la señal de forma perfecta luego de transmitir</p>
 </dd>
-<dd><p>Codificación de fuente
-Reescribe la señal usando un <strong>código de largo variable</strong></p>
+<dt>Codificación de fuente</dt><dd><p>Reescribe la señal usando un <strong>código de largo variable</strong></p>
 </dd>
-<dd><p>Codificación de canal
-Robustece el código para que pueda transmitirse por un canal posiblemente ruidoso con menos errores</p>
+<dt>Codificación de canal</dt><dd><p>Robustece el código para que pueda transmitirse por un canal posiblemente ruidoso con menos errores</p>
 </dd>
 </dl>
 <p>En lecciones anteriores hemos visto la FFT, la cual es ampliamente utilizada para transformar señales de audio e imágenes. También se estudiaron los pasos de codificación junto a la teoría de la información.</p>
@@ -570,7 +568,7 @@ d_c = \|Q(x) -x\|^2
 <p>Donde por ejemplo 4:2:2 significa que los canales chroma tienen la mitad de la resolución de la luminancia</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Este submuestreo aprovecha que el sistema visual humano es más sencible a la iluminación que al color</p>
+<p>Este submuestreo aprovecha que el sistema visual humano es más sensible a la iluminación que al color</p>
 </div>
 <p><strong>Ejemplo</strong></p>
 <p>Podemos usar opencv y numpy para hacer submuestreo 4:2:2 como se muestra a continuación</p>
