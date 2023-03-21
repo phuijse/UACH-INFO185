@@ -1,53 +1,63 @@
 
+
 <!DOCTYPE html>
 
-<html lang="es">
+
+<html lang="es" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>5. Análisis de imágenes en frecuencia &#8212; INFO239 Comunicaciones</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -56,279 +66,312 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/image-processing/analysis';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="6. Filtrado de imágenes" href="filters.html" />
     <link rel="prev" title="4. Procesamiento de imágenes digitales" href="intro.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="es">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">INFO239 Comunicaciones</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Sistemas de comunicación y Señales
- </span>
-</p>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">INFO239 Comunicaciones</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sistemas de comunicación y Señales</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../signals/intro.html">
-   1. Sistemas de comunicación digitales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../signals/signals.html">
-   2. ¿Qué es una señal?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../signals/analysis.html">
-   3. Análisis de Señales
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/intro.html">1. Sistemas de comunicación digitales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/signals.html">2. ¿Qué es una señal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/analysis.html">3. Análisis de Señales</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Procesamiento de Imágenes
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Procesamiento de Imágenes</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   4. Procesamiento de imágenes digitales
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   5. Análisis de imágenes en frecuencia
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="filters.html">
-   6. Filtrado de imágenes
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">4. Procesamiento de imágenes digitales</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Análisis de imágenes en frecuencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">6. Filtrado de imágenes</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Compresión y teoría de la información
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Compresión y teoría de la información</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../information-theory/coding1.html">
-   7. Codificación de fuente
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../information-theory/coding2.html">
-   8. Codificación de canal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../information-theory/compression.html">
-   9. Transmisión de información y Compresión
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../information-theory/coding1.html">7. Codificación de fuente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../information-theory/coding2.html">8. Codificación de canal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../information-theory/compression.html">9. Transmisión de información y Compresión</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
-                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/chapters/image-processing/analysis.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/phuijse/UACH-INFO185"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
-                    class="fab fa-github"></i>repositorio</button></a>
-        <a class="issues-button"
-            href="https://github.com/phuijse/UACH-INFO185/issues/new?title=Issue%20on%20page%20%2Fchapters/image-processing/analysis.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/phuijse/UACH-INFO185" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/phuijse/UACH-INFO185/issues/new?title=Issue%20on%20page%20%2Fchapters/image-processing/analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-        title="Modo de pantalla completa"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/UACH-INFO185/master?urlpath=tree/chapters/image-processing/analysis.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/image-processing/analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Análisis de imágenes en frecuencia</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contenido
+            <div>
+                <h2> Contenido </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transformada-de-fourier-bidimensional">
-   5.1. Transformada de Fourier bidimensional
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#espectro-de-una-imagen">
-   5.2. Espectro de una imagen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#espectro-de-una-imagen-sintetica">
-   5.3. Espectro de una imagen sintética
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#espectro-de-magnitud-y-de-fase">
-   5.4. Espectro de magnitud y de fase
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-fourier-bidimensional">5.1. Transformada de Fourier bidimensional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-una-imagen">5.2. Espectro de una imagen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-una-imagen-sintetica">5.3. Espectro de una imagen sintética</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-magnitud-y-de-fase">5.4. Espectro de magnitud y de fase</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Análisis de imágenes en frecuencia</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contenido </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transformada-de-fourier-bidimensional">
-   5.1. Transformada de Fourier bidimensional
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#espectro-de-una-imagen">
-   5.2. Espectro de una imagen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#espectro-de-una-imagen-sintetica">
-   5.3. Espectro de una imagen sintética
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#espectro-de-magnitud-y-de-fase">
-   5.4. Espectro de magnitud y de fase
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
@@ -350,15 +393,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="analisis-de-imagenes-en-frecuencia">
-<h1><span class="section-number">5. </span>Análisis de imágenes en frecuencia<a class="headerlink" href="#analisis-de-imagenes-en-frecuencia" title="Enlazar permanentemente con este título">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="analisis-de-imagenes-en-frecuencia">
+<h1><span class="section-number">5. </span>Análisis de imágenes en frecuencia<a class="headerlink" href="#analisis-de-imagenes-en-frecuencia" title="Permalink to this heading">#</a></h1>
 <p>En esta lección veremos:</p>
 <ul class="simple">
 <li><p>Transformada de Fourier bidimensional</p></li>
 <li><p>Espectro de imágenes sintéticas y naturales</p></li>
 </ul>
-<div class="section" id="transformada-de-fourier-bidimensional">
-<h2><span class="section-number">5.1. </span>Transformada de Fourier bidimensional<a class="headerlink" href="#transformada-de-fourier-bidimensional" title="Enlazar permanentemente con este título">¶</a></h2>
+<section id="transformada-de-fourier-bidimensional">
+<h2><span class="section-number">5.1. </span>Transformada de Fourier bidimensional<a class="headerlink" href="#transformada-de-fourier-bidimensional" title="Permalink to this heading">#</a></h2>
 <p>La DFT se puede aplicar a funciones multi-dimensionales</p>
 <p>En el caso discreto de una señal bidimensional <span class="math notranslate nohighlight">\(g[n_1, n_2]\)</span> con índices <span class="math notranslate nohighlight">\(n_1 \in [0, N_1-1]\)</span> y <span class="math notranslate nohighlight">\(n_2 \in [0, N_2-1]\)</span> tenemos</p>
 <div class="math notranslate nohighlight">
@@ -401,12 +444,12 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \left(\sum_{n_2=0}^{N_2-1} g[n_1, n_2] \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_5_0.png" src="../../_images/analysis_5_0.png" />
+<img alt="../../_images/1979980d5ec40a406001051ac297cabd3d019f9e4d14aa1b04a578f5e6abc576.png" src="../../_images/1979980d5ec40a406001051ac297cabd3d019f9e4d14aa1b04a578f5e6abc576.png" />
 </div>
 </div>
-</div>
-<div class="section" id="espectro-de-una-imagen">
-<h2><span class="section-number">5.2. </span>Espectro de una imagen<a class="headerlink" href="#espectro-de-una-imagen" title="Enlazar permanentemente con este título">¶</a></h2>
+</section>
+<section id="espectro-de-una-imagen">
+<h2><span class="section-number">5.2. </span>Espectro de una imagen<a class="headerlink" href="#espectro-de-una-imagen" title="Permalink to this heading">#</a></h2>
 <p>Podemos usar la transformada de Fourier 2D para obtener el espectro de amplitud de una imagen</p>
 <p>Utilizaremos la siguiente imagen como ejemplo</p>
 <div class="cell docutils container">
@@ -418,7 +461,7 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \left(\sum_{n_2=0}^{N_2-1} g[n_1, n_2] \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_7_0.png" src="../../_images/analysis_7_0.png" />
+<img alt="../../_images/ff78a5359f6688d0198a04e25c49303793369d4e09b1caa98d0da69c69bad53a.png" src="../../_images/ff78a5359f6688d0198a04e25c49303793369d4e09b1caa98d0da69c69bad53a.png" />
 </div>
 </div>
 <p>OpenCV tiene implementada la transformada rápida de Fourier en 2 dimensiones</p>
@@ -441,7 +484,7 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \left(\sum_{n_2=0}^{N_2-1} g[n_1, n_2] \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_11_0.png" src="../../_images/analysis_11_0.png" />
+<img alt="../../_images/8ca914972c9c7c2fddd222da0a98ef546c346b8c4275b605124ab5efb5ebc040.png" src="../../_images/8ca914972c9c7c2fddd222da0a98ef546c346b8c4275b605124ab5efb5ebc040.png" />
 </div>
 </div>
 <p>Que sigue la convención usual, es decir que la frecuencia cero está en la esquina.</p>
@@ -456,7 +499,7 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \left(\sum_{n_2=0}^{N_2-1} g[n_1, n_2] \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_13_0.png" src="../../_images/analysis_13_0.png" />
+<img alt="../../_images/bce9ee34890fd8b1a5f35127edb57d74acfbf6071c6fe7b2362140fd8c6c066b.png" src="../../_images/bce9ee34890fd8b1a5f35127edb57d74acfbf6071c6fe7b2362140fd8c6c066b.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -479,7 +522,7 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \left(\sum_{n_2=0}^{N_2-1} g[n_1, n_2] \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_15_0.png" src="../../_images/analysis_15_0.png" />
+<img alt="../../_images/7a65f65df69a7a8edb0e238ac4bd7b9e10cdfe400b2f48519a018b9f44b84b67.png" src="../../_images/7a65f65df69a7a8edb0e238ac4bd7b9e10cdfe400b2f48519a018b9f44b84b67.png" />
 </div>
 </div>
 <p>Ahora podemos apreciar otras estructuras en el espectro, pero</p>
@@ -488,9 +531,9 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \left(\sum_{n_2=0}^{N_2-1} g[n_1, n_2] \
 <p>¿A qué corresponden?</p>
 </div>
 <p>Para entrenarnos en la interpretación del espectro conviene estudiar espectros de imágenes sintéticas</p>
-</div>
-<div class="section" id="espectro-de-una-imagen-sintetica">
-<h2><span class="section-number">5.3. </span>Espectro de una imagen sintética<a class="headerlink" href="#espectro-de-una-imagen-sintetica" title="Enlazar permanentemente con este título">¶</a></h2>
+</section>
+<section id="espectro-de-una-imagen-sintetica">
+<h2><span class="section-number">5.3. </span>Espectro de una imagen sintética<a class="headerlink" href="#espectro-de-una-imagen-sintetica" title="Permalink to this heading">#</a></h2>
 <p><strong>Ejemplo:</strong> Impulsos en frecuencia</p>
 <p>Dos impulsos en el espectro corresponde a una sinusoide en el espacio original y viceversa</p>
 <p>La posición de los impulsos está asociada a la frecuencia de la sinusoide</p>
@@ -502,15 +545,15 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \left(\sum_{n_2=0}^{N_2-1} g[n_1, n_2] \
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<iframe
-    width="640"
-    height="400"
-    src="https://www.youtube.com/embed/JkYpoMWGbN4?rel=0&modestbranding=1"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
+        <iframe
+            width="640"
+            height="400"
+            src="https://www.youtube.com/embed/JkYpoMWGbN4?rel=0&modestbranding=1"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
 </div>
 <p><strong>Ejemplo:</strong> Espectro de una Linea</p>
 <p>Una línea en la imagen es una línea en el espectro (con otra orientación)</p>
@@ -522,15 +565,15 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \left(\sum_{n_2=0}^{N_2-1} g[n_1, n_2] \
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<iframe
-    width="640"
-    height="400"
-    src="https://www.youtube.com/embed/vwey-8_EADg?rel=0&modestbranding=1"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
+        <iframe
+            width="640"
+            height="400"
+            src="https://www.youtube.com/embed/vwey-8_EADg?rel=0&modestbranding=1"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Atención</p>
@@ -558,7 +601,7 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \left(\sum_{n_2=0}^{N_2-1} g[n_1, n_2] \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_22_0.png" src="../../_images/analysis_22_0.png" />
+<img alt="../../_images/c508ba07efce6daa493a8ae7365a5cbc3f596c15315428545799fd9fa9382ebd.png" src="../../_images/c508ba07efce6daa493a8ae7365a5cbc3f596c15315428545799fd9fa9382ebd.png" />
 </div>
 </div>
 <p>Notemos que en este caso la componente vertical y horizontal pueden independizarse como muestra el sencillo ejemplo a continuación</p>
@@ -662,7 +705,7 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \sum_{n_2=0}^{N_2-1} g_1[n_1] g_2[n_2] \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_33_0.png" src="../../_images/analysis_33_0.png" />
+<img alt="../../_images/9f2f31b6af1abe0f52a5a258a99b6335f0fd72deaf444c287c83a5c27e2ff979.png" src="../../_images/9f2f31b6af1abe0f52a5a258a99b6335f0fd72deaf444c287c83a5c27e2ff979.png" />
 </div>
 </div>
 <p>Este efecto o artefacto obedece a la siguiente propiedad de la DFT</p>
@@ -686,7 +729,7 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \sum_{n_2=0}^{N_2-1} g_1[n_1] g_2[n_2] \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_35_0.png" src="../../_images/analysis_35_0.png" />
+<img alt="../../_images/3176914abcb9e5a247e4d6cbe53efa077c700320f2864b02034b5fb0b1304eed.png" src="../../_images/3176914abcb9e5a247e4d6cbe53efa077c700320f2864b02034b5fb0b1304eed.png" />
 </div>
 </div>
 <p>Más adelante veremos como disminuir la influencia de este artefacto usando enventanado</p>
@@ -702,15 +745,15 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \sum_{n_2=0}^{N_2-1} g_1[n_1] g_2[n_2] \
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<iframe
-    width="640"
-    height="400"
-    src="https://www.youtube.com/embed/4ctVzvU89lw?rel=0&modestbranding=1"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
+        <iframe
+            width="640"
+            height="400"
+            src="https://www.youtube.com/embed/4ctVzvU89lw?rel=0&modestbranding=1"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
 </div>
 <p><strong>Ejemplo:</strong> Espectro de una Gaussiana</p>
 <p>Una Gaussiana en el espectro es una Gaussiana en el espacio de la imagen</p>
@@ -724,15 +767,15 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \sum_{n_2=0}^{N_2-1} g_1[n_1] g_2[n_2] \
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<iframe
-    width="640"
-    height="400"
-    src="https://www.youtube.com/embed/2Sukn_-4Wss?rel=0&modestbranding=1"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
+        <iframe
+            width="640"
+            height="400"
+            src="https://www.youtube.com/embed/2Sukn_-4Wss?rel=0&modestbranding=1"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
 </div>
 <p><strong>Ejemplo:</strong> Espectro de ruido blanco</p>
 <p>El espectro de una imagen de ruido blanco es también ruido blanco</p>
@@ -746,19 +789,19 @@ G[k_1, k_2] &amp;= \sum_{n_1=0}^{N_1-1} \sum_{n_2=0}^{N_2-1} g_1[n_1] g_2[n_2] \
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<iframe
-    width="640"
-    height="400"
-    src="https://www.youtube.com/embed/mUTdCJzxLkc?rel=0&modestbranding=1"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
+        <iframe
+            width="640"
+            height="400"
+            src="https://www.youtube.com/embed/mUTdCJzxLkc?rel=0&modestbranding=1"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
 </div>
-</div>
-<div class="section" id="espectro-de-magnitud-y-de-fase">
-<h2><span class="section-number">5.4. </span>Espectro de magnitud y de fase<a class="headerlink" href="#espectro-de-magnitud-y-de-fase" title="Enlazar permanentemente con este título">¶</a></h2>
+</section>
+<section id="espectro-de-magnitud-y-de-fase">
+<h2><span class="section-number">5.4. </span>Espectro de magnitud y de fase<a class="headerlink" href="#espectro-de-magnitud-y-de-fase" title="Permalink to this heading">#</a></h2>
 <p>La DFT en dos dimensiones <span class="math notranslate nohighlight">\(G[k_1, k_2]\)</span> es un número complejo y como tal puede escribirse en coordenadas polares como</p>
 <div class="math notranslate nohighlight">
 \[
@@ -782,7 +825,7 @@ G[k_1, k_2] = M[k_1, k_2] e^{j \Phi[k_1, k_2]}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_44_0.png" src="../../_images/analysis_44_0.png" />
+<img alt="../../_images/4e2dfbc429a7469bc06d035eedabe89e3894b1cccddc0ef2bb09597e7641f8e9.png" src="../../_images/4e2dfbc429a7469bc06d035eedabe89e3894b1cccddc0ef2bb09597e7641f8e9.png" />
 </div>
 </div>
 <p>¿Cómo se ven los espectros de magnitud y fase de esta imagen?</p>
@@ -811,7 +854,7 @@ G[k_1, k_2] = M[k_1, k_2] e^{j \Phi[k_1, k_2]}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_47_0.png" src="../../_images/analysis_47_0.png" />
+<img alt="../../_images/40bdbd6961832c948831a14bff1591aaa523345ee90eee596c08f626e1bbdf60.png" src="../../_images/40bdbd6961832c948831a14bff1591aaa523345ee90eee596c08f626e1bbdf60.png" />
 </div>
 </div>
 <div class="admonition attention">
@@ -854,7 +897,7 @@ G[k_1, k_2] = M[k_1, k_2] e^{j \Phi[k_1, k_2]}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_50_0.png" src="../../_images/analysis_50_0.png" />
+<img alt="../../_images/98086463dcffa5bd4a0e673df878d8a65ce710a7d754a5bc03b7d9133abd091d.png" src="../../_images/98086463dcffa5bd4a0e673df878d8a65ce710a7d754a5bc03b7d9133abd091d.png" />
 </div>
 </div>
 <p>La base de Fourier representa las texturas presentes en la imagen</p>
@@ -893,11 +936,11 @@ G[k_1, k_2] = M[k_1, k_2] e^{j \Phi[k_1, k_2]}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/analysis_54_0.png" src="../../_images/analysis_54_0.png" />
+<img alt="../../_images/2ee6850a6c9780173d68c61d27d4dca764455ef4a143c2d1bb4a010a2d0f3634.png" src="../../_images/2ee6850a6c9780173d68c61d27d4dca764455ef4a143c2d1bb4a010a2d0f3634.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -911,7 +954,7 @@ G[k_1, k_2] = M[k_1, k_2] e^{j \Phi[k_1, k_2]}
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters/image-processing"
         },
         predefinedOutput: true
@@ -919,44 +962,102 @@ G[k_1, k_2] = M[k_1, k_2] e^{j \Phi[k_1, k_2]}
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="intro.html" title="anterior página">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">4. </span>Procesamiento de imágenes digitales</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Procesamiento de imágenes digitales</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="filters.html" title="siguiente página">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="filters.html"
+       title="siguiente página">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
         <p class="prev-next-title"><span class="section-number">6. </span>Filtrado de imágenes</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      Por Pablo Huijse Heise<br/>
-    
-        &copy; Derechos de autor 2022.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-fourier-bidimensional">5.1. Transformada de Fourier bidimensional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-una-imagen">5.2. Espectro de una imagen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-una-imagen-sintetica">5.3. Espectro de una imagen sintética</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-magnitud-y-de-fase">5.4. Espectro de magnitud y de fase</a></li>
+</ul>
+  </nav></div>
 
-      </div>
-    </div>
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Pablo Huijse Heise
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
